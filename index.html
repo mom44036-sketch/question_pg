@@ -195,8 +195,8 @@
       border: none;
       border-radius: 10px;
       height: 46px;
-      min-width: 100px;
-      padding: 0 20px;
+      min-width: 118px;
+      padding: 0 18px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -273,13 +273,72 @@
       transform: translateY(-1px);
     }
 
+    /* إحصائيات سريعة — مدمجة واحترافية بدون أيقونات */
+    .c101-stats-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 0;
+      max-width: 640px;
+      margin: 20px auto 0 auto;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 12px;
+      padding: 12px 8px;
+      overflow: hidden;
+    }
+    .c101-stat-item {
+      flex: 1 1 0;
+      min-width: 110px;
+      max-width: none;
+      background: transparent;
+      border: none;
+      border-left: 1px solid #E8EEF4;
+      border-radius: 0;
+      padding: 6px 14px;
+      text-align: center;
+      transition: none;
+    }
+    .c101-stat-item:last-child {
+      border-left: none;
+    }
+    .c101-stat-item:hover {
+      border-color: #E8EEF4;
+    }
+    .c101-stat-icon {
+      display: none;
+    }
+    .c101-stat-value {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      line-height: 1.25;
+      margin-bottom: 2px;
+      font-family: 'Plus Jakarta Sans', 'IBM Plex Sans Arabic', sans-serif;
+    }
+    .c101-stat-label {
+      font-size: 11px;
+      color: var(--c-ayed-text-muted);
+      font-weight: 500;
+      line-height: 1.35;
+    }
+
     /* ==========================================================================
        3. شريط الفلاتر بالأقسام والتخصصات (HORIZONTAL SCROLL SINGLE-ROW FILTERS)
        ========================================================================== */
     .c102-filter-section {
-      padding: 28px 0 16px 0;
+      padding: 22px 0 14px 0;
       background: #FFFFFF;
       border-bottom: none;
+    }
+    .c102-filter-heading {
+      text-align: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--c-ayed-primary);
+      margin: 0 0 14px 0;
+      letter-spacing: -0.01em;
     }
     .c102-filter-scroll-wrapper {
       display: flex;
@@ -358,6 +417,173 @@
     /* ==========================================================================
        4. كروت الأسئلة الفردية (QUESTION CARDS - SINGLE ROW HUB/SAAS STYLE)
        ========================================================================== */
+    /* شريط المحفوظات والفرز فوق الكروت */
+    .c103-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 0;
+    }
+    .c103-toolbar-right {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .c103-toolbar-left {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+    }
+    .c103-tool-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 50px;
+      padding: 8px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      user-select: none;
+      white-space: nowrap;
+    }
+    .c103-tool-chip:hover {
+      border-color: #B8C9DA;
+      background: #FAFCFE;
+    }
+    .c103-tool-chip.active {
+      background: var(--c-ayed-bg-blue);
+      border-color: #B8C9DA;
+      color: var(--c-ayed-primary);
+    }
+    .c103-tool-chip .chip-count {
+      color: var(--c-ayed-text-muted);
+      font-weight: 500;
+    }
+    .c103-tool-chip.active .chip-count {
+      color: var(--c-ayed-primary);
+    }
+    .c103-sort-wrap {
+      position: relative;
+      display: inline-flex;
+    }
+    .c103-sort-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 50px;
+      padding: 8px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      cursor: pointer;
+      transition: border-color 0.18s ease;
+    }
+    .c103-sort-btn:hover {
+      border-color: #B8C9DA;
+    }
+    .c103-sort-menu {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      min-width: 180px;
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 12px;
+      padding: 6px;
+      z-index: 50;
+      box-shadow: 0 8px 24px rgba(13, 47, 86, 0.08);
+    }
+    .c103-sort-menu.open {
+      display: block;
+    }
+    .c103-sort-option {
+      display: block;
+      width: 100%;
+      text-align: right;
+      background: transparent;
+      border: none;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .c103-sort-option:hover,
+    .c103-sort-option.active {
+      background: var(--c-ayed-bg-blue);
+    }
+
+    .c103-save-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 8px;
+      width: 36px;
+      height: 36px;
+      color: var(--c-ayed-text-muted);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      flex-shrink: 0;
+      font-size: 14px;
+      padding: 0;
+    }
+    .c103-save-btn:hover {
+      border-color: var(--c-ayed-secondary);
+      color: var(--c-ayed-secondary-dark);
+      background: #FFFBF0;
+    }
+    .c103-save-btn.saved {
+      color: var(--c-ayed-secondary);
+      border-color: #F5D78A;
+      background: #FFFBF0;
+    }
+    .c103-save-btn.saved i {
+      color: var(--c-ayed-secondary);
+    }
+    .c106-save-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 8px;
+      padding: 7px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .c106-save-btn:hover {
+      border-color: var(--c-ayed-secondary);
+      background: #FFFBF0;
+    }
+    .c106-save-btn.saved {
+      color: var(--c-ayed-secondary-dark);
+      border-color: #F5D78A;
+      background: #FFFBF0;
+    }
+    .c106-save-btn.saved i {
+      color: var(--c-ayed-secondary);
+    }
+
     .c103-card-item {
       background: #FFFFFF;
       border: 1px solid var(--c-ayed-border);
@@ -486,15 +712,6 @@
       position: relative;
       overflow: hidden;
     }
-    .c104-sidebar-box::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      right: 0;
-      left: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--c-ayed-secondary), var(--c-ayed-primary));
-    }
     .c104-sidebar-box:hover {
       border-color: #B8C9DA;
       box-shadow: none;
@@ -510,7 +727,7 @@
       justify-content: center;
       color: var(--c-ayed-primary);
       font-size: 22px;
-      margin-bottom: 16px;
+      margin: 0 auto 16px auto;
       border: 1px solid rgba(13, 47, 86, 0.06);
       box-shadow: none;
     }
@@ -520,12 +737,14 @@
       color: var(--c-ayed-primary);
       margin-bottom: 8px;
       line-height: 1.35;
+      text-align: center;
     }
     .c104-ask-desc {
       font-size: 13.5px;
       color: var(--c-ayed-text-muted);
       line-height: 1.65;
       margin-bottom: 20px;
+      text-align: center;
     }
     .c104-btn-ask-full {
       background: linear-gradient(135deg, var(--c-ayed-secondary) 0%, #F5C04A 100%);
@@ -728,10 +947,9 @@
     /* ملاحظة المعلم - تصميم احترافي */
     .c106-teacher-orange-note {
       background: linear-gradient(135deg, #FFFBF0 0%, #FFF8EB 100%);
-      border: 1px solid #FFE4A8;
-      border-right: 4px solid #FFB526;
+      border: 1px solid #F5D78A;
       border-radius: 12px;
-      padding: 20px 22px;
+      padding: 18px 20px;
       margin: 28px 0;
       box-shadow: none;
     }
@@ -782,47 +1000,93 @@
       align-items: center;
       gap: 8px;
     }
-    .c106-step-box {
-      background: #F8FAFC;
-      border: 1px solid #E8EEF4;
-      border-radius: 10px;
-      padding: 16px 18px;
-      margin-bottom: 12px;
-      transition: border-color 0.15s;
+    /* إجابة مرقّمة نظيفة بدون كروت ثقيلة */
+    .c106-answer-body .c106-step-box {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 4px 0 12px 0;
+      margin-bottom: 2px;
+      line-height: 1.8;
+      transition: none;
     }
-    .c106-step-box:hover {
-      border-color: #C5D4E3;
+    .c106-answer-body .c106-step-box:hover {
+      border-color: transparent;
     }
     .c106-step-num {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 26px;
-      height: 26px;
+      width: 24px;
+      height: 24px;
       background: var(--c-ayed-primary);
       color: #FFFFFF;
       border-radius: 50%;
-      font-size: 12px;
+      font-size: 11.5px;
       font-weight: 700;
       margin-left: 10px;
-      flex-shrink: 0;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+    .c106-answer-body .c106-step-box strong {
+      color: var(--c-ayed-primary);
+    }
+    .c106-answer-body .c106-point {
+      color: var(--c-ayed-navy-medium);
+      font-weight: 600;
+    }
+    .c106-answer-body .c106-answer-img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--c-ayed-border);
+      margin: 16px auto;
+    }
+    .c106-answer-body img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--c-ayed-border);
+      margin: 14px 0;
+    }
+    .c106-answer-body ol.c106-clean-list {
+      padding-right: 22px;
+      margin-bottom: 16px;
+    }
+    .c106-answer-body ol.c106-clean-list li {
+      margin-bottom: 10px;
+      padding-right: 4px;
+      line-height: 1.75;
+    }
+    .c106-answer-body ol.c106-clean-list li::marker {
+      color: var(--c-ayed-primary);
+      font-weight: 700;
     }
 
-    /* زر CTA احترافي بخلفية بيبي بلو */
+    /* زر CTA احترافي بخلفية بيبي بلو جميلة */
     .c106-cta-center-box {
       text-align: center;
-      padding: 36px 24px;
-      background: linear-gradient(165deg, #EAF2FA 0%, #F0F7FF 50%, #E8F1FA 100%);
-      border: 1px solid #D0E3F5;
-      border-radius: 16px;
+      padding: 40px 28px;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 10%, rgba(255,255,255,0.85) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 50% at 85% 90%, rgba(186, 220, 250, 0.55) 0%, transparent 50%),
+        linear-gradient(160deg, #E8F3FC 0%, #DCEEF9 40%, #EAF4FB 100%);
+      border: 1px solid #C5DFF0;
+      border-radius: 18px;
       margin: 36px 0;
       box-shadow: none;
+      position: relative;
+      overflow: hidden;
     }
     .c106-cta-title {
       font-size: 19px;
       font-weight: 800;
       color: var(--c-ayed-primary);
       margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
     }
     .c106-cta-sub {
       font-size: 13.5px;
@@ -832,8 +1096,12 @@
       margin-left: auto;
       margin-right: auto;
       line-height: 1.6;
+      position: relative;
+      z-index: 1;
     }
     .c106-btn-cta-orange {
+      position: relative;
+      overflow: hidden;
       background-color: var(--c-ayed-secondary);
       color: var(--c-ayed-primary);
       font-size: 15.5px;
@@ -844,53 +1112,92 @@
       align-items: center;
       gap: 10px;
       border: 1px solid rgba(13,47,86,0.12);
-      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: background-color 0.22s ease, transform 0.22s ease;
       box-shadow: none;
+      z-index: 1;
+      animation: ctaSoftShake 3s ease-in-out infinite;
+    }
+    .c106-btn-cta-orange::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -60%;
+      width: 45%;
+      height: 100%;
+      background: linear-gradient(105deg, transparent 0%, rgba(255,255,255,0.55) 45%, transparent 100%);
+      transform: skewX(-18deg);
+      animation: ctaShineSweep 3s ease-in-out infinite;
+      pointer-events: none;
     }
     .c106-btn-cta-orange:hover {
       background-color: var(--c-ayed-secondary-dark);
       color: var(--c-ayed-primary);
       transform: translateY(-2px);
       box-shadow: none;
+      animation-play-state: paused;
+    }
+    .c106-btn-cta-orange:hover::after {
+      animation-play-state: paused;
+    }
+    @keyframes ctaShineSweep {
+      0%, 35% { left: -60%; opacity: 0; }
+      40% { opacity: 1; }
+      55% { left: 120%; opacity: 1; }
+      56%, 100% { left: 120%; opacity: 0; }
+    }
+    @keyframes ctaSoftShake {
+      0%, 72%, 100% { transform: translateX(0); }
+      76% { transform: translateX(-2px) rotate(-0.4deg); }
+      80% { transform: translateX(2px) rotate(0.4deg); }
+      84% { transform: translateX(-1.5px); }
+      88% { transform: translateX(1.5px); }
+      92% { transform: translateX(0); }
     }
 
-    /* أسئلة مقترحة من نفس التخصص */
+    /* أسئلة مقترحة من نفس التخصص — منظمة جداً */
     .c106-related-section {
       margin-top: 28px;
       background: #FFFFFF;
       border: 1px solid var(--c-ayed-border);
       border-radius: 14px;
-      padding: 24px;
+      padding: 24px 22px;
       box-shadow: none;
     }
     .c106-related-title {
       font-size: 17px;
       font-weight: 800;
       color: var(--c-ayed-primary);
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       display: flex;
       align-items: center;
       gap: 8px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #F1F5F9;
     }
     .c106-related-item {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
+      gap: 14px;
       padding: 14px 12px;
       border-radius: 10px;
       border: 1px solid transparent;
+      border-bottom: 1px solid #F1F5F9;
       cursor: pointer;
       transition: all 0.18s ease;
-      margin-bottom: 6px;
+      margin-bottom: 0;
+    }
+    .c106-related-item:last-child {
+      border-bottom: 1px solid transparent;
     }
     .c106-related-item:hover {
       background: #F8FAFC;
-      border-color: var(--c-ayed-border);
+      border-color: #E8EEF4;
+      border-bottom-color: #E8EEF4;
     }
     .c106-related-num {
-      width: 28px;
-      height: 28px;
-      min-width: 28px;
+      width: 30px;
+      height: 30px;
+      min-width: 30px;
       border-radius: 8px;
       background: var(--c-ayed-bg-blue);
       color: var(--c-ayed-primary);
@@ -899,18 +1206,23 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-top: 1px;
     }
     .c106-related-text {
       font-size: 14px;
       font-weight: 600;
       color: var(--c-ayed-primary);
-      line-height: 1.45;
-      margin: 0;
+      line-height: 1.5;
+      margin: 0 0 6px 0;
     }
     .c106-related-meta {
       font-size: 11.5px;
       color: var(--c-ayed-text-muted);
-      margin-top: 4px;
+      margin-top: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
     }
 
     /* تقييم الفائدة ومشاركة السؤال */
@@ -922,11 +1234,13 @@
       padding-top: 20px;
       border-top: 1px solid #E2E8F0;
       margin-top: 28px;
+      gap: 16px;
     }
     .c106-helpful-wrap {
       display: flex;
       align-items: center;
-      gap: 12px;
+      flex-wrap: wrap;
+      gap: 10px 12px;
     }
     .c106-helpful-title {
       font-size: 14px;
@@ -936,8 +1250,8 @@
     .c106-btn-vote {
       background: #FFFFFF;
       border: 1px solid var(--c-ayed-border);
-      padding: 6px 14px;
-      border-radius: 6px;
+      padding: 7px 16px;
+      border-radius: 8px;
       font-size: 13px;
       font-weight: 600;
       color: var(--c-ayed-text-main);
@@ -976,35 +1290,43 @@
       color: #FFFFFF;
     }
 
-    /* سايدبار صفحة الإجابة - بحث احترافي */
+    /* سايدبار صفحة الإجابة - بحث احترافي أكثر */
     .c106-sidebar-search {
       background: #FFFFFF;
       border: 1px solid var(--c-ayed-border);
       border-radius: 16px;
-      padding: 20px;
+      padding: 22px 20px;
       margin-bottom: 18px;
       box-shadow: none;
       transition: border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
     }
     .c106-sidebar-search:hover {
       border-color: #B8C9DA;
       box-shadow: none;
     }
     .c106-sidebar-search-title {
-      font-size: 14.5px;
+      font-size: 15px;
       font-weight: 800;
       color: var(--c-ayed-primary);
-      margin-bottom: 14px;
+      margin-bottom: 6px;
       display: flex;
       align-items: center;
       gap: 8px;
+    }
+    .c106-sidebar-search-hint {
+      font-size: 12px;
+      color: var(--c-ayed-text-muted);
+      margin-bottom: 14px;
+      line-height: 1.5;
     }
     .c106-detail-search-box {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: #F8FAFC;
-      border: 1.5px solid #E2E8F0;
+      background: #FFFFFF;
+      border: 1.5px solid #D0D9E4;
       border-radius: 12px;
       padding: 6px 8px 6px 14px;
       transition: all 0.22s ease;
@@ -1032,21 +1354,21 @@
       color: #FFFFFF;
       border: none;
       border-radius: 10px;
-      width: 38px;
-      height: 38px;
-      min-width: 38px;
+      width: 40px;
+      height: 40px;
+      min-width: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 13px;
+      font-size: 14px;
       cursor: pointer;
-      box-shadow: 0 2px 8px rgba(13, 47, 86, 0.2);
-      transition: all 0.2s ease;
+      box-shadow: none;
+      transition: background 0.2s ease, transform 0.15s ease;
     }
     .c106-detail-search-btn:hover {
       background: var(--c-ayed-navy-medium);
-      transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(13, 47, 86, 0.3);
+      transform: scale(1.04);
+      box-shadow: none;
     }
     .c106-detail-search-btn:active {
       transform: scale(0.96);
@@ -1298,6 +1620,35 @@
       .c106-answer-article { padding: 22px 18px; }
       .c106-q-title { font-size: 22px; }
       .c106-cta-center-box { padding: 28px 16px; }
+      .c103-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+      }
+      .c103-toolbar-right,
+      .c103-toolbar-left {
+        width: 100%;
+        justify-content: flex-start;
+      }
+      .c103-sort-menu { left: auto; right: 0; }
+      .c106-feedback-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 18px;
+      }
+      .c106-helpful-wrap {
+        justify-content: center;
+        width: 100%;
+      }
+      .c106-share-wrap {
+        justify-content: center;
+        width: 100%;
+      }
+      .c101-stats-row { padding: 10px 6px; max-width: 100%; }
+      .c101-stat-item { min-width: 0; padding: 6px 10px; }
+      .c101-stat-value { font-size: 16px; }
+      .c101-stat-label { font-size: 10.5px; }
     }
 
     /* Mobile */
@@ -1330,7 +1681,39 @@
       .c103-card-title { font-size: 16px; }
       .c103-card-header { flex-direction: column; align-items: flex-start; gap: 8px; }
       .c106-btn-cta-orange { width: 100%; justify-content: center; }
-      .c106-feedback-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .c106-feedback-row {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+      }
+      .c106-helpful-wrap {
+        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .c106-share-wrap { justify-content: center; }
+      .c101-stats-row {
+        margin-top: 16px;
+        padding: 8px 4px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0;
+      }
+      .c101-stat-item {
+        min-width: 0;
+        padding: 8px 6px;
+        border-left: none;
+        border-bottom: 1px solid #E8EEF4;
+      }
+      .c101-stat-item:nth-child(odd) {
+        border-left: 1px solid #E8EEF4;
+      }
+      .c101-stat-item:nth-child(n+3) {
+        border-bottom: none;
+      }
+      .c101-stat-value { font-size: 15px; }
+      .c101-stat-label { font-size: 10px; }
       .c108-mobile-grid { gap: 8px; }
       .c108-m-btn-primary, .c108-m-btn-secondary { font-size: 13px; padding: 12px 12px; }
     }
@@ -1369,9 +1752,9 @@
               <i class="fa-solid fa-magnifying-glass"></i>
             </div>
             <input type="text" id="heroSearchInput" class="c101-search-input" placeholder="ابحث عن أي سؤال، مسألة قدرات، قاعدة ستيب، أو تجميعات..." oninput="appState.handleSearch(this.value)">
-            <button type="button" class="c101-search-btn" onclick="appState.triggerSearch()" aria-label="بحث" title="بحث فوري">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <span>بحث</span>
+            <button type="button" class="c101-search-btn" onclick="appState.triggerSearch()" aria-label="بحث فوري" title="بحث فوري">
+              <i class="fa-solid fa-bolt"></i>
+              <span>بحث فوري</span>
             </button>
           </div>
 
@@ -1389,6 +1772,26 @@
               <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('IELTS')">IELTS</button>
             </div>
           </div>
+
+          <!-- إحصائيات سريعة منظمة -->
+          <div class="c101-stats-row" id="heroStatsRow">
+            <div class="c101-stat-item">
+              <div class="c101-stat-value" id="statQuestionsCount">46</div>
+              <div class="c101-stat-label">سؤال معتمد</div>
+            </div>
+            <div class="c101-stat-item">
+              <div class="c101-stat-value" id="statCategoriesCount">14</div>
+              <div class="c101-stat-label">تخصص ودورة</div>
+            </div>
+            <div class="c101-stat-item">
+              <div class="c101-stat-value" id="statStudentsCount">+12,400</div>
+              <div class="c101-stat-label">طالب تمت إجابتهم</div>
+            </div>
+            <div class="c101-stat-item">
+              <div class="c101-stat-value" id="statSatisfaction">96%</div>
+              <div class="c101-stat-label">رضا عن الإجابات</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -1396,13 +1799,7 @@
     <!-- شريط فلاتر التخصصات بالباستيل في صف واحد مع سكرول عرضي -->
     <section class="c102-filter-section">
       <div class="container">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-          <h2 class="h6 mb-0 font-weight-bold" style="color: var(--c-ayed-primary)">
-            <i class="fa-solid fa-layer-group text-warning ml-1"></i> أقسام وتخصصات دورات عايد:
-          </h2>
-          <span class="text-muted small" id="questionsCountLabel">عرض 8 من 8 سؤال</span>
-        </div>
-        
+        <p class="c102-filter-heading">اختار التخصص المناسب لك</p>
         <div class="c102-filter-scroll-wrapper">
           <div class="c102-filter-scroll" id="categoriesFilterContainer">
             <!-- يتم توليد الفلاتر بالجافاسكربت تلقائياً بألوان الباستيل المخصصة -->
@@ -1418,6 +1815,35 @@
           
           <!-- عمود الأسئلة الفردية (في صف مستقل لكل سؤال) -->
           <div class="col-lg-8" id="questionsListColumn">
+            <!-- شريط جميع الأسئلة / المحفوظات / الفرز -->
+            <div class="c103-toolbar" id="questionsToolbar">
+              <div class="c103-toolbar-right">
+                <button type="button" class="c103-tool-chip active" id="chipAllQuestions" onclick="appState.setSavedOnly(false)">
+                  <span>جميع الأسئلة المعتمدة</span>
+                  <span class="chip-count" id="chipAllCount">(0 سؤال متاح)</span>
+                </button>
+                <button type="button" class="c103-tool-chip" id="chipSavedQuestions" onclick="appState.setSavedOnly(true)">
+                  <i class="fa-regular fa-bookmark"></i>
+                  <span>المحفوظات فقط</span>
+                  <span class="chip-count" id="chipSavedCount">(0)</span>
+                </button>
+              </div>
+              <div class="c103-toolbar-left">
+                <div class="c103-sort-wrap">
+                  <button type="button" class="c103-sort-btn" id="sortToggleBtn" onclick="appState.toggleSortMenu(event)">
+                    <i class="fa-solid fa-arrow-down-wide-short"></i>
+                    <span id="sortLabelText">الأحدث</span>
+                    <i class="fa-solid fa-chevron-down" style="font-size:10px;opacity:.7"></i>
+                  </button>
+                  <div class="c103-sort-menu" id="sortMenu">
+                    <button type="button" class="c103-sort-option active" data-sort="newest" onclick="appState.setSort('newest')">الأحدث تاريخاً</button>
+                    <button type="button" class="c103-sort-option" data-sort="helpful" onclick="appState.setSort('helpful')">الأكثر إفادة</button>
+                    <button type="button" class="c103-sort-option" data-sort="views" onclick="appState.setSort('views')">الأكثر مشاهدة</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <div id="questionsContainer">
               <!-- يتم إدراج الكروت هنا ديناميكياً -->
             </div>
@@ -1509,6 +1935,10 @@
                 <span><i class="fa-solid fa-calendar-day ml-1 text-muted"></i> تاريخ الإجابة: <strong id="detailAnswerDate">15 يناير 2026</strong></span>
                 <span><i class="fa-solid fa-eye ml-1 text-muted"></i> المشاهدات: <strong id="detailViewsCount">2,350</strong></span>
                 <span><i class="fa-solid fa-book-bookmark ml-1 text-muted"></i> مرتبط بدورة: <strong id="detailCourseName">دورة STEP الشاملة</strong></span>
+                <button type="button" class="c106-save-btn" id="detailSaveBtn" onclick="appState.toggleSaveCurrent(event)">
+                  <i class="fa-regular fa-bookmark" id="detailSaveIcon"></i>
+                  <span id="detailSaveLabel">حفظ السؤال</span>
+                </button>
               </div>
             </div>
 
@@ -1596,8 +2026,9 @@
             <!-- بوكس البحث السريع داخل الصفحة -->
             <div class="c106-sidebar-search">
               <h4 class="c106-sidebar-search-title"><i class="fa-solid fa-magnifying-glass ml-1 text-primary"></i> ابحث عن سؤال آخر</h4>
+              <p class="c106-sidebar-search-hint">ابحث بعنوان السؤال أو اسم الدورة أو التخصص للوصول السريع.</p>
               <div class="c106-detail-search-box">
-                <input type="text" id="detailSideSearchInput" class="c106-detail-search-input" placeholder="اكتب سؤالك هنا..." onkeyup="if(event.key==='Enter') appState.searchFromDetail()">
+                <input type="text" id="detailSideSearchInput" class="c106-detail-search-input" placeholder="مثال: ستيب · قدرات · تحصيلي..." onkeyup="if(event.key==='Enter') appState.searchFromDetail()">
                 <button class="c106-detail-search-btn" type="button" onclick="appState.searchFromDetail()" title="بحث">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
@@ -2592,14 +3023,151 @@
       itemsPerPage: 4,
       currentQuestion: null,
       selectedContactType: 'whatsapp',
+      savedOnly: false,
+      sortBy: 'newest', // newest | helpful | views
+      savedIds: [],
 
       init() {
+        this.loadSavedIds();
         this.refreshCategoryCounts();
         this.renderCategoriesFilter();
         this.renderQuestionsList();
         this.renderAdBanners();
+        this.renderHeroStats();
         this.initHeroTextureAnimation();
         this.enableTagsSwipe();
+        document.addEventListener('click', (e) => {
+          const menu = document.getElementById('sortMenu');
+          const btn = document.getElementById('sortToggleBtn');
+          if (menu && menu.classList.contains('open')) {
+            if (!menu.contains(e.target) && (!btn || !btn.contains(e.target))) {
+              menu.classList.remove('open');
+            }
+          }
+        });
+      },
+
+      loadSavedIds() {
+        try {
+          const raw = localStorage.getItem('ayed_saved_questions');
+          this.savedIds = raw ? JSON.parse(raw).map(Number) : [];
+        } catch (e) {
+          this.savedIds = [];
+        }
+      },
+
+      persistSavedIds() {
+        try {
+          localStorage.setItem('ayed_saved_questions', JSON.stringify(this.savedIds));
+        } catch (e) {}
+      },
+
+      isSaved(id) {
+        return this.savedIds.includes(Number(id));
+      },
+
+      toggleSave(id, event) {
+        if (event) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        id = Number(id);
+        if (this.isSaved(id)) {
+          this.savedIds = this.savedIds.filter(x => x !== id);
+          this.showToast('تم إزالة السؤال من المحفوظات');
+        } else {
+          this.savedIds.push(id);
+          this.showToast('تم حفظ السؤال في قائمة المحفوظات');
+        }
+        this.persistSavedIds();
+        this.renderQuestionsList();
+        if (this.currentQuestion && this.currentQuestion.id === id) {
+          this.updateDetailSaveBtn();
+        }
+      },
+
+      toggleSaveCurrent(event) {
+        if (!this.currentQuestion) return;
+        this.toggleSave(this.currentQuestion.id, event);
+      },
+
+      updateDetailSaveBtn() {
+        const btn = document.getElementById('detailSaveBtn');
+        const icon = document.getElementById('detailSaveIcon');
+        const label = document.getElementById('detailSaveLabel');
+        if (!btn || !this.currentQuestion) return;
+        const saved = this.isSaved(this.currentQuestion.id);
+        btn.classList.toggle('saved', saved);
+        if (icon) {
+          icon.className = saved ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark';
+        }
+        if (label) label.textContent = saved ? 'محفوظ' : 'حفظ السؤال';
+      },
+
+      setSavedOnly(flag) {
+        this.savedOnly = !!flag;
+        this.currentPage = 1;
+        this.renderQuestionsList();
+      },
+
+      toggleSortMenu(event) {
+        if (event) event.stopPropagation();
+        const menu = document.getElementById('sortMenu');
+        if (menu) menu.classList.toggle('open');
+      },
+
+      setSort(sortKey) {
+        this.sortBy = sortKey;
+        this.currentPage = 1;
+        const labels = { newest: 'الأحدث', helpful: 'الأكثر إفادة', views: 'الأكثر مشاهدة' };
+        const labelEl = document.getElementById('sortLabelText');
+        if (labelEl) labelEl.textContent = labels[sortKey] || 'الأحدث';
+        document.querySelectorAll('.c103-sort-option').forEach(el => {
+          el.classList.toggle('active', el.getAttribute('data-sort') === sortKey);
+        });
+        const menu = document.getElementById('sortMenu');
+        if (menu) menu.classList.remove('open');
+        this.renderQuestionsList();
+      },
+
+      parseViews(v) {
+        if (typeof v === 'number') return v;
+        return Number(String(v).replace(/,/g, '')) || 0;
+      },
+
+      parseDateKey(dateStr) {
+        // e.g. "18 فبراير 2026"
+        const months = {
+          'يناير': 1, 'فبراير': 2, 'مارس': 3, 'أبريل': 4, 'ابريل': 4,
+          'مايو': 5, 'يونيو': 6, 'يوليو': 7, 'أغسطس': 8, 'اغسطس': 8,
+          'سبتمبر': 9, 'أكتوبر': 10, 'اكتوبر': 10, 'نوفمبر': 11, 'ديسمبر': 12
+        };
+        const parts = String(dateStr || '').trim().split(/\s+/);
+        if (parts.length < 3) return 0;
+        const d = parseInt(parts[0], 10) || 1;
+        const m = months[parts[1]] || 1;
+        const y = parseInt(parts[2], 10) || 2000;
+        return y * 10000 + m * 100 + d;
+      },
+
+      updateToolbarUI(filteredTotal) {
+        const allChip = document.getElementById('chipAllQuestions');
+        const savedChip = document.getElementById('chipSavedQuestions');
+        const allCount = document.getElementById('chipAllCount');
+        const savedCount = document.getElementById('chipSavedCount');
+        if (allChip) allChip.classList.toggle('active', !this.savedOnly);
+        if (savedChip) savedChip.classList.toggle('active', this.savedOnly);
+        if (allCount) allCount.textContent = `(${AYED_QUESTIONS_DATA.length} سؤال متاح)`;
+        if (savedCount) savedCount.textContent = `(${this.savedIds.length})`;
+      },
+
+      renderHeroStats() {
+        const qEl = document.getElementById('statQuestionsCount');
+        const cEl = document.getElementById('statCategoriesCount');
+        if (qEl) qEl.textContent = String(AYED_QUESTIONS_DATA.length);
+        // exclude 'all' from categories count
+        const realCats = AYED_CATEGORIES.filter(c => c.id !== 'all').length;
+        if (cEl) cEl.textContent = String(realCats);
       },
 
       refreshCategoryCounts() {
@@ -2703,46 +3271,68 @@
 
       /* تصفية وجلب الأسئلة */
       getFilteredQuestions() {
-        return AYED_QUESTIONS_DATA.filter(q => {
+        let list = AYED_QUESTIONS_DATA.filter(q => {
           const matchesCat = this.activeCategory === 'all' || q.catId === this.activeCategory;
           const matchesQuery = !this.searchQuery || 
                                q.title.toLowerCase().includes(this.searchQuery) ||
                                q.excerpt.toLowerCase().includes(this.searchQuery) ||
                                q.courseName.toLowerCase().includes(this.searchQuery) ||
                                q.categoryName.toLowerCase().includes(this.searchQuery);
-          return matchesCat && matchesQuery;
+          const matchesSaved = !this.savedOnly || this.isSaved(q.id);
+          return matchesCat && matchesQuery && matchesSaved;
         });
+
+        // فرز
+        list = list.slice();
+        if (this.sortBy === 'helpful') {
+          list.sort((a, b) => (b.votesYes || 0) - (a.votesYes || 0));
+        } else if (this.sortBy === 'views') {
+          list.sort((a, b) => this.parseViews(b.views) - this.parseViews(a.views));
+        } else {
+          // newest
+          list.sort((a, b) => this.parseDateKey(b.date) - this.parseDateKey(a.date));
+        }
+        return list;
       },
 
       /* رسم كروت الأسئلة في الصفحة الرئيسية */
       renderQuestionsList() {
         const container = document.getElementById('questionsContainer');
-        const countLabel = document.getElementById('questionsCountLabel');
         const noResults = document.getElementById('noResultsBox');
         if (!container) return;
 
         const filtered = this.getFilteredQuestions();
         const total = filtered.length;
-
-        if (countLabel) {
-          countLabel.textContent = `عرض ${total} من أصل ${AYED_QUESTIONS_DATA.length} سؤال معتمد`;
-        }
+        this.updateToolbarUI(total);
 
         if (total === 0) {
           container.innerHTML = '';
-          if (noResults) noResults.classList.remove('d-none');
+          if (noResults) {
+            noResults.classList.remove('d-none');
+            const title = noResults.querySelector('h4');
+            const desc = noResults.querySelector('p');
+            if (this.savedOnly) {
+              if (title) title.textContent = 'لا توجد أسئلة محفوظة حالياً';
+              if (desc) desc.textContent = 'احفظ أي سؤال من زر الإشارة المرجعية ليظهر هنا لاحقاً.';
+            } else {
+              if (title) title.textContent = 'لم نجد أي سؤال مطابق لبحثك';
+              if (desc) desc.textContent = 'يمكنك طرح هذا السؤال مباشرة على معلمي أكاديمية عايد ليتم الرد عليك في أقرب وقت.';
+            }
+          }
           this.renderPagination(0);
           return;
         }
 
         if (noResults) noResults.classList.add('d-none');
 
-        // تطبيق التقسيم على الصفحات
         const startIndex = (this.currentPage - 1) * this.itemsPerPage;
         const pageItems = filtered.slice(startIndex, startIndex + this.itemsPerPage);
 
         let html = '';
         pageItems.forEach(q => {
+          const saved = this.isSaved(q.id);
+          const saveClass = saved ? 'saved' : '';
+          const saveIcon = saved ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark';
           html += `
             <div class="c103-card-item" onclick="appState.openQuestionDetail(${q.id})">
               <div class="c103-card-header">
@@ -2750,10 +3340,15 @@
                   <i class="fa-solid fa-graduation-cap"></i>
                   ${q.categoryName}
                 </span>
-                <span class="c103-course-ref">
-                  <i class="fa-solid fa-book-bookmark text-warning"></i>
-                  ${q.courseName}
-                </span>
+                <div style="display:flex;align-items:center;gap:8px;">
+                  <span class="c103-course-ref">
+                    <i class="fa-solid fa-book-bookmark text-warning"></i>
+                    ${q.courseName}
+                  </span>
+                  <button type="button" class="c103-save-btn ${saveClass}" title="${saved ? 'إزالة من المحفوظات' : 'حفظ السؤال'}" onclick="appState.toggleSave(${q.id}, event)">
+                    <i class="${saveIcon}"></i>
+                  </button>
+                </div>
               </div>
 
               <h3 class="c103-card-title">${q.title}</h3>
@@ -2868,6 +3463,8 @@
         const voteNoBtn = document.getElementById('voteNoBtn');
         if (voteYesBtn) voteYesBtn.classList.remove('voted');
         if (voteNoBtn) voteNoBtn.classList.remove('voted');
+
+        this.updateDetailSaveBtn();
 
         // أسئلة مقترحة من نفس التخصص (5)
         this.renderRelatedQuestions(question);
