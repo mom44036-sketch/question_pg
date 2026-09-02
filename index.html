@@ -1,0 +1,3245 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بنك الأسئلة والأجوبة | أكاديمية عايد - Ayed Academy Q&A</title>
+  <meta name="description" content="المرجع المعتمد للأسئلة الشائعة والأكاديمية لدورات واختبارات قياس، ستيب، القدرات العامة، التحصيلي، والقدرة المعرفية بأكاديمية عايد.">
+  <meta property="og:title" content="بنك الأسئلة والأجوبة | أكاديمية عايد">
+  <meta property="og:description" content="إجابات معتمدة وشروحات دقيقة من معلمي ومدربي أكاديمية عايد">
+
+  <!-- Google Fonts: IBM Plex Sans Arabic & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 4.6 RTL CSS & FontAwesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ==========================================================================
+       1. الإعدادات العامة وهوية أكاديمية عايد (BRAND TOKENS & RESET)
+       ========================================================================== */
+    :root {
+      /* هوية أكاديمية عايد المعتمدة */
+      --c-ayed-primary: #0D2F56;       /* كحلي أساسي للعناوين */
+      --c-ayed-secondary: #FFB526;     /* أصفر ذهبي/أورانج للعناصر التفاعلية */
+      --c-ayed-secondary-dark: #E59F1A;
+      --c-ayed-navy-base: #06152B;
+      --c-ayed-navy-medium: #1A5399;
+      --c-ayed-bg-light: #FFFFFF;      /* أبيض نقي بدلاً من الجراي */
+      --c-ayed-bg-blue: #EAF2FA;       /* بيبي بلو ناعم */
+      --c-ayed-text-main: #1A1A1A;     /* النص الرئيسي */
+      --c-ayed-text-muted: #5A6A80;    /* النصوص الوصفية */
+      --c-ayed-border: #DDE5ED;        /* حدود هادئة بدون شادو */
+      --c-ayed-border-focus: #0D2F56;
+      --c-ayed-card-bg: #FFFFFF;
+      --c-ayed-success: #28A745;
+      --c-ayed-alert: #DC3545;
+
+      /* ألوان التخصصات لأكاديمية عايد (Pastel Category Palette) */
+      --c-step-bg: #E0F2FE;       --c-step-text: #0369A1;      --c-step-border: #BAE6FD;
+      --c-qdr-k-bg: #F5F3FF;      --c-qdr-k-text: #6D28D9;     --c-qdr-k-border: #DDD6FE;
+      --c-qdr-l-bg: #FDF2F8;      --c-qdr-l-text: #BE185D;     --c-qdr-l-border: #FBCFE8;
+      --c-cog-bg: #ECFDF5;        --c-cog-text: #047857;       --c-cog-border: #A7F3D0;
+      --c-tah-bg: #FFFBEB;        --c-tah-text: #B45309;       --c-tah-border: #FDE68A;
+      --c-uni-bg: #F0FDFA;        --c-uni-text: #0F766E;       --c-uni-border: #99F6E4;
+      --c-eng-bg: #EEF2FF;        --c-eng-text: #4338CA;       --c-eng-border: #C7D2FE;
+      --c-tch-bg: #FAF5FF;        --c-tch-text: #7E22CE;       --c-tch-border: #E9D5FF;
+      --c-ielts-bg: #FEFCE8;      --c-ielts-text: #A16207;     --c-ielts-border: #FEF08A;
+      --c-kids-bg: #F0FDF4;       --c-kids-text: #15803D;      --c-kids-border: #BBF7D0;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      overflow-x: hidden;
+      max-width: 100vw;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #FFFFFF;
+      color: var(--c-ayed-text-main);
+      margin: 0;
+      padding: 0;
+      line-height: 1.65;
+      direction: rtl;
+      text-align: right;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+
+    a {
+      color: var(--c-ayed-primary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    a:hover {
+      color: var(--c-ayed-secondary-dark);
+      text-decoration: none;
+    }
+
+    /* ==========================================================================
+       2. قسم الهيرو وخلفية الكرات المتحركة التفاعلية (HERO & CANVAS TEXTURE)
+       ========================================================================== */
+    .c101-hero {
+      position: relative;
+      background: linear-gradient(165deg, #EAF2FA 0%, #F0F7FF 45%, #FFFFFF 100%);
+      border-bottom: 1px solid var(--c-ayed-border);
+      padding: 72px 0 52px 0;
+      overflow: hidden;
+      text-align: center;
+      min-height: 360px;
+    }
+    .c101-hero-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.55;
+    }
+    .c101-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+    .c101-hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(13, 47, 86, 0.06);
+      border: 1px solid rgba(13, 47, 86, 0.1);
+      color: var(--c-ayed-primary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 18px;
+    }
+    .c101-hero-title {
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      line-height: 1.3;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .c101-hero-subtitle {
+      font-size: 17.5px;
+      color: var(--c-ayed-text-muted);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* شريط البحث الاحترافي داخل الهيرو */
+    .c101-search-box {
+      background: #FFFFFF;
+      border: 1.5px solid #D0D9E4;
+      border-radius: 14px;
+      padding: 6px 8px 6px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 680px;
+      width: 100%;
+      margin: 0 auto 24px auto;
+      box-shadow: none;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+    .c101-search-box:focus-within {
+      border-color: var(--c-ayed-primary);
+      box-shadow: 0 0 0 3px rgba(13, 47, 86, 0.08);
+      transform: none;
+    }
+    .c101-search-icon {
+      color: #64748B;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      padding-right: 2px;
+    }
+    .c101-search-input {
+      border: none;
+      outline: none;
+      width: 100%;
+      font-size: 16px;
+      font-family: inherit;
+      color: var(--c-ayed-text-main);
+      background: transparent;
+      padding: 10px 0;
+    }
+    .c101-search-input::placeholder {
+      color: #94A3B8;
+      font-size: 15px;
+    }
+    .c101-search-btn {
+      background: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      height: 46px;
+      min-width: 100px;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      flex-shrink: 0;
+      box-shadow: none;
+      transition: background 0.2s ease, transform 0.15s ease;
+    }
+    .c101-search-btn:hover {
+      background: var(--c-ayed-navy-medium);
+      transform: none;
+      box-shadow: none;
+    }
+    .c101-search-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* تاجات الكلمات الأكثر بحثاً - أصغر + سوايب احترافي */
+    .c101-tags-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .c101-tags-row {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 2px 6px;
+      cursor: grab;
+    }
+    .c101-tags-row::-webkit-scrollbar { display: none; }
+    .c101-tags-row:active { cursor: grabbing; }
+    .c101-tag-label {
+      font-size: 12px;
+      color: var(--c-ayed-text-muted);
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      flex-shrink: 0;
+      white-space: nowrap;
+      scroll-snap-align: start;
+    }
+    .c101-tag-item {
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      border-radius: 50px;
+      padding: 5px 12px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: none;
+      flex-shrink: 0;
+      white-space: nowrap;
+      scroll-snap-align: start;
+    }
+    .c101-tag-item:hover {
+      background-color: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border-color: var(--c-ayed-primary);
+      box-shadow: none;
+      transform: translateY(-1px);
+    }
+
+    /* ==========================================================================
+       3. شريط الفلاتر بالأقسام والتخصصات (HORIZONTAL SCROLL SINGLE-ROW FILTERS)
+       ========================================================================== */
+    .c102-filter-section {
+      padding: 28px 0 16px 0;
+      background: #FFFFFF;
+      border-bottom: none;
+    }
+    .c102-filter-scroll-wrapper {
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      /* تأثير السواييب */
+      mask-image: linear-gradient(to left, transparent 0%, black 3%, black 97%, transparent 100%);
+      -webkit-mask-image: linear-gradient(to left, transparent 0%, black 3%, black 97%, transparent 100%);
+    }
+    .c102-filter-scroll {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 10px;
+      padding: 8px 4px 12px 4px;
+      width: 100%;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      cursor: grab;
+    }
+    .c102-filter-scroll:active {
+      cursor: grabbing;
+    }
+    .c102-filter-scroll::-webkit-scrollbar {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+
+    .c102-filter-pill {
+      border: none !important;
+      outline: none;
+      padding: 10px 18px;
+      border-radius: 50px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      scroll-snap-align: start;
+      box-shadow: none;
+    }
+    .c102-filter-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+    .c102-filter-pill.active {
+      /* اللون الأغمق من نفس درجة اللون يُطبَّق ديناميكياً بالجافاسكربت */
+      color: #FFFFFF !important;
+      box-shadow: none !important;
+      font-weight: 700;
+    }
+    .c102-filter-pill.active .c102-filter-count {
+      background: rgba(255, 255, 255, 0.28) !important;
+      color: #FFFFFF !important;
+    }
+    .c102-filter-count {
+      font-size: 11.5px;
+      padding: 2px 8px;
+      border-radius: 50px;
+      font-weight: 700;
+      background: rgba(0,0,0,0.06);
+      transition: background 0.2s, color 0.2s;
+    }
+
+    /* ==========================================================================
+       4. كروت الأسئلة الفردية (QUESTION CARDS - SINGLE ROW HUB/SAAS STYLE)
+       ========================================================================== */
+    .c103-card-item {
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin-bottom: 16px;
+      cursor: pointer;
+      transition: border-color 0.2s, background-color 0.15s;
+      position: relative;
+      box-shadow: none;
+    }
+    .c103-card-item:hover {
+      border-color: var(--c-ayed-navy-medium);
+      background-color: #FAFCFE;
+      transform: none;
+      box-shadow: none;
+    }
+    .c103-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .c103-cat-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 11px;
+      border-radius: 6px;
+      border-width: 1px;
+      border-style: solid;
+    }
+    .c103-course-ref {
+      font-size: 12px;
+      color: var(--c-ayed-text-muted);
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .c103-card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--c-ayed-primary);
+      margin-bottom: 8px;
+      line-height: 1.45;
+    }
+    .c103-card-excerpt {
+      font-size: 14px;
+      color: #475569;
+      line-height: 1.6;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .c103-card-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 14px;
+      border-top: 1px solid #F1F5F9;
+      font-size: 13px;
+    }
+    .c103-teacher-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .c103-teacher-avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--c-ayed-bg-blue);
+      border: 1px solid var(--c-ayed-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+      font-size: 13px;
+    }
+    .c103-teacher-name {
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      display: block;
+      line-height: 1.2;
+    }
+    .c103-answer-date {
+      font-size: 11px;
+      color: var(--c-ayed-text-muted);
+    }
+    .c103-read-more-btn {
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .c103-card-item:hover .c103-read-more-btn {
+      color: var(--c-ayed-secondary-dark);
+    }
+
+    /* ==========================================================================
+       5. السايد بار وبوكسات اسأل المعلم والمساحة الإعلانية (SIDEBAR & AD SPACE)
+       ========================================================================== */
+    .c104-sidebar {
+      position: sticky;
+      top: 25px;
+    }
+    
+    /* بوكس اسأل المعلم - تصميم احترافي */
+    .c104-sidebar-box {
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: none;
+      transition: border-color 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    .c104-sidebar-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--c-ayed-secondary), var(--c-ayed-primary));
+    }
+    .c104-sidebar-box:hover {
+      border-color: #B8C9DA;
+      box-shadow: none;
+      transform: none;
+    }
+    .c104-ask-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, #EAF2FA 0%, #D6E8F7 100%);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--c-ayed-primary);
+      font-size: 22px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(13, 47, 86, 0.06);
+      box-shadow: none;
+    }
+    .c104-ask-title {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .c104-ask-desc {
+      font-size: 13.5px;
+      color: var(--c-ayed-text-muted);
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .c104-btn-ask-full {
+      background: linear-gradient(135deg, var(--c-ayed-secondary) 0%, #F5C04A 100%);
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      border-radius: 50px;
+      padding: 13px 18px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      transition: all 0.22s ease;
+      box-shadow: none;
+    }
+    .c104-btn-ask-full:hover {
+      background: linear-gradient(135deg, var(--c-ayed-secondary-dark) 0%, var(--c-ayed-secondary) 100%);
+      color: var(--c-ayed-primary);
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+
+    /* مساحة إعلانية - صورة بنر فقط داخل لينك */
+    .c104-ad-box {
+      background: transparent;
+      border: none;
+      border-radius: 14px;
+      padding: 0;
+      margin-bottom: 20px;
+      box-shadow: none;
+      overflow: hidden;
+    }
+    .c104-banner-link {
+      display: block;
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+      border: 1px solid var(--c-ayed-border);
+      box-shadow: none;
+    }
+    .c104-banner-link:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: var(--c-ayed-navy-medium);
+    }
+    .c104-banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+    }
+
+    /* ==========================================================================
+       6. ترقيم الصفحات (PAGINATION)
+       ========================================================================== */
+    .c105-pagination-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      margin-top: 24px;
+      margin-bottom: 40px;
+    }
+    .c105-page-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      color: var(--c-ayed-primary);
+      min-width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .c105-page-btn:hover {
+      border-color: var(--c-ayed-primary);
+      background-color: var(--c-ayed-bg-blue);
+    }
+    .c105-page-btn.active {
+      background-color: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border-color: var(--c-ayed-primary);
+    }
+    .c105-page-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* ==========================================================================
+       7. صفحة تفاصيل السؤال والإجابة المعتمدة (QUESTION DETAIL VIEW)
+       ========================================================================== */
+    .c106-detail-view {
+      display: none; /* يتم التبديل بالجافاسكربت */
+      padding: 30px 0 60px 0;
+    }
+    .c106-breadcrumb {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--c-ayed-text-muted);
+      margin-bottom: 20px;
+    }
+    .c106-breadcrumb a {
+      color: var(--c-ayed-text-muted);
+    }
+    .c106-breadcrumb a:hover {
+      color: var(--c-ayed-primary);
+    }
+    .c106-btn-back {
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      padding: 7px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--c-ayed-primary);
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
+    .c106-btn-back:hover {
+      background-color: var(--c-ayed-bg-blue);
+    }
+
+    /* كرت المقال الرئيسي للإجابة */
+    .c106-answer-article {
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 14px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: none;
+    }
+    .c106-q-header {
+      border-bottom: 1px solid #F1F5F9;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+    }
+    .c106-q-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      line-height: 1.4;
+      margin-bottom: 16px;
+    }
+    .c106-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--c-ayed-text-muted);
+    }
+    .c106-teacher-card {
+      background: #F8FAFC;
+      border: 1px solid #E2E8F0;
+      border-radius: 10px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 26px;
+    }
+    .c106-teacher-big-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--c-ayed-primary);
+      color: var(--c-ayed-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .c106-teacher-details h5 {
+      margin: 0;
+      font-size: 16px;
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+    }
+    .c106-teacher-role {
+      font-size: 12px;
+      color: var(--c-ayed-text-muted);
+      margin: 0;
+    }
+
+    /* ملاحظة المعلم - تصميم احترافي */
+    .c106-teacher-orange-note {
+      background: linear-gradient(135deg, #FFFBF0 0%, #FFF8EB 100%);
+      border: 1px solid #FFE4A8;
+      border-right: 4px solid #FFB526;
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin: 28px 0;
+      box-shadow: none;
+    }
+    .c106-orange-note-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #B45309;
+      font-size: 14.5px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .c106-orange-note-header i {
+      width: 28px;
+      height: 28px;
+      background: rgba(255, 181, 38, 0.2);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+    }
+    .c106-orange-note-body {
+      font-size: 14.5px;
+      color: #78350F;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* نص وتنسيق الإجابة المعتمدة - منظم أكثر */
+    .c106-answer-body {
+      font-size: 16px;
+      color: #334155;
+      line-height: 1.9;
+    }
+    .c106-answer-body p {
+      margin-bottom: 16px;
+    }
+    .c106-answer-body h4 {
+      font-size: 17.5px;
+      color: var(--c-ayed-primary);
+      margin-top: 26px;
+      margin-bottom: 14px;
+      font-weight: 800;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #EAF2FA;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .c106-step-box {
+      background: #F8FAFC;
+      border: 1px solid #E8EEF4;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin-bottom: 12px;
+      transition: border-color 0.15s;
+    }
+    .c106-step-box:hover {
+      border-color: #C5D4E3;
+    }
+    .c106-step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      background: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border-radius: 50%;
+      font-size: 12px;
+      font-weight: 700;
+      margin-left: 10px;
+      flex-shrink: 0;
+    }
+
+    /* زر CTA احترافي بخلفية بيبي بلو */
+    .c106-cta-center-box {
+      text-align: center;
+      padding: 36px 24px;
+      background: linear-gradient(165deg, #EAF2FA 0%, #F0F7FF 50%, #E8F1FA 100%);
+      border: 1px solid #D0E3F5;
+      border-radius: 16px;
+      margin: 36px 0;
+      box-shadow: none;
+    }
+    .c106-cta-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      margin-bottom: 8px;
+    }
+    .c106-cta-sub {
+      font-size: 13.5px;
+      color: var(--c-ayed-text-muted);
+      margin-bottom: 22px;
+      max-width: 420px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+    .c106-btn-cta-orange {
+      background-color: var(--c-ayed-secondary);
+      color: var(--c-ayed-primary);
+      font-size: 15.5px;
+      font-weight: 800;
+      padding: 14px 36px;
+      border-radius: 50px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      border: 1px solid rgba(13,47,86,0.12);
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: none;
+    }
+    .c106-btn-cta-orange:hover {
+      background-color: var(--c-ayed-secondary-dark);
+      color: var(--c-ayed-primary);
+      transform: translateY(-2px);
+      box-shadow: none;
+    }
+
+    /* أسئلة مقترحة من نفس التخصص */
+    .c106-related-section {
+      margin-top: 28px;
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: none;
+    }
+    .c106-related-title {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .c106-related-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 14px 12px;
+      border-radius: 10px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      margin-bottom: 6px;
+    }
+    .c106-related-item:hover {
+      background: #F8FAFC;
+      border-color: var(--c-ayed-border);
+    }
+    .c106-related-num {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 8px;
+      background: var(--c-ayed-bg-blue);
+      color: var(--c-ayed-primary);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .c106-related-text {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      line-height: 1.45;
+      margin: 0;
+    }
+    .c106-related-meta {
+      font-size: 11.5px;
+      color: var(--c-ayed-text-muted);
+      margin-top: 4px;
+    }
+
+    /* تقييم الفائدة ومشاركة السؤال */
+    .c106-feedback-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+      border-top: 1px solid #E2E8F0;
+      margin-top: 28px;
+    }
+    .c106-helpful-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .c106-helpful-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+    }
+    .c106-btn-vote {
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-ayed-text-main);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s;
+    }
+    .c106-btn-vote:hover, .c106-btn-vote.voted {
+      background-color: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border-color: var(--c-ayed-primary);
+    }
+    .c106-share-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .c106-share-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #F1F5F9;
+      border: 1px solid var(--c-ayed-border);
+      color: var(--c-ayed-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .c106-share-btn:hover {
+      background-color: var(--c-ayed-primary);
+      color: #FFFFFF;
+    }
+
+    /* سايدبار صفحة الإجابة - بحث احترافي */
+    .c106-sidebar-search {
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 18px;
+      box-shadow: none;
+      transition: border-color 0.2s ease;
+    }
+    .c106-sidebar-search:hover {
+      border-color: #B8C9DA;
+      box-shadow: none;
+    }
+    .c106-sidebar-search-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .c106-detail-search-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #F8FAFC;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 12px;
+      padding: 6px 8px 6px 14px;
+      transition: all 0.22s ease;
+    }
+    .c106-detail-search-box:focus-within {
+      border-color: var(--c-ayed-primary);
+      background: #FFFFFF;
+      box-shadow: 0 0 0 3px rgba(13, 47, 86, 0.08);
+    }
+    .c106-detail-search-input {
+      border: none;
+      outline: none;
+      background: transparent;
+      font-size: 13.5px;
+      font-family: inherit;
+      width: 100%;
+      color: var(--c-ayed-text-main);
+    }
+    .c106-detail-search-input::placeholder {
+      color: #94A3B8;
+      font-size: 13px;
+    }
+    .c106-detail-search-btn {
+      background: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      min-width: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(13, 47, 86, 0.2);
+      transition: all 0.2s ease;
+    }
+    .c106-detail-search-btn:hover {
+      background: var(--c-ayed-navy-medium);
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(13, 47, 86, 0.3);
+    }
+    .c106-detail-search-btn:active {
+      transform: scale(0.96);
+    }
+
+    /* ==========================================================================
+       8. نافذة مودال اسأل المعلم (ASK TEACHER POPUP MODAL)
+       ========================================================================== */
+    .c107-modal-header {
+      background: #F8FAFC;
+      border-bottom: 1px solid var(--c-ayed-border);
+      padding: 20px 24px;
+      border-top-left-radius: 14px;
+      border-top-right-radius: 14px;
+    }
+    .c107-modal-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      margin: 0;
+    }
+    .c107-modal-subtitle {
+      font-size: 13px;
+      color: var(--c-ayed-text-muted);
+      margin-top: 4px;
+      margin-bottom: 0;
+    }
+    .c107-form-group {
+      margin-bottom: 18px;
+    }
+    .c107-form-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .c107-input, .c107-select, .c107-textarea {
+      width: 100%;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      color: var(--c-ayed-text-main);
+      background-color: #FFFFFF;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .c107-input:focus, .c107-select:focus, .c107-textarea:focus {
+      border-color: var(--c-ayed-primary);
+      box-shadow: 0 0 0 3px rgba(13,47,86,0.08);
+    }
+    .c107-upload-box {
+      border: 2px dashed #CBD5E1;
+      border-radius: 8px;
+      padding: 18px;
+      text-align: center;
+      background: #F8FAFC;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .c107-upload-box:hover {
+      border-color: var(--c-ayed-primary);
+      background: #EFF6FF;
+    }
+    .c107-radio-group {
+      display: flex;
+      gap: 16px;
+    }
+    .c107-radio-card {
+      flex: 1;
+      border: 1px solid #CBD5E1;
+      border-radius: 8px;
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .c107-radio-card input {
+      margin: 0;
+    }
+    .c107-modal-footer {
+      border-top: 1px solid var(--c-ayed-border);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+    .c107-btn-submit {
+      background-color: var(--c-ayed-secondary);
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+      padding: 11px 26px;
+      border-radius: 8px;
+      border: 1px solid rgba(13,47,86,0.15);
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .c107-btn-submit:hover {
+      background-color: var(--c-ayed-secondary-dark);
+    }
+    .c107-btn-cancel {
+      background: #F1F5F9;
+      color: var(--c-ayed-text-muted);
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 8px;
+      padding: 11px 20px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       9. الأزرار العائمة على الجوال والتابلت فقط (MOBILE/TABLET STICKY BOTTOM BAR)
+       ========================================================================== */
+    .c108-mobile-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border-top: 1px solid var(--c-ayed-border);
+      padding: 10px 16px;
+      z-index: 1030;
+      box-shadow: none;
+    }
+    .c108-mobile-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .c108-m-btn-primary {
+      background-color: var(--c-ayed-secondary);
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 50px;
+      padding: 11px 16px;
+      border: 1px solid rgba(13,47,86,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      box-shadow: none;
+    }
+    .c108-m-btn-secondary {
+      background-color: #E8EEF4;
+      color: #64748B;
+      font-weight: 600;
+      font-size: 14px;
+      border-radius: 50px;
+      padding: 11px 16px;
+      border: 1px solid #D5DEE8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      box-shadow: none;
+    }
+    .c108-m-btn-secondary:hover {
+      background-color: #DCE4ED;
+      color: var(--c-ayed-primary);
+    }
+
+    /* تعديل المسافات السفلية للصفحة */
+    .c100-page-content {
+      padding-bottom: 60px;
+    }
+
+    /* تنبيه نجاح الإرسال */
+    .c110-toast {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0D2F56;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+      border: 1px solid #FFB526;
+    }
+
+    /* استجابة الشاشات (Responsive: Mobile & Tablet) */
+    /* Tablet */
+    @media (max-width: 991px) {
+      .c101-hero {
+        padding: 52px 0 40px 0;
+        min-height: 320px;
+      }
+      .c101-hero-canvas {
+        opacity: 0.5;
+      }
+      .c101-hero-title { font-size: 28px; }
+      .c101-hero-subtitle { font-size: 15px; max-width: 100%; }
+      .c101-search-box {
+        max-width: 100%;
+        border-radius: 14px;
+        padding: 6px 8px 6px 16px;
+      }
+      .c101-search-btn {
+        min-width: 96px;
+        height: 44px;
+        border-radius: 10px;
+        padding: 0 16px;
+        background: var(--c-ayed-primary) !important;
+        color: #FFFFFF !important;
+        box-shadow: none !important;
+      }
+      .c101-search-btn span { display: inline; }
+      .c101-search-btn:hover {
+        background: var(--c-ayed-navy-medium) !important;
+        color: #FFFFFF !important;
+      }
+      .c101-tags-wrap { max-width: 100%; }
+      .c104-ask-teacher-box,
+      .c106-sidebar-search {
+        display: none !important;
+      }
+      .c104-sidebar {
+        margin-top: 24px;
+        position: static !important;
+      }
+      .c104-ad-box {
+        display: block !important;
+        margin-top: 14px;
+      }
+      .c108-mobile-bar {
+        display: block !important;
+      }
+      body {
+        padding-bottom: 78px !important;
+      }
+      .c106-answer-article { padding: 22px 18px; }
+      .c106-q-title { font-size: 22px; }
+      .c106-cta-center-box { padding: 28px 16px; }
+    }
+
+    /* Mobile */
+    @media (max-width: 575px) {
+      .c101-hero {
+        padding: 40px 0 32px 0;
+        min-height: 280px;
+      }
+      .c101-hero-badge {
+        font-size: 11.5px;
+        padding: 5px 12px;
+      }
+      .c101-hero-title { font-size: 22px; line-height: 1.35; }
+      .c101-hero-subtitle { font-size: 13.5px; margin-bottom: 22px; }
+      .c101-search-box {
+        padding: 5px 6px 5px 14px;
+        gap: 10px;
+        border-radius: 12px;
+      }
+      .c101-search-input { font-size: 14.5px; padding: 8px 0; }
+      .c101-search-input::placeholder { font-size: 13.5px; }
+      .c101-search-btn {
+        min-width: 84px;
+        height: 42px;
+        font-size: 13.5px;
+        padding: 0 14px;
+      }
+      .c101-search-icon { font-size: 16px; }
+      .c103-card-item { padding: 18px 16px; }
+      .c103-card-title { font-size: 16px; }
+      .c103-card-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .c106-btn-cta-orange { width: 100%; justify-content: center; }
+      .c106-feedback-row { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .c108-mobile-grid { gap: 8px; }
+      .c108-m-btn-primary, .c108-m-btn-secondary { font-size: 13px; padding: 12px 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- تنبيه تأكيد الإرسال -->
+  <div id="toastNotification" class="c110-toast">
+    <i class="fa-solid fa-circle-check text-warning"></i>
+    <span id="toastMessage">تم إرسال سؤالك للمعلم بنجاح! سيتم الرد عليك قريباً.</span>
+  </div>
+
+  <!-- =========================================================================
+       1. الصفحة الرئيسية لبنك الأسئلة (MAIN LISTING VIEW)
+       ========================================================================= -->
+  <main id="mainListingSection">
+
+    <!-- قسم الهيرو مع كانفاس الكرات المتحركة التفاعلية (بدون بادج وبدون نافبار) -->
+    <section class="c101-hero">
+      <canvas id="dotsCanvas" class="c101-hero-canvas"></canvas>
+      <div class="container">
+        <div class="c101-hero-content">
+          <div class="c101-hero-badge">
+            <i class="fa-solid fa-certificate text-warning"></i>
+            <span>المرجع المعتمد لإجابات دورات أكاديمية عايد</span>
+          </div>
+          <h1 class="c101-hero-title">بنك الأسئلة والأجوبة لدورات أكاديمية عايد</h1>
+          <p class="c101-hero-subtitle">
+            إجابات دقيقة ومعتمدة وتجميعات محلولة لاختبارات ستيب (STEP)، القدرات العامة، التحصيلي، والقدرة المعرفية بإشراف نخبة المدربين في المملكة.
+          </p>
+
+          <!-- شريط البحث الاحترافي المركزي -->
+          <div class="c101-search-box">
+            <div class="c101-search-icon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <input type="text" id="heroSearchInput" class="c101-search-input" placeholder="ابحث عن أي سؤال، مسألة قدرات، قاعدة ستيب، أو تجميعات..." oninput="appState.handleSearch(this.value)">
+            <button type="button" class="c101-search-btn" onclick="appState.triggerSearch()" aria-label="بحث" title="بحث فوري">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <span>بحث</span>
+            </button>
+          </div>
+
+          <!-- تاجات الأكثر بحثاً - أصغر + سوايب -->
+          <div class="c101-tags-wrap">
+            <div class="c101-tags-row" id="popularTagsRow">
+              <span class="c101-tag-label"><i class="fa-solid fa-fire text-warning"></i> الأكثر بحثاً:</span>
+              <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('ستيب')">ستيب STEP</button>
+              <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('الكمي')">قدرات كمي</button>
+              <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('اللفظي')">تناظر لفظي</button>
+              <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('القدرة المعرفية')">قدرة معرفية</button>
+              <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('التحصيلي')">تحصيلي</button>
+              <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('Speak It Out')">Speak It Out</button>
+              <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('الرخصة المهنية')">رخصة مهنية</button>
+              <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('IELTS')">IELTS</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- شريط فلاتر التخصصات بالباستيل في صف واحد مع سكرول عرضي -->
+    <section class="c102-filter-section">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-2">
+          <h2 class="h6 mb-0 font-weight-bold" style="color: var(--c-ayed-primary)">
+            <i class="fa-solid fa-layer-group text-warning ml-1"></i> أقسام وتخصصات دورات عايد:
+          </h2>
+          <span class="text-muted small" id="questionsCountLabel">عرض 8 من 8 سؤال</span>
+        </div>
+        
+        <div class="c102-filter-scroll-wrapper">
+          <div class="c102-filter-scroll" id="categoriesFilterContainer">
+            <!-- يتم توليد الفلاتر بالجافاسكربت تلقائياً بألوان الباستيل المخصصة -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- جسم المحتوى: كروت الأسئلة بالصف + السايد بار وبنر الـ PNG -->
+    <section class="py-4">
+      <div class="container">
+        <div class="row">
+          
+          <!-- عمود الأسئلة الفردية (في صف مستقل لكل سؤال) -->
+          <div class="col-lg-8" id="questionsListColumn">
+            <div id="questionsContainer">
+              <!-- يتم إدراج الكروت هنا ديناميكياً -->
+            </div>
+
+            <!-- رسالة عند عدم العثور على نتائج -->
+            <div id="noResultsBox" class="text-center py-5 d-none bg-white rounded border p-4">
+              <i class="fa-solid fa-circle-question fa-3x text-muted mb-3"></i>
+              <h4 class="h5 font-weight-bold" style="color: var(--c-ayed-primary)">لم نجد أي سؤال مطابق لبحثك</h4>
+              <p class="text-muted small mb-3">يمكنك طرح هذا السؤال مباشرة على معلمي أكاديمية عايد ليتم الرد عليك في أقرب وقت.</p>
+              <button type="button" class="c104-btn-ask-full" style="max-width: 250px; margin: 0 auto;" onclick="appState.openAskModal()">
+                <i class="fa-solid fa-paper-plane"></i> اسأل المعلم الآن
+              </button>
+            </div>
+
+            <!-- ترقيم الصفحات -->
+            <div class="c105-pagination-wrap" id="paginationContainer">
+              <!-- يتم توليد أزرار الصفحات بالجافاسكربت -->
+            </div>
+          </div>
+
+          <!-- السايد بار الأيسر -->
+          <div class="col-lg-4">
+            <div class="c104-sidebar">
+              
+              <!-- 1. بوكس اسأل المعلم فوق المساحة الإعلانية -->
+              <div class="c104-sidebar-box c104-ask-teacher-box">
+                <div class="c104-ask-icon-wrap">
+                  <i class="fa-solid fa-chalkboard-user"></i>
+                </div>
+                <h3 class="c104-ask-title">لم تجد إجابة لسؤالك؟</h3>
+                <p class="c104-ask-desc">
+                  تواصل مباشرة مع نخبة معلمي ومدربي أكاديمية عايد واحصل على إجابة مفصلة وحلول وشروحات لاستفسارك في اختبارات قياس وستيب.
+                </p>
+                <button type="button" class="c104-btn-ask-full" onclick="appState.openAskModal()">
+                  <i class="fa-solid fa-paper-plane ml-1"></i>
+                  <span>اسأل المعلم الآن مجاناً</span>
+                </button>
+              </div>
+
+              <!-- مساحة إعلانية: صورة بنر فقط داخل لينك (تُملأ من مصفوفة JS) -->
+              <div class="c104-ad-box" id="listingAdBox">
+                <a href="https://ayedacademy.co/" target="_blank" class="c104-banner-link" id="listingAdLink" title="دورات أكاديمية عايد">
+                  <img src="anner.jpg" alt="إعلان أكاديمية عايد" class="c104-banner-img img-fluid" id="listingAdImg">
+                </a>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       2. صفحة تفاصيل السؤال والإجابة المعتمدة (QUESTION DETAIL VIEW)
+       ========================================================================= -->
+  <section id="questionDetailSection" class="c106-detail-view">
+    <div class="container">
+      
+      <!-- شريط المسار وزر العودة -->
+      <button type="button" class="c106-btn-back" onclick="appState.showListingView()">
+        <i class="fa-solid fa-arrow-right"></i>
+        <span>العودة لجميع الأسئلة</span>
+      </button>
+
+      <div class="c106-breadcrumb" id="detailBreadcrumb">
+        <a href="javascript:void(0)" onclick="appState.showListingView()">الرئيسية</a>
+        <span>/</span>
+        <a href="javascript:void(0)" onclick="appState.showListingView()">بنك الأسئلة</a>
+        <span>/</span>
+        <span id="detailBreadcrumbCategory" class="text-primary font-weight-bold">اختبار ستيب STEP</span>
+        <span>/</span>
+        <span id="detailBreadcrumbTitle" class="text-truncate" style="max-width: 300px;">عنوان السؤال</span>
+      </div>
+
+      <div class="row">
+        
+        <!-- عمود المقال والإجابة التفصيلية (على اليمين في RTL) -->
+        <div class="col-lg-8">
+          <article class="c106-answer-article">
+            
+            <div class="c106-q-header">
+              <span id="detailCategoryBadge" class="c103-cat-badge mb-3">اختبار ستيب STEP</span>
+              <h1 id="detailQuestionTitle" class="c106-q-title">عنوان السؤال الرئيسي</h1>
+              
+              <div class="c106-meta-bar">
+                <span><i class="fa-solid fa-calendar-day ml-1 text-muted"></i> تاريخ الإجابة: <strong id="detailAnswerDate">15 يناير 2026</strong></span>
+                <span><i class="fa-solid fa-eye ml-1 text-muted"></i> المشاهدات: <strong id="detailViewsCount">2,350</strong></span>
+                <span><i class="fa-solid fa-book-bookmark ml-1 text-muted"></i> مرتبط بدورة: <strong id="detailCourseName">دورة STEP الشاملة</strong></span>
+              </div>
+            </div>
+
+            <!-- بطاقة المعلم المجيب المعتمد -->
+            <div class="c106-teacher-card">
+              <div class="c106-teacher-big-avatar" id="detailTeacherAvatar">
+                ع
+              </div>
+              <div class="c106-teacher-details">
+                <h5>
+                  <span id="detailTeacherName">أ. عايد (مؤسس الأكاديمية)</span>
+                  <i class="fa-solid fa-circle-check text-success small ml-1" title="معلم معتمد في أكاديمية عايد"></i>
+                </h5>
+                <p class="c106-teacher-role" id="detailTeacherRole">كبير مدربي اختبارات STEP واللغة الإنجليزية</p>
+              </div>
+            </div>
+
+            <!-- محتوى الإجابة المفصلة -->
+            <div class="c106-answer-body" id="detailAnswerContent">
+              <!-- يتم حقن المحتوى التنسيقي هنا -->
+            </div>
+
+            <!-- صندوق ملاحظة وتوجيه خاص من المعلم باللون الأورانج المعتمد -->
+            <div class="c106-teacher-orange-note" id="detailTeacherNoteBox">
+              <div class="c106-orange-note-header">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>ملاحظة وتوجيه خاص من معلم الدورة:</span>
+              </div>
+              <p class="c106-orange-note-body" id="detailTeacherNoteText">
+                في اختبارات قياس، لا تضيع أكثر من دقيقة واحدة في قراءة النص الكامل؛ طبق استراتيجية Skimming & Scanning التي نتدرب عليها في البث المباشر للأكاديمية لضمان سرعة الإجابة ودقتها.
+              </p>
+            </div>
+
+            <!-- زر CTA البرتقالي في المنتصف للذهاب للدورة -->
+            <div class="c106-cta-center-box">
+              <h4 class="c106-cta-title" id="detailCtaTitle">هل ترغب في تحقيق أعلى الدرجات في هذا الاختبار؟</h4>
+              <p class="c106-cta-sub" id="detailCtaSub">انضم إلى دورة أكاديمية عايد واحصل على تجميعات حصرية، بثوث يومية، واختبارات تجريبية تحاكي قياس تماماً.</p>
+              <a href="https://ayedacademy.co/" target="_blank" class="c106-btn-cta-orange" id="detailCtaBtn">
+                <span>انتقل لتفاصيل أكثر عن الدورة</span>
+                <i class="fa-solid fa-arrow-left"></i>
+              </a>
+            </div>
+
+            <!-- تقييم فائدة الإجابة والمشاركة على السوشيال ميديا -->
+            <div class="c106-feedback-row">
+              <div class="c106-helpful-wrap">
+                <span class="c106-helpful-title">هل استفدت من هذه الإجابة؟</span>
+                <button type="button" class="c106-btn-vote" id="voteYesBtn" onclick="appState.handleVote(true)">
+                  <i class="fa-solid fa-thumbs-up text-success"></i>
+                  <span>نعم (<span id="voteYesCount">54</span>)</span>
+                </button>
+                <button type="button" class="c106-btn-vote" id="voteNoBtn" onclick="appState.handleVote(false)">
+                  <i class="fa-solid fa-thumbs-down text-danger"></i>
+                  <span>لا (<span id="voteNoCount">1</span>)</span>
+                </button>
+              </div>
+
+              <div class="c106-share-wrap">
+                <span class="small font-weight-bold text-muted ml-1">مشاركة:</span>
+                <button type="button" class="c106-share-btn" title="مشاركة على تويتر X" onclick="appState.share('x')"><i class="fa-brands fa-x-twitter"></i></button>
+                <button type="button" class="c106-share-btn" title="مشاركة عبر واتساب" onclick="appState.share('whatsapp')"><i class="fa-brands fa-whatsapp"></i></button>
+                <button type="button" class="c106-share-btn" title="مشاركة على لينكد إن" onclick="appState.share('linkedin')"><i class="fa-brands fa-linkedin-in"></i></button>
+                <button type="button" class="c106-share-btn" title="نسخ الرابط" onclick="appState.share('copy')"><i class="fa-solid fa-link"></i></button>
+              </div>
+            </div>
+
+          </article>
+
+          <!-- أسئلة مقترحة من نفس التخصص -->
+          <div class="c106-related-section" id="relatedQuestionsSection">
+            <h3 class="c106-related-title">
+              <i class="fa-solid fa-lightbulb text-warning"></i>
+              أسئلة أخرى من نفس التخصص
+            </h3>
+            <div id="relatedQuestionsList">
+              <!-- تُملأ بالجافاسكربت -->
+            </div>
+          </div>
+        </div>
+
+        <!-- عمود السايد بار الأيسر في صفحة الإجابة -->
+        <div class="col-lg-4">
+          <div class="c104-sidebar">
+            
+            <!-- بوكس البحث السريع داخل الصفحة -->
+            <div class="c106-sidebar-search">
+              <h4 class="c106-sidebar-search-title"><i class="fa-solid fa-magnifying-glass ml-1 text-primary"></i> ابحث عن سؤال آخر</h4>
+              <div class="c106-detail-search-box">
+                <input type="text" id="detailSideSearchInput" class="c106-detail-search-input" placeholder="اكتب سؤالك هنا..." onkeyup="if(event.key==='Enter') appState.searchFromDetail()">
+                <button class="c106-detail-search-btn" type="button" onclick="appState.searchFromDetail()" title="بحث">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- 1. بوكس اسأل المعلم في صفحة التفاصيل -->
+            <div class="c104-sidebar-box c104-ask-teacher-box">
+              <div class="c104-ask-icon-wrap">
+                <i class="fa-solid fa-chalkboard-user"></i>
+              </div>
+              <h4 class="c104-ask-title">لديك استفسار مشابه؟</h4>
+              <p class="c104-ask-desc">اطرح استفسارك الأكاديمي وسيقوم المدرب بمراجعة سؤالك والرد عليك بالتفصيل.</p>
+              <button type="button" class="c104-btn-ask-full" onclick="appState.openAskModal()">
+                <i class="fa-solid fa-pen-to-square ml-1"></i>
+                <span>اسأل المعلم الآن</span>
+              </button>
+            </div>
+
+            <!-- مساحة إعلانية: صورة داخل لينك (من مصفوفة JS) -->
+            <div class="c104-ad-box" id="detailAdBox">
+              <a href="https://ayedacademy.co/" target="_blank" class="c104-banner-link" id="detailAdLink" title="دورات أكاديمية عايد">
+                <img src="anner.jpg" alt="بنر أكاديمية عايد" class="c104-banner-img img-fluid" id="detailAdImg">
+              </a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       3. نافذة بوب اب اسأل المعلم (ASK TEACHER MODAL)
+       ========================================================================= -->
+  <div class="modal fade" id="askTeacherModal" tabindex="-1" role="dialog" aria-labelledby="askTeacherModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content border-0 shadow-lg" style="border-radius: 14px; overflow: hidden;">
+        
+        <div class="c107-modal-header d-flex justify-content-between align-items-center">
+          <div>
+            <h3 class="c107-modal-title" id="askTeacherModalLabel">
+              <i class="fa-solid fa-chalkboard-user text-warning ml-2"></i>
+              اسأل المعلم - أكاديمية عايد
+            </h3>
+            <p class="c107-modal-subtitle">سيتم إرسال سؤالك مباشرة للمدرب المختص لمراجعته وإرسال إجابة نموذجية لك.</p>
+          </div>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="font-size: 28px;">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <form id="askTeacherForm" onsubmit="appState.submitQuestion(event)">
+          <div class="modal-body p-4">
+            
+            <div class="row">
+              <div class="col-md-6">
+                <div class="c107-form-group">
+                  <label class="c107-form-label">اسم الطالب / المشترك <span class="text-danger">*</span></label>
+                  <input type="text" id="studentName" class="c107-input" placeholder="مثال: عبد العزيز الشمري" required>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="c107-form-group">
+                  <label class="c107-form-label">المرحلة الدراسية / العمر <span class="text-danger">*</span></label>
+                  <input type="text" id="studentAge" class="c107-input" placeholder="مثال: ثالث ثانوي / 18 سنة" required>
+                </div>
+              </div>
+            </div>
+
+            <div class="c107-form-group">
+              <label class="c107-form-label">تخصص الدورة أو الاختبار المطلوب <span class="text-danger">*</span></label>
+              <select id="questionCategorySelect" class="c107-select" required>
+                <option value="" disabled selected>اختر قسم الدورة...</option>
+                <option value="step">كفايات اللغة الإنجليزية (STEP)</option>
+                <option value="qdr_k">القدرات العامة (القسم الكمي والرياضيات)</option>
+                <option value="qdr_l">القدرات العامة (القسم اللفظي والتناظر)</option>
+                <option value="cog">اختبار القدرة المعرفية (للوظائف والترقيات)</option>
+                <option value="tah">اختبار التحصيلي (علمي / أدبي)</option>
+                <option value="uni">قدرات الجامعيين والدراسات العليا</option>
+                <option value="eng">تطوير المحادثة والطلاقة (Speak It Out)</option>
+                <option value="tch">الرخصة المهنية التعليمية للمعلمين</option>
+                <option value="ielts">اختبار الآيلتس (IELTS)</option>
+                <option value="kids">إنجليزي الأطفال (Smart Star)</option>
+                <option value="ontrack">تأسيس اللغة الإنجليزية (On Track)</option>
+                <option value="medical">الدورات الطبية والصحة العامة</option>
+                <option value="tech">البرمجة والتقنية والأمن السيبراني</option>
+                <option value="hr">الموارد البشرية</option>
+              </select>
+            </div>
+
+            <div class="c107-form-group">
+              <label class="c107-form-label">طريقة التواصل المفضلة لاستلام الرد <span class="text-danger">*</span></label>
+              <div class="c107-radio-group">
+                <label class="c107-radio-card" onclick="appState.setContactType('whatsapp')">
+                  <input type="radio" name="contactType" value="whatsapp" checked>
+                  <i class="fa-brands fa-whatsapp text-success fa-lg"></i>
+                  <span>عبر الواتساب (سريع)</span>
+                </label>
+                <label class="c107-radio-card" onclick="appState.setContactType('email')">
+                  <input type="radio" name="contactType" value="email">
+                  <i class="fa-solid fa-envelope text-primary fa-lg"></i>
+                  <span>البريد الإلكتروني</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="c107-form-group" id="contactInputWrap">
+              <label class="c107-form-label" id="contactInputLabel">رقم الواتساب (مع مفتاح الدولة) <span class="text-danger">*</span></label>
+              <input type="text" id="contactValue" class="c107-input" placeholder="مثال: +9665XXXXXXXX" required>
+            </div>
+
+            <div class="c107-form-group">
+              <label class="c107-form-label">عنوان السؤال باختصار <span class="text-danger">*</span></label>
+              <input type="text" id="questionTitleInput" class="c107-input" placeholder="مثال: استفسار حول حل مسألة الأعمار في القدرات الكمي" required>
+            </div>
+
+            <div class="c107-form-group">
+              <label class="c107-form-label">نص السؤال أو المسألة بالتفصيل <span class="text-danger">*</span></label>
+              <textarea id="questionDetailsInput" class="c107-textarea" rows="4" placeholder="اكتب سؤالك بوضوح أو الصق نص المسألة المراد شرحها..." required></textarea>
+            </div>
+
+            <div class="c107-form-group mb-0">
+              <label class="c107-form-label">إرفاق صورة للمسألة أو ملف توضيحي (اختياري)</label>
+              <div class="c107-upload-box" onclick="document.getElementById('fileUploadInput').click()">
+                <i class="fa-solid fa-cloud-arrow-up fa-2x text-muted mb-2"></i>
+                <div class="small font-weight-bold" style="color: var(--c-ayed-primary)" id="uploadFileName">
+                  اسحب وأفلت صورة المسألة هنا، أو اضغط للاختيار من جهازك
+                </div>
+                <div class="small text-muted">PNG, JPG, PDF (بحد أقصى 10 ميجابايت)</div>
+              </div>
+              <input type="file" id="fileUploadInput" class="d-none" onchange="appState.handleFileSelected(this)">
+            </div>
+
+          </div>
+          
+          <div class="c107-modal-footer">
+            <button type="button" class="c107-btn-cancel" data-dismiss="modal">إلغاء</button>
+            <button type="submit" class="c107-btn-submit">
+              <i class="fa-solid fa-paper-plane ml-1"></i>
+              إرسال السؤال للمعلم
+            </button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       4. الشريط العائم في أسفل الجوال (MOBILE STICKY BOTTOM BAR)
+       ========================================================================= -->
+  <div class="c108-mobile-bar">
+    <div class="c108-mobile-grid">
+      <button type="button" class="c108-m-btn-primary" onclick="appState.openAskModal()">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>اسأل المعلم</span>
+      </button>
+      <button type="button" class="c108-m-btn-secondary" onclick="appState.focusSearch()">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <span>بحث</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       5. نصوص الجافاسكربت ومصفوفة البيانات الحصرية لأكاديمية عايد (VANILLA JS)
+       ========================================================================= -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    /* =========================================================================
+       مصفوفة بيانات الأقسام وتخصصات أكاديمية عايد (CATEGORIES WITH PASTEL THEMES)
+       ========================================================================= */
+    const AYED_CATEGORIES = [
+      { id: 'all', name: 'جميع الدورات', count: 0, bg: '#F1F5F9', text: '#0D2F56', border: '#CBD5E1', activeBg: '#0D2F56', icon: 'fa-layer-group' },
+      { id: 'step', name: 'كفايات ستيب (STEP)', count: 0, bg: 'var(--c-step-bg)', text: 'var(--c-step-text)', border: 'var(--c-step-border)', activeBg: '#0369A1', icon: 'fa-spell-check' },
+      { id: 'qdr_k', name: 'القدرات العامة (كمي)', count: 0, bg: 'var(--c-qdr-k-bg)', text: 'var(--c-qdr-k-text)', border: 'var(--c-qdr-k-border)', activeBg: '#6D28D9', icon: 'fa-calculator' },
+      { id: 'qdr_l', name: 'القدرات العامة (لفظي)', count: 0, bg: 'var(--c-qdr-l-bg)', text: 'var(--c-qdr-l-text)', border: 'var(--c-qdr-l-border)', activeBg: '#BE185D', icon: 'fa-book-open' },
+      { id: 'cog', name: 'القدرة المعرفية', count: 0, bg: 'var(--c-cog-bg)', text: 'var(--c-cog-text)', border: 'var(--c-cog-border)', activeBg: '#047857', icon: 'fa-brain' },
+      { id: 'tah', name: 'اختبار التحصيلي', count: 0, bg: 'var(--c-tah-bg)', text: 'var(--c-tah-text)', border: 'var(--c-tah-border)', activeBg: '#B45309', icon: 'fa-atom' },
+      { id: 'uni', name: 'قدرات الجامعيين', count: 0, bg: 'var(--c-uni-bg)', text: 'var(--c-uni-text)', border: 'var(--c-uni-border)', activeBg: '#0F766E', icon: 'fa-user-graduate' },
+      { id: 'eng', name: 'المحادثة Speak It Out', count: 0, bg: 'var(--c-eng-bg)', text: 'var(--c-eng-text)', border: 'var(--c-eng-border)', activeBg: '#4338CA', icon: 'fa-comments' },
+      { id: 'tch', name: 'الرخصة المهنية', count: 0, bg: 'var(--c-tch-bg)', text: 'var(--c-tch-text)', border: 'var(--c-tch-border)', activeBg: '#7E22CE', icon: 'fa-id-card' },
+      { id: 'ielts', name: 'اختبار الآيلتس (IELTS)', count: 0, bg: 'var(--c-ielts-bg)', text: 'var(--c-ielts-text)', border: 'var(--c-ielts-border)', activeBg: '#A16207', icon: 'fa-globe' },
+      { id: 'kids', name: 'إنجليزي الأطفال Smart Star', count: 0, bg: 'var(--c-kids-bg)', text: 'var(--c-kids-text)', border: 'var(--c-kids-border)', activeBg: '#15803D', icon: 'fa-child' },
+      { id: 'ontrack', name: 'تأسيس On Track', count: 0, bg: '#EEF2FF', text: '#3730A3', border: '#C7D2FE', activeBg: '#3730A3', icon: 'fa-road' },
+      { id: 'medical', name: 'الدورات الطبية', count: 0, bg: '#FDF2F8', text: '#9D174D', border: '#FBCFE8', activeBg: '#9D174D', icon: 'fa-heart-pulse' },
+      { id: 'tech', name: 'البرمجة والتقنية', count: 0, bg: '#F0FDF4', text: '#166534', border: '#BBF7D0', activeBg: '#166534', icon: 'fa-code' },
+      { id: 'hr', name: 'الموارد البشرية', count: 0, bg: '#FFF7ED', text: '#C2410C', border: '#FED7AA', activeBg: '#C2410C', icon: 'fa-users' }
+    ];
+
+    /* إعداد المساحة الإعلانية (صورة + لينك) — عدّل اللينك والصورة من هنا */
+    const AYED_AD_CONFIG = {
+      imageUrl: 'anner.jpg',
+      linkUrl: 'https://ayedacademy.co/',
+      alt: 'دورات أكاديمية عايد المعتمدة'
+    };
+
+    /* =========================================================================
+       مصفوفة الأسئلة المعتمدة لدورات وتجميعات أكاديمية عايد (QUESTIONS DATABASE)
+       ========================================================================= */
+    const AYED_QUESTIONS_DATA = [
+      {
+        id: 1,
+        catId: 'step',
+        categoryName: 'كفايات ستيب (STEP)',
+        catStyle: { bg: 'var(--c-step-bg)', text: 'var(--c-step-text)', border: 'var(--c-step-border)' },
+        courseName: 'دورة كفايات اللغة الإنجليزية STEP الشاملة',
+        title: 'كيف أتعامل مع نصوص القراءة الطويلة واستخراج الإجابات بسرعة في اختبار STEP؟',
+        excerpt: 'في اختبار STEP يتكرر ضيق الوقت في قسم القراءة (Reading Comprehension). الحل الذهبي يكمن في تطبيق استراتيجية Skimming و Scanning وقراءة الأسئلة قبل النص.',
+        teacherName: 'أ. عايد (مؤسس الأكاديمية)',
+        teacherRole: 'كبير مدربي اختبارات STEP واللغة الإنجليزية',
+        teacherAvatarText: 'ع',
+        date: '18 فبراير 2026',
+        views: '3,840',
+        votesYes: 94,
+        votesNo: 2,
+        teacherNote: 'في اختبار STEP لا تبدأ أبداً بقراءة القطعة من السطر الأول حتى الأخير! اقرأ السؤال أولاً، حدد "الكلمة المفتاحية" (Keyword)، ثم ابحث عنها بالعين في النص. هذا التكنيك وحده يوفر عليك 12 دقيقة كاملة نتدرب عليها عملياً في دورة عايد.',
+        fullAnswerHtml: `
+          <p>أهلاً بك يا بطل. ضيق الوقت في قسم استيعاب المقروء باختبار STEP هو التحدي الأول لأغلب المختبرين، ولكن باتباع الخطوات التالية ستضمن الحل الصحيح في ثوانٍ معدودة:</p>
+          
+          <h4>1. استراتيجية المسح السريع (Scanning & Skimming):</h4>
+          <div class="c106-step-box">
+            <span class="c106-step-num">1</span>
+            <strong>قراءة الأسئلة أولاً:</strong> قبل أن تنظر للقطعة، اقرأ السؤال واعرف المطلوب (هل هو فكرة رئيسية Main Idea، أم معنى كلمة Vocabulary in Context، أم تفصيلة معينة Specific Detail).
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">2</span>
+            <strong>تحديد الكلمات الدلالية:</strong> مثل التواريخ، الأسماء، أو الأرقام والمصطلحات التي يسهل على العين التقاطها داخل الفقرة.
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">3</span>
+            <strong>أسئلة الضمائر (Pronoun Reference):</strong> لمعرفة الضمير (it / they / which) يعود على ماذا، ارجع دائماً للجملة التي تسبقه مباشرة وابحث عن الاسم المطابق له في الإفراد والجمع.
+          </div>
+
+          <h4>2. قاعدة استنتاج معاني الكلمات الصعبة:</h4>
+          <p>إذا واجهتك كلمة صعبة لا تعرف معناها، انظر إلى السياق وأدوات الربط (However, Although تدل على العكس - Because, Therefore تدل على النتيجة والسبب). لا تتوقف عند الكلمة وتفقد تركيزك.</p>
+        `
+      },
+      {
+        id: 2,
+        catId: 'qdr_k',
+        categoryName: 'القدرات العامة (كمي)',
+        catStyle: { bg: 'var(--c-qdr-k-bg)', text: 'var(--c-qdr-k-text)', border: 'var(--c-qdr-k-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (الكمي)',
+        title: 'ما هي أسرع طريقة لحل مسائل الأعمار والنسب بدون معادلات رياضية معقدة؟',
+        excerpt: 'مسائل الأعمار في اختبار القدرات يمكن حلها في أقل من 30 ثانية باستخدام طريقة تجريب الخيارات الذكي ورسم المخطط الزمني بدلاً من المعادلات الجبرية الطويلة.',
+        teacherName: 'د. عبد الرحمن الشهري',
+        teacherRole: 'مدرب ومؤلف تجميعات القدرات الكمية بأكاديمية عايد',
+        teacherAvatarText: 'ع',
+        date: '14 فبراير 2026',
+        views: '2,920',
+        votesYes: 78,
+        votesNo: 3,
+        teacherNote: 'في مسائل الأعمار، ركز دائماً على "فارق العمر"، لأن الفارق بين أعمار الأشخاص يظل ثابتاً مهما مرت السنوات! جرب الخيار الأوسط (ب أو ج) أولاً لتحدد هل تحتاج رقماً أكبر أو أصغر.',
+        fullAnswerHtml: `
+          <p>مسائل الأعمار من الأسئلة المضمونة 100% في اختبار القدرات إذا تجنبت كتابة معادلات معقدة مثل (س + ص). إليك القاعدة الذهبية المعتمدة بأكاديمية عايد:</p>
+          
+          <h4>1. قاعدة المخطط الزمني (الماضي - الحاضر - المستقبل):</h4>
+          <div class="c106-step-box">
+            <span class="c106-step-num">1</span>
+            <strong>الرسم البسيط:</strong> ارسم ثلاثة أعمدة (قبل س سنوات - الآن - بعد ص سنوات).
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">2</span>
+            <strong>تجريب الخيارات:</strong> اختر الخيار (ب أو ج)، وطبق الشروط: هل يتحقق شرط النسبة بعد 5 سنوات؟ إذا كان الناتج كبيراً استبعد الخيارات الأكبر، والعكس صحيح.
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">3</span>
+            <strong>مضاعفات الأعداد:</strong> إذا قال السؤال "عمر الأب الآن من مضاعفات 7"، استبعد فوراً أي خيار لا يقبل القسمة على 7 في لمح البصر!
+          </div>
+        `
+      },
+      {
+        id: 3,
+        catId: 'cog',
+        categoryName: 'القدرة المعرفية',
+        catStyle: { bg: 'var(--c-cog-bg)', text: 'var(--c-cog-text)', border: 'var(--c-cog-border)' },
+        courseName: 'دورة اختبار القدرة المعرفية الشاملة (للوظائف والترقيات)',
+        title: 'كيف أتقن حل سلاسل الأرقام والاستدلال المكاني في اختبار القدرة المعرفية؟',
+        excerpt: 'سلاسل الأرقام تعتمد على 4 أنماط رئيسية تتكرر في كل اختبارات قياس (الزيادة الثابتة، المتواليات المركبة، ضرب العوامل، والتربيع والتكعيب).',
+        teacherName: 'أ. فهد التميمي',
+        teacherRole: 'مدرب اختبارات الخدمة المدنية والقدرة المعرفية',
+        teacherAvatarText: 'ف',
+        date: '10 فبراير 2026',
+        views: '2,150',
+        votesYes: 62,
+        votesNo: 1,
+        teacherNote: 'عند مواجهة متتابعة أرقام تتذبذب (زيادة ثم نقصان)، فاعلم مباشرة أنها "متتابعتان مدموجتان في واحدة" (نأخذ الحد الأول مع الثالث مع الخامس، والحد الثاني مع الرابع مع السادس).',
+        fullAnswerHtml: `
+          <p>سلاسل الأرقام في القدرة المعرفية ليست عشوائية، بل تتبع أنماطاً نتدرب عليها في بنك تجميعات عايد:</p>
+          
+          <h4>الأنماط الأربعة الأساسية لسلاسل الأرقام:</h4>
+          <div class="c106-step-box">
+            <span class="c106-step-num">1</span>
+            <strong>الفروق بين الحدود:</strong> اكتب الفارق بين كل رقمين فوق السلسلة؛ ستكتشف فوراً إن كان النمط (+3، +5، +7) أو (+2، +4، +8).
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">2</span>
+            <strong>المتتابعات المزدوجة:</strong> إذا كانت الأرقام تصعد وتهبط (مثال: 5، 20، 7، 18، 9، 16)، افصل الحدود الفردية عن الزوجية.
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">3</span>
+            <strong>الاستدلال المكاني ومكعبات الأشكال:</strong> تذكر أن الأوجه المتقابلة في المكعب المفكوك لا يمكن أبداً أن تظهر متجاورة في المكعب المجمع.
+          </div>
+        `
+      },
+      {
+        id: 4,
+        catId: 'qdr_l',
+        categoryName: 'القدرات العامة (لفظي)',
+        catStyle: { bg: 'var(--c-qdr-l-bg)', text: 'var(--c-qdr-l-text)', border: 'var(--c-qdr-l-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (اللفظي)',
+        title: 'ما هي استراتيجية حل التناظر اللفظي واكتشاف الخطأ السياقي بدقة؟',
+        excerpt: 'التناظر اللفظي يعتمد على صياغة جملة تربط الكلمتين باتجاه محدد من اليمين لليسار، ومعرفة نوع العلاقة (مكانية، زمانية، تدرج، تضاد، أو جزء من كل).',
+        teacherName: 'أ. سامي المنصور',
+        teacherRole: 'أخصائي البلاغة وتدريب القدرات اللفظية بأكاديمية عايد',
+        teacherAvatarText: 'س',
+        date: '08 فبراير 2026',
+        views: '1,890',
+        votesYes: 45,
+        votesNo: 2,
+        teacherNote: 'في التناظر اللفظي احذر من فخ "انعكاس الاتجاه"! إذا كانت العلاقة في رأس السؤال (سبب -> نتيجة)، فالإجابة الصحيحة يجب أن تبدأ بالسبب أولاً ثم النتيجة من اليمين لليسار.',
+        fullAnswerHtml: `
+          <p>القسم اللفظي في القدرات يحتاج إلى دقة وتركيز عالٍ. إليك ملخص قواعد التناظر والخطأ السياقي:</p>
+          
+          <h4>1. خطوات حل التناظر اللفظي:</h4>
+          <div class="c106-step-box">
+            <span class="c106-step-num">1</span>
+            <strong>تكوين الجملة الرابطة:</strong> ضع الكلمتين في جملة مفيدة (مثال: "المحراب جزء من المسجد").
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">2</span>
+            <strong>تطبيق الجملة على الخيارات:</strong> طبق نفس الجملة بنفس الترتيب تماماً على الخيارات الأربعة.
+          </div>
+
+          <h4>2. سر الخطأ السياقي:</h4>
+          <p>الكلمة الخاطئة في الخطأ السياقي ليست خطأً نحوياً أو إملائياً، بل كلمة تبدل معنى الحكمة أو المبدأ الأخلاقي. دائماً جرب استبدال الكلمة بعكسها لتتأكد من استقامة المعنى.</p>
+        `
+      },
+      {
+        id: 5,
+        catId: 'tah',
+        categoryName: 'اختبار التحصيلي',
+        catStyle: { bg: 'var(--c-tah-bg)', text: 'var(--c-tah-text)', border: 'var(--c-tah-border)' },
+        courseName: 'دورة التحصيلي المكثفة والتجميعات الحديثة (علمي)',
+        title: 'كيف أقسم وقت مذاكرة مواد التحصيلي (رياضيات، فيزياء، كيمياء، أحياء) لتحقيق +95؟',
+        excerpt: 'خطة المذاكرة الذكية تبدأ بالمفاهيم المتكررة في تجميعات السنوات الأخيرة، والتركيز على الأحياء والكيمياء أولاً لسهولة تثبيت درجاتهما.',
+        teacherName: 'د. خالد الزهراني',
+        teacherRole: 'مشرف المسار العلمي ودورات التحصيلي بأكاديمية عايد',
+        teacherAvatarText: 'خ',
+        date: '02 فبراير 2026',
+        views: '3,110',
+        votesYes: 89,
+        votesNo: 1,
+        teacherNote: 'لا تذاكر كتب السنوات الثلاث كاملة صفحة بصفحة! 80% من أسئلة التحصيلي تدور حول 20% من المفاهيم الأساسية، وهذا بالضبط ما نركز عليه في تجميعات عايد المحلولة.',
+        fullAnswerHtml: `
+          <p>تحقيق درجة تفوق +95 في التحصيلي يعتمد على الخطة المنظمة والتكرار المتباعد:</p>
+          
+          <h4>الجدول الزمني المقترح من أكاديمية عايد:</h4>
+          <div class="c106-step-box">
+            <span class="c106-step-num">1</span>
+            <strong>الأحياء والكيمياء (40% من الوقت):</strong> تعتمد على الفهم والاستذكار السريع وتضمن لك درجات مرتفعة جداً بجهد منظم.
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">2</span>
+            <strong>الفيزياء والرياضيات (60% من الوقت):</strong> ركز على حفظ القوانين الأساسية ووحدات القياس والعلاقات الطردية والعكسية.
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">3</span>
+            <strong>حل التجميعات اليومية:</strong> لا تكتفِ بالقراءة النظرية؛ حل على الأقل 50 سؤالاً يومياً عبر منصة وتطبيق عايد.
+          </div>
+        `
+      },
+      {
+        id: 6,
+        catId: 'eng',
+        categoryName: 'المحادثة Speak It Out',
+        catStyle: { bg: 'var(--c-eng-bg)', text: 'var(--c-eng-text)', border: 'var(--c-eng-border)' },
+        courseName: 'برنامج طلاقة المحادثة واللغة الإنجليزية Speak It Out',
+        title: 'كيف أتخلص من التردد وترجمة الكلمات في عقلي عند التحدث باللغة الإنجليزية؟',
+        excerpt: 'التفكير باللغة الإنجليزية مباشرة يحتاج إلى تقنية التحدث الذاتي (Self-Talk)، وحفظ العبارات الجاهزة (Chunks) بدلاً من الكلمات المنفردة.',
+        teacherName: 'أ. سارة الحربي',
+        teacherRole: 'مدربة النطق والمحادثة ببرنامج Speak It Out',
+        teacherAvatarText: 'س',
+        date: '28 يناير 2026',
+        views: '2,600',
+        votesYes: 71,
+        votesNo: 4,
+        teacherNote: 'توقف فوراً عن حفظ قوائم الكلمات المجردة! احفظ دائماً جملاً كاملة (Collocations). عندما تحفظ "make a decision" ستنطقها مباشرة بدون أن تفكر هل تستخدم do أم make.',
+        fullAnswerHtml: `
+          <p>مشكلة الترجمة في العقل هي العائق الأكبر أمام الطلاقة. في برنامج Speak It Out نطبق منهجية الممارسة التفاعلية:</p>
+          
+          <h4>1. استراتيجية الكتل اللغوية (Chunking):</h4>
+          <div class="c106-step-box">
+            <span class="c106-step-num">1</span>
+            <strong>التعلم عبر القوالب:</strong> احفظ قوالب جاهزة مثل: "As far as I know", "I was wondering if you could", "To be honest".
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">2</span>
+            <strong>تقنية الظل (Shadowing):</strong> استمع لمتحدث أصلي في دروس الدورة وكرر كلامه بنفس النبرة والإيقاع في نفس اللحظة.
+          </div>
+        `
+      },
+      {
+        id: 7,
+        catId: 'uni',
+        categoryName: 'قدرات الجامعيين',
+        catStyle: { bg: 'var(--c-uni-bg)', text: 'var(--c-uni-text)', border: 'var(--c-uni-border)' },
+        courseName: 'دورة قدرات الجامعيين للدراسات العليا والابتعاث',
+        title: 'ما هي أهم الفروقات بين اختبار قدرات الثانوي وقدرات الجامعيين؟',
+        excerpt: 'اختبار قدرات الجامعيين يضيف أقساماً جديدة مثل التفكير النقدي، المنطق، وتفسير الرسوم البيانية والجداول الإحصائية المتقدمة.',
+        teacherName: 'د. عبد الرحمن الشهري',
+        teacherRole: 'مشرف دورات الجامعيين والماجستير بأكاديمية عايد',
+        teacherAvatarText: 'ع',
+        date: '20 يناير 2026',
+        views: '1,750',
+        votesYes: 53,
+        votesNo: 0,
+        teacherNote: 'في قدرات الجامعيين، ركز بقوة على قسم "المنطق والاستنتاج" وحساب النسب المئوية المركبة من الجداول؛ فهي تشكل الفارق الحقيقي بين درجة 75 ودرجة 90+.',
+        fullAnswerHtml: `
+          <p>اختبار قدرات الجامعيين مخصص للراغبين في إكمال الماجستير والدكتوراه أو البرامج العسكرية:</p>
+          
+          <h4>أهم الأقسام الحصرية في قدرات الجامعيين:</h4>
+          <div class="c106-step-box">
+            <span class="c106-step-num">1</span>
+            <strong>التفكير الناقد والمنطق:</strong> استنتاج النتائج من المعطيات واكتشاف المغالطات المنطقية.
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">2</span>
+            <strong>تفسير البيانات الإحصائية:</strong> قراءة الرسوم البيانية المعقدة واستخراج المعدلات والنسب بسرعة.
+          </div>
+        `
+      },
+      {
+        id: 8,
+        catId: 'tch',
+        categoryName: 'الرخصة المهنية',
+        catStyle: { bg: 'var(--c-tch-bg)', text: 'var(--c-tch-text)', border: 'var(--c-tch-border)' },
+        courseName: 'دورة الرخصة المهنية التعليمية (المعايير التربوية العامة)',
+        title: 'كيف أميز بين نظريات التعلم (السلوكية، البنائية، المعرفية، والاجتماعية) في اختبار الرخصة؟',
+        excerpt: 'التمييز بين نظريات التعلم يعتمد على دور المعلم والطالب في الموقف التعليمي (البنائية = الطالب يبني معرفته، السلوكية = المثير والاستجابة والتعزيز).',
+        teacherName: 'أ. فهد التميمي',
+        teacherRole: 'مدرب المعايير المهنية والتربوية بأكاديمية عايد',
+        teacherAvatarText: 'ف',
+        date: '15 يناير 2026',
+        views: '2,400',
+        votesYes: 82,
+        votesNo: 1,
+        teacherNote: 'مفتاح أي سؤال تربوي في الرخصة المهنية: إذا رأيت كلمات (تعزيز، مكافأة، تكرار) فالمقصود "السلوكية"؛ وإذا رأيت (اكتشاف، ربط بالخبرات السابقة، تعلم نشط) فالمقصود "البنائية".',
+        fullAnswerHtml: `
+          <p>أسئلة نظريات التعلم تتكرر سنوياً في الاختبار التربوي العام. إليك الجدول التلخيصي السريع:</p>
+          
+          <h4>مفاتيح نظريات التعلم:</h4>
+          <div class="c106-step-box">
+            <span class="c106-step-num">1</span>
+            <strong>النظرية البنائية (بياجيه، فيجوتسكي):</strong> التعلم يتم من خلال بناء الخبرة والتفاعل الاجتماعي.
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">2</span>
+            <strong>النظرية السلوكية (بافلوف، واطسون، سكينر):</strong> التركيز على السلوك الظاهر والمثير والاستجابة.
+          </div>
+          <div class="c106-step-box">
+            <span class="c106-step-num">3</span>
+            <strong>النظرية الاجتماعية (باندورا):</strong> التعلم بالنمذجة والملاحظة والقدوة.
+          </div>
+        `
+      }
+    
+,
+      // ——— توسيع: ستيب STEP ———
+      {
+        id: 9, catId: 'step', categoryName: 'كفايات ستيب (STEP)',
+        catStyle: { bg: 'var(--c-step-bg)', text: 'var(--c-step-text)', border: 'var(--c-step-border)' },
+        courseName: 'دورة كفايات اللغة الإنجليزية STEP الشاملة',
+        title: 'ما أفضل طريقة لتدريب الاستماع Listening في اختبار STEP؟',
+        excerpt: 'الاستماع يعتمد على التوقع قبل السماع وتحديد نوع السؤال (تفاصيل، فكرة رئيسية، موقف المتحدث).',
+        teacherName: 'أ. عايد (مؤسس الأكاديمية)', teacherRole: 'كبير مدربي اختبارات STEP واللغة الإنجليزية', teacherAvatarText: 'ع',
+        date: '12 فبراير 2026', views: '2,100', votesYes: 61, votesNo: 1,
+        teacherNote: 'لا تحاول فهم كل كلمة في المقطع الصوتي. ركّز على الكلمات المفتاحية والأرقام والأسماء.',
+        fullAnswerHtml: `<p>قسم الاستماع يحتاج تدريب يومي قصير:</p>
+          <h4>خطة التدريب:</h4>
+          <div class="c106-step-box"><span class="c106-step-num">1</span><strong>استمع مرة بدون أسئلة</strong> لالتقاط الجو العام.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span><strong>اقرأ الأسئلة ثم استمع</strong> وابحث عن الإجابات فقط.</div>
+          <div class="c106-step-box"><span class="c106-step-num">3</span><strong>راجع الأخطاء</strong> واكتب الكلمات التي فوّتها.</div>`
+      },
+      {
+        id: 10, catId: 'step', categoryName: 'كفايات ستيب (STEP)',
+        catStyle: { bg: 'var(--c-step-bg)', text: 'var(--c-step-text)', border: 'var(--c-step-border)' },
+        courseName: 'دورة كفايات اللغة الإنجليزية STEP الشاملة',
+        title: 'كيف أتعامل مع أسئلة القواعد Grammar في STEP بدون حفظ كل القواعد؟',
+        excerpt: 'التركيز على التراكيب الأكثر تكراراً: الأزمنة، حروف الجر، التوافق، الجمل الشرطية.',
+        teacherName: 'أ. عايد (مؤسس الأكاديمية)', teacherRole: 'كبير مدربي اختبارات STEP واللغة الإنجليزية', teacherAvatarText: 'ع',
+        date: '05 فبراير 2026', views: '2,780', votesYes: 72, votesNo: 2,
+        teacherNote: '80٪ من أسئلة القواعد تدور حول 12 نمطاً فقط نغطيها في دورة عايد.',
+        fullAnswerHtml: `<p>لا تحفظ الكتاب كله. ركّز على الأنماط المتكررة:</p>
+          <h4>الأولويات:</h4>
+          <div class="c106-step-box"><span class="c106-step-num">1</span><strong>الأزمنة</strong> Present Perfect مقابل Past Simple.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span><strong>التوافق</strong> Subject-Verb Agreement.</div>
+          <div class="c106-step-box"><span class="c106-step-num">3</span><strong>حروف الجر</strong> والروابط الشائعة.</div>`
+      },
+      {
+        id: 11, catId: 'step', categoryName: 'كفايات ستيب (STEP)',
+        catStyle: { bg: 'var(--c-step-bg)', text: 'var(--c-step-text)', border: 'var(--c-step-border)' },
+        courseName: 'دورة كفايات اللغة الإنجليزية STEP الشاملة',
+        title: 'هل يكفي حل التجميعات فقط لاجتياز STEP بدرجة عالية؟',
+        excerpt: 'التجميعات مهمة لكن مع تأسيس القواعد واستراتيجيات القراءة تصبح النتيجة أقوى وأكثر ثباتاً.',
+        teacherName: 'أ. عايد (مؤسس الأكاديمية)', teacherRole: 'كبير مدربي اختبارات STEP واللغة الإنجليزية', teacherAvatarText: 'ع',
+        date: '28 يناير 2026', views: '3,200', votesYes: 88, votesNo: 3,
+        teacherNote: 'التجميعات بعد التأسيس، وليس بدلاً منه.',
+        fullAnswerHtml: `<p>التجميعات وحدها تعطي Familiarity لكن التأسيس يعطيك الثبات:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>أسّس القواعد والقراءة أسبوعين.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>ثم حل تجميعات مع تحليل الأخطاء.</div>`
+      },
+      {
+        id: 12, catId: 'step', categoryName: 'كفايات ستيب (STEP)',
+        catStyle: { bg: 'var(--c-step-bg)', text: 'var(--c-step-text)', border: 'var(--c-step-border)' },
+        courseName: 'دورة كفايات اللغة الإنجليزية STEP الشاملة',
+        title: 'كيف أدير وقت اختبار STEP كاملاً دون أن ينتهي الوقت؟',
+        excerpt: 'وزّع الدقائق حسب الأقسام وثبّت قاعدة: لا تعلق في سؤال واحد أكثر من دقيقة.',
+        teacherName: 'أ. عايد (مؤسس الأكاديمية)', teacherRole: 'كبير مدربي اختبارات STEP واللغة الإنجليزية', teacherAvatarText: 'ع',
+        date: '20 يناير 2026', views: '2,450', votesYes: 67, votesNo: 1,
+        teacherNote: 'ضع علامة على السؤال الصعب وارجع له في النهاية.',
+        fullAnswerHtml: `<p>إدارة الوقت مهارة مستقلة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>حدد حداً زمنياً لكل قسم مسبقاً.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>اترك الأسئلة الصعبة للنهاية.</div>`
+      },
+      {
+        id: 13, catId: 'step', categoryName: 'كفايات ستيب (STEP)',
+        catStyle: { bg: 'var(--c-step-bg)', text: 'var(--c-step-text)', border: 'var(--c-step-border)' },
+        courseName: 'دورة كفايات اللغة الإنجليزية STEP الشاملة',
+        title: 'ما الفرق بين الباقة الأساسية والمميزة والبرايفت في دورة ستيب عايد؟',
+        excerpt: 'الأساسية تأسيس جماعي، المميزة مجموعات أصغر ومتابعة أقرب، البرايفت جلسات فردية مع المدرب.',
+        teacherName: 'أ. عايد (مؤسس الأكاديمية)', teacherRole: 'كبير مدربي اختبارات STEP واللغة الإنجليزية', teacherAvatarText: 'ع',
+        date: '15 يناير 2026', views: '4,100', votesYes: 95, votesNo: 0,
+        teacherNote: 'اختر الباقة حسب هدفك الزمني ومستواك الحالي.',
+        fullAnswerHtml: `<p>كل باقة مناسبة لحالة مختلفة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span><strong>الأساسية:</strong> تأسيس + تجميعات بسعر مناسب.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span><strong>المميزة:</strong> تفاعل أعلى ومتابعة أدق.</div>
+          <div class="c106-step-box"><span class="c106-step-num">3</span><strong>البرايفت:</strong> تخصيص كامل لجدولك ومستواك.</div>`
+      },
+      // ——— قدرات كمي ———
+      {
+        id: 14, catId: 'qdr_k', categoryName: 'القدرات العامة (كمي)',
+        catStyle: { bg: 'var(--c-qdr-k-bg)', text: 'var(--c-qdr-k-text)', border: 'var(--c-qdr-k-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (الكمي)',
+        title: 'كيف أحل مسائل النسب والتناسب بسرعة في القدرات؟',
+        excerpt: 'استخدم الضرب التبادلي وتجريب الخيارات بدل المعادلات الطويلة.',
+        teacherName: 'د. عبد الرحمن الشهري', teacherRole: 'مدرب ومؤلف تجميعات القدرات الكمية بأكاديمية عايد', teacherAvatarText: 'ع',
+        date: '11 فبراير 2026', views: '2,300', votesYes: 70, votesNo: 2,
+        teacherNote: 'اكتب النسبة على شكل كسر وطبّق الضرب التبادلي مباشرة.',
+        fullAnswerHtml: `<p>النسب من أسهل الأقسام إذا اتبعت قاعدة ثابتة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>حوّل النسبة إلى كسر.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>طبّق الضرب التبادلي أو جرب الخيار الأوسط.</div>`
+      },
+      {
+        id: 15, catId: 'qdr_k', categoryName: 'القدرات العامة (كمي)',
+        catStyle: { bg: 'var(--c-qdr-k-bg)', text: 'var(--c-qdr-k-text)', border: 'var(--c-qdr-k-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (الكمي)',
+        title: 'ما أسرع طريقة لحل مسائل المسافات والسرعات؟',
+        excerpt: 'احفظ العلاقة الأساسية: المسافة = السرعة × الزمن، وارسم مخطط اتجاه عند الحاجة.',
+        teacherName: 'د. عبد الرحمن الشهري', teacherRole: 'مدرب ومؤلف تجميعات القدرات الكمية بأكاديمية عايد', teacherAvatarText: 'ع',
+        date: '03 فبراير 2026', views: '1,980', votesYes: 58, votesNo: 1,
+        teacherNote: 'وحّد الوحدات أولاً (ساعات/دقائق – كم/م).',
+        fullAnswerHtml: `<p>مسائل الحركة تعتمد على ثلاث كميات فقط:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>حدد المعلوم والمجهول.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>طبّق القانون المناسب دون تعقيد.</div>`
+      },
+      {
+        id: 16, catId: 'qdr_k', categoryName: 'القدرات العامة (كمي)',
+        catStyle: { bg: 'var(--c-qdr-k-bg)', text: 'var(--c-qdr-k-text)', border: 'var(--c-qdr-k-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (الكمي)',
+        title: 'كيف أتعامل مع الهندسة والمساحات في القسم الكمي؟',
+        excerpt: 'احفظ قوانين المثلث والمستطيل والدائرة، وركّز على الأشكال المركبة بتقسيمها.',
+        teacherName: 'د. عبد الرحمن الشهري', teacherRole: 'مدرب ومؤلف تجميعات القدرات الكمية بأكاديمية عايد', teacherAvatarText: 'ع',
+        date: '25 يناير 2026', views: '2,050', votesYes: 64, votesNo: 2,
+        teacherNote: 'قسّم الشكل المعقد إلى أشكال بسيطة تعرف قوانينها.',
+        fullAnswerHtml: `<p>الهندسة في القدرات تطبيق مباشر للقوانين:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>احفظ القوانين الأساسية عن ظهر قلب.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>قسّم الأشكال المركبة.</div>`
+      },
+      {
+        id: 17, catId: 'qdr_k', categoryName: 'القدرات العامة (كمي)',
+        catStyle: { bg: 'var(--c-qdr-k-bg)', text: 'var(--c-qdr-k-text)', border: 'var(--c-qdr-k-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (الكمي)',
+        title: 'هل أحتاج آلة حاسبة في القدرات؟ وكيف أدرب الحساب الذهني؟',
+        excerpt: 'لا توجد آلة حاسبة؛ درّب نفسك على الاختصارات والتقريب الذكي.',
+        teacherName: 'د. عبد الرحمن الشهري', teacherRole: 'مدرب ومؤلف تجميعات القدرات الكمية بأكاديمية عايد', teacherAvatarText: 'ع',
+        date: '18 يناير 2026', views: '1,700', votesYes: 55, votesNo: 0,
+        teacherNote: 'احفظ مربعات الأعداد حتى 25 وجداول الضرب جيداً.',
+        fullAnswerHtml: `<p>الحساب الذهني جزء من الاختبار:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>تدريب يومي 15 دقيقة على العمليات.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>استخدم التقريب عندما تسمح الخيارات.</div>`
+      },
+      {
+        id: 18, catId: 'qdr_k', categoryName: 'القدرات العامة (كمي)',
+        catStyle: { bg: 'var(--c-qdr-k-bg)', text: 'var(--c-qdr-k-text)', border: 'var(--c-qdr-k-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (الكمي)',
+        title: 'كيف أراجع القسم الكمي قبل الاختبار بأسبوع؟',
+        excerpt: 'ركّز على نقاط ضعفك، وحل نماذج محاكية بوقت محدد، وراجع الأخطاء فقط.',
+        teacherName: 'د. عبد الرحمن الشهري', teacherRole: 'مدرب ومؤلف تجميعات القدرات الكمية بأكاديمية عايد', teacherAvatarText: 'ع',
+        date: '10 يناير 2026', views: '2,600', votesYes: 80, votesNo: 1,
+        teacherNote: 'لا تفتح دروساً جديدة في الأسبوع الأخير؛ راجع وحل.',
+        fullAnswerHtml: `<p>أسبوع المراجعة الحاسم:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>قائمة بأضعف المواضيع.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>نموذج يومي بوقت حقيقي.</div>`
+      },
+      // ——— لفظي ———
+      {
+        id: 19, catId: 'qdr_l', categoryName: 'القدرات العامة (لفظي)',
+        catStyle: { bg: 'var(--c-qdr-l-bg)', text: 'var(--c-qdr-l-text)', border: 'var(--c-qdr-l-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (اللفظي)',
+        title: 'كيف أحسّن استيعابي للنصوص الطويلة في القدرات اللفظي؟',
+        excerpt: 'اقرأ السؤال أولاً، ثم امسح النص بحثاً عن الكلمات المفتاحية دون قراءة حرفية كاملة.',
+        teacherName: 'أ. سامي المنصور', teacherRole: 'أخصائي البلاغة وتدريب القدرات اللفظية بأكاديمية عايد', teacherAvatarText: 'س',
+        date: '09 فبراير 2026', views: '1,650', votesYes: 49, votesNo: 1,
+        teacherNote: 'الفكرة الرئيسية غالباً في أول فقرة أو آخرها.',
+        fullAnswerHtml: `<p>استيعاب المقروء مهارة مسح لا قراءة بطيئة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>اقرأ الأسئلة أولاً.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>امسح النص للكلمات المفتاحية.</div>`
+      },
+      {
+        id: 20, catId: 'qdr_l', categoryName: 'القدرات العامة (لفظي)',
+        catStyle: { bg: 'var(--c-qdr-l-bg)', text: 'var(--c-qdr-l-text)', border: 'var(--c-qdr-l-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (اللفظي)',
+        title: 'ما الفرق بين إكمال الجمل واستيعاب المقروء؟',
+        excerpt: 'إكمال الجمل يعتمد على السياق النحوي والمعجمي، بينما الاستيعاب يعتمد على فهم الفقرة.',
+        teacherName: 'أ. سامي المنصور', teacherRole: 'أخصائي البلاغة وتدريب القدرات اللفظية بأكاديمية عايد', teacherAvatarText: 'س',
+        date: '01 فبراير 2026', views: '1,420', votesYes: 41, votesNo: 0,
+        teacherNote: 'في إكمال الجمل جرّب كل خيار داخل الجملة قبل الاختيار.',
+        fullAnswerHtml: `<p>كل قسم له استراتيجية مختلفة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span><strong>إكمال الجمل:</strong> سياق + قواعد.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span><strong>الاستيعاب:</strong> فكرة وتفاصيل.</div>`
+      },
+      {
+        id: 21, catId: 'qdr_l', categoryName: 'القدرات العامة (لفظي)',
+        catStyle: { bg: 'var(--c-qdr-l-bg)', text: 'var(--c-qdr-l-text)', border: 'var(--c-qdr-l-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (اللفظي)',
+        title: 'كيف أميز العلاقة في التناظر اللفظي بسرعة؟',
+        excerpt: 'صنّف العلاقة: جزء/كل، سبب/نتيجة، تضاد، ترادف، مكان، أداة/استخدام.',
+        teacherName: 'أ. سامي المنصور', teacherRole: 'أخصائي البلاغة وتدريب القدرات اللفظية بأكاديمية عايد', teacherAvatarText: 'س',
+        date: '22 يناير 2026', views: '1,880', votesYes: 52, votesNo: 2,
+        teacherNote: 'احرص على اتجاه العلاقة من اليمين لليسار كما في رأس السؤال.',
+        fullAnswerHtml: `<p>صنّف العلاقة أولاً ثم طبّقها:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>حدد نوع العلاقة في رأس السؤال.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>استبعد ما يخالف الاتجاه أو النوع.</div>`
+      },
+      {
+        id: 22, catId: 'qdr_l', categoryName: 'القدرات العامة (لفظي)',
+        catStyle: { bg: 'var(--c-qdr-l-bg)', text: 'var(--c-qdr-l-text)', border: 'var(--c-qdr-l-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (اللفظي)',
+        title: 'هل المفردات الكثيرة ضرورية للفظي؟',
+        excerpt: 'مفردات السياق أهم من الحفظ العشوائي؛ تعلّم الكلمات من التجميعات والنصوص.',
+        teacherName: 'أ. سامي المنصور', teacherRole: 'أخصائي البلاغة وتدريب القدرات اللفظية بأكاديمية عايد', teacherAvatarText: 'س',
+        date: '14 يناير 2026', views: '1,550', votesYes: 47, votesNo: 1,
+        teacherNote: 'دفتر أخطاء المفردات أفضل من قائمة عشوائية طويلة.',
+        fullAnswerHtml: `<p>ابنِ مفرداتك من الاختبار نفسه:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>سجّل الكلمات من التجميعات.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>راجعها في جمل لا منفردة.</div>`
+      },
+      {
+        id: 23, catId: 'qdr_l', categoryName: 'القدرات العامة (لفظي)',
+        catStyle: { bg: 'var(--c-qdr-l-bg)', text: 'var(--c-qdr-l-text)', border: 'var(--c-qdr-l-border)' },
+        courseName: 'دورة تأسيس وتجميعات القدرات العامة (اللفظي)',
+        title: 'كيف أتجنب فخاخ الخطأ السياقي؟',
+        excerpt: 'الكلمة الخاطئة تبدو صحيحة نحوياً لكنها تفسد المعنى المنطقي للعبارة.',
+        teacherName: 'أ. سامي المنصور', teacherRole: 'أخصائي البلاغة وتدريب القدرات اللفظية بأكاديمية عايد', teacherAvatarText: 'س',
+        date: '08 يناير 2026', views: '1,300', votesYes: 39, votesNo: 0,
+        teacherNote: 'اسأل نفسك: هل المعنى الكلي ما زال سليماً بعد استبدال الكلمة؟',
+        fullAnswerHtml: `<p>الخطأ السياقي فخ معنوي:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>اقرأ الجملة كاملة المعنى.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>استبدل الكلمة بعكسها واختبر المعنى.</div>`
+      },
+      // ——— قدرة معرفية ———
+      {
+        id: 24, catId: 'cog', categoryName: 'القدرة المعرفية',
+        catStyle: { bg: 'var(--c-cog-bg)', text: 'var(--c-cog-text)', border: 'var(--c-cog-border)' },
+        courseName: 'دورة اختبار القدرة المعرفية الشاملة (للوظائف والترقيات)',
+        title: 'ما أقسام اختبار القدرة المعرفية الأساسية؟',
+        excerpt: 'يشمل الكمّي اللفظي، الاستدلال، المرونة العقلية، والإدراك المكاني وفق نماذج قياس.',
+        teacherName: 'أ. فهد التميمي', teacherRole: 'مدرب اختبارات الخدمة المدنية والقدرة المعرفية', teacherAvatarText: 'ف',
+        date: '07 فبراير 2026', views: '2,400', votesYes: 71, votesNo: 1,
+        teacherNote: 'تعرّف على شكل كل قسم قبل الغوص في التفاصيل.',
+        fullAnswerHtml: `<p>اعرف خريطة الاختبار أولاً:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>لفظي وكمّي مبسّط.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>استدلال ومرونة عقلية.</div>
+          <div class="c106-step-box"><span class="c106-step-num">3</span>إدراك مكاني وأشكال.</div>`
+      },
+      {
+        id: 25, catId: 'cog', categoryName: 'القدرة المعرفية',
+        catStyle: { bg: 'var(--c-cog-bg)', text: 'var(--c-cog-text)', border: 'var(--c-cog-border)' },
+        courseName: 'دورة اختبار القدرة المعرفية الشاملة (للوظائف والترقيات)',
+        title: 'كيف أتدرب على الإدراك المكاني والمكعبات؟',
+        excerpt: 'تدرّب على طي الورق ودوران الأشكال، وتذكّر أن الأوجه المتقابلة لا تظهر متجاورة.',
+        teacherName: 'أ. فهد التميمي', teacherRole: 'مدرب اختبارات الخدمة المدنية والقدرة المعرفية', teacherAvatarText: 'ف',
+        date: '30 يناير 2026', views: '1,900', votesYes: 56, votesNo: 2,
+        teacherNote: 'ارسم المكعب المفتوح وعدّ الأوجه المتقابلة بنفسك.',
+        fullAnswerHtml: `<p>المكانيات تحتاج تمرين بصري:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>تدرّب على الدوران الذهني.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>طبّق قاعدة الأوجه المتقابلة.</div>`
+      },
+      {
+        id: 26, catId: 'cog', categoryName: 'القدرة المعرفية',
+        catStyle: { bg: 'var(--c-cog-bg)', text: 'var(--c-cog-text)', border: 'var(--c-cog-border)' },
+        courseName: 'دورة اختبار القدرة المعرفية الشاملة (للوظائف والترقيات)',
+        title: 'كم مدة كافية للتحضير للقدرة المعرفية؟',
+        excerpt: 'من 3 إلى 6 أسابيع بمعدل يومي ثابت كافية لمعظم المختبرين مع حل نماذج.',
+        teacherName: 'أ. فهد التميمي', teacherRole: 'مدرب اختبارات الخدمة المدنية والقدرة المعرفية', teacherAvatarText: 'ف',
+        date: '21 يناير 2026', views: '2,050', votesYes: 63, votesNo: 1,
+        teacherNote: 'الثبات اليومي أهم من ساعات طويلة متقطعة.',
+        fullAnswerHtml: `<p>خطة زمنية واقعية:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>أسبوع تأسيس لكل مهارة.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>أسبوعان نماذج ومراجعة.</div>`
+      },
+      {
+        id: 27, catId: 'cog', categoryName: 'القدرة المعرفية',
+        catStyle: { bg: 'var(--c-cog-bg)', text: 'var(--c-cog-text)', border: 'var(--c-cog-border)' },
+        courseName: 'دورة اختبار القدرة المعرفية الشاملة (للوظائف والترقيات)',
+        title: 'هل القدرة المعرفية تشبه قدرات الثانوي؟',
+        excerpt: 'تتشابه في بعض المهارات لكنها تركز أكثر على الاستدلال والمرونة والإدراك.',
+        teacherName: 'أ. فهد التميمي', teacherRole: 'مدرب اختبارات الخدمة المدنية والقدرة المعرفية', teacherAvatarText: 'ف',
+        date: '12 يناير 2026', views: '1,780', votesYes: 50, votesNo: 0,
+        teacherNote: 'لا تعتمد على مذكرات الثانوي فقط.',
+        fullAnswerHtml: `<p>هناك تقاطع واختلاف:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>تشابه جزئي في الكمّي اللفظي.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>اختلاف في طبيعة الاستدلال المكاني.</div>`
+      },
+      {
+        id: 28, catId: 'cog', categoryName: 'القدرة المعرفية',
+        catStyle: { bg: 'var(--c-cog-bg)', text: 'var(--c-cog-text)', border: 'var(--c-cog-border)' },
+        courseName: 'دورة اختبار القدرة المعرفية الشاملة (للوظائف والترقيات)',
+        title: 'كيف أتعامل مع ضغط الوقت في القدرة المعرفية؟',
+        excerpt: 'تدرب بوقت أقل من الرسمي قليلاً، ولا تعلق في سؤال واحد.',
+        teacherName: 'أ. فهد التميمي', teacherRole: 'مدرب اختبارات الخدمة المدنية والقدرة المعرفية', teacherAvatarText: 'ف',
+        date: '05 يناير 2026', views: '1,600', votesYes: 48, votesNo: 1,
+        teacherNote: 'نموذج محاكي أسبوعياً يضبط إيقاعك.',
+        fullAnswerHtml: `<p>الوقت يُدار بالتدريب لا بالتمني:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>حلّ بنماذج مؤقتة.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>تخطَّ الصعب وعد إليه لاحقاً.</div>`
+      },
+      // ——— تحصيلي ———
+      {
+        id: 29, catId: 'tah', categoryName: 'اختبار التحصيلي',
+        catStyle: { bg: 'var(--c-tah-bg)', text: 'var(--c-tah-text)', border: 'var(--c-tah-border)' },
+        courseName: 'دورة التحصيلي المكثفة والتجميعات الحديثة (علمي)',
+        title: 'هل أذاكر من الكتاب المدرسي أم من التجميعات فقط؟',
+        excerpt: 'التجميعات توجهك للمفاهيم المتكررة، والكتاب يثبت الأساس؛ الأفضل الجمع بينهما بذكاء.',
+        teacherName: 'د. خالد الزهراني', teacherRole: 'مشرف المسار العلمي ودورات التحصيلي بأكاديمية عايد', teacherAvatarText: 'خ',
+        date: '06 فبراير 2026', views: '2,900', votesYes: 84, votesNo: 2,
+        teacherNote: 'ابدأ بالمفاهيم عالية التكرار ثم وسّع.',
+        fullAnswerHtml: `<p>استراتيجية مزدوجة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>حدد المفاهيم المتكررة من التجميعات.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>راجعها من الملخص أو الكتاب بسرعة.</div>`
+      },
+      {
+        id: 30, catId: 'tah', categoryName: 'اختبار التحصيلي',
+        catStyle: { bg: 'var(--c-tah-bg)', text: 'var(--c-tah-text)', border: 'var(--c-tah-border)' },
+        courseName: 'دورة التحصيلي المكثفة والتجميعات الحديثة (علمي)',
+        title: 'كيف أنظم جدول تحصيلي لشهر واحد؟',
+        excerpt: 'قسّم الأسابيع: تأسيس سريع، تجميعات مكثفة، ثم محاكاة ومراجعة أخطاء.',
+        teacherName: 'د. خالد الزهراني', teacherRole: 'مشرف المسار العلمي ودورات التحصيلي بأكاديمية عايد', teacherAvatarText: 'خ',
+        date: '29 يناير 2026', views: '3,400', votesYes: 91, votesNo: 1,
+        teacherNote: 'اجعل آخر 5 أيام للمراجعة فقط دون دروس جديدة.',
+        fullAnswerHtml: `<p>شهر واحد يحتاج تركيز:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>الأسبوع 1-2 تأسيس.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>الأسبوع 3 تجميعات.</div>
+          <div class="c106-step-box"><span class="c106-step-num">3</span>الأسبوع 4 محاكاة ومراجعة.</div>`
+      },
+      {
+        id: 31, catId: 'tah', categoryName: 'اختبار التحصيلي',
+        catStyle: { bg: 'var(--c-tah-bg)', text: 'var(--c-tah-text)', border: 'var(--c-tah-border)' },
+        courseName: 'دورة التحصيلي المكثفة والتجميعات الحديثة (علمي)',
+        title: 'أي المواد أبدأ بها في التحصيلي العلمي؟',
+        excerpt: 'ابدأ بالأحياء والكيمياء لتثبيت درجات أسهل، ثم الفيزياء والرياضيات.',
+        teacherName: 'د. خالد الزهراني', teacherRole: 'مشرف المسار العلمي ودورات التحصيلي بأكاديمية عايد', teacherAvatarText: 'خ',
+        date: '19 يناير 2026', views: '2,700', votesYes: 77, votesNo: 2,
+        teacherNote: 'لا تؤجل الرياضيات تماماً؛ وزّعها يومياً بجرعات صغيرة.',
+        fullAnswerHtml: `<p>ترتيب مقترح:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>أحياء + كيمياء أولاً.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>فيزياء ورياضيات بالتوازي.</div>`
+      },
+      {
+        id: 32, catId: 'tah', categoryName: 'اختبار التحصيلي',
+        catStyle: { bg: 'var(--c-tah-bg)', text: 'var(--c-tah-text)', border: 'var(--c-tah-border)' },
+        courseName: 'دورة التحصيلي المكثفة والتجميعات الحديثة (علمي)',
+        title: 'كيف أستفيد من الاختبارات المحاكية في التحصيلي؟',
+        excerpt: 'حلّها بوقت حقيقي، حلّل كل خطأ، وأعد حل الأسئلة الخاطئة بعد يومين.',
+        teacherName: 'د. خالد الزهراني', teacherRole: 'مشرف المسار العلمي ودورات التحصيلي بأكاديمية عايد', teacherAvatarText: 'خ',
+        date: '11 يناير 2026', views: '2,200', votesYes: 69, votesNo: 0,
+        teacherNote: 'المحاكاة بدون تحليل مضيعة وقت.',
+        fullAnswerHtml: `<p>المحاكاة دورة تحسين:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>حل بوقت الاختبار.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>سجّل الأخطاء وأعد حلها.</div>`
+      },
+      {
+        id: 33, catId: 'tah', categoryName: 'اختبار التحصيلي',
+        catStyle: { bg: 'var(--c-tah-bg)', text: 'var(--c-tah-text)', border: 'var(--c-tah-border)' },
+        courseName: 'دورة التحصيلي المكثفة والتجميعات الحديثة (علمي)',
+        title: 'هل التحصيلي الأدبي يحتاج نفس أسلوب العلمي؟',
+        excerpt: 'الفكرة واحدة (مفاهيم متكررة + تجميعات) لكن المواد تختلف؛ ركّز على الحفظ المنظم والفهم.',
+        teacherName: 'د. خالد الزهراني', teacherRole: 'مشرف المسار العلمي ودورات التحصيلي بأكاديمية عايد', teacherAvatarText: 'خ',
+        date: '04 يناير 2026', views: '1,500', votesYes: 44, votesNo: 1,
+        teacherNote: 'الخرائط الذهنية ممتازة للمواد الأدبية.',
+        fullAnswerHtml: `<p>نفس المنهجية بأدوات مختلفة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>تجميعات لتحديد المتكرر.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>تلخيص وربط للمفاهيم.</div>`
+      },
+      // ——— جامعيين / محادثة / رخصة / IELTS عينات ———
+      {
+        id: 34, catId: 'uni', categoryName: 'قدرات الجامعيين',
+        catStyle: { bg: 'var(--c-uni-bg)', text: 'var(--c-uni-text)', border: 'var(--c-uni-border)' },
+        courseName: 'دورة قدرات الجامعيين للدراسات العليا والابتعاث',
+        title: 'كيف أستعد لقسم التفكير الناقد في قدرات الجامعيين؟',
+        excerpt: 'درّب نفسك على استنتاج النتائج واكتشاف المغالطات من فقرات قصيرة يومياً.',
+        teacherName: 'د. عبد الرحمن الشهري', teacherRole: 'مشرف دورات الجامعيين والماجستير بأكاديمية عايد', teacherAvatarText: 'ع',
+        date: '16 يناير 2026', views: '1,400', votesYes: 42, votesNo: 0,
+        teacherNote: 'اقرأ المعطيات فقط ولا تُسقط معلومات خارجية.',
+        fullAnswerHtml: `<p>التفكير الناقد مهارة قابلة للتدريب:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>حدد الفرضية والنتيجة.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>ابحث عن الثغرة المنطقية.</div>`
+      },
+      {
+        id: 35, catId: 'uni', categoryName: 'قدرات الجامعيين',
+        catStyle: { bg: 'var(--c-uni-bg)', text: 'var(--c-uni-text)', border: 'var(--c-uni-border)' },
+        courseName: 'دورة قدرات الجامعيين للدراسات العليا والابتعاث',
+        title: 'هل قدرات الجامعيين مطلوبة للماجستير فقط؟',
+        excerpt: 'تُطلب في برامج دراسات عليا وابتعاث وجهات عسكرية وأكاديمية متعددة.',
+        teacherName: 'د. عبد الرحمن الشهري', teacherRole: 'مشرف دورات الجامعيين والماجستير بأكاديمية عايد', teacherAvatarText: 'ع',
+        date: '09 يناير 2026', views: '1,250', votesYes: 38, votesNo: 0,
+        teacherNote: 'تحقق من متطلبات جهتك قبل الاختبار.',
+        fullAnswerHtml: `<p>الاستخدامات متعددة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>ماجستير ودكتوراه.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>برامج ابتعاث وجهات مهنية.</div>`
+      },
+      {
+        id: 36, catId: 'eng', categoryName: 'المحادثة Speak It Out',
+        catStyle: { bg: 'var(--c-eng-bg)', text: 'var(--c-eng-text)', border: 'var(--c-eng-border)' },
+        courseName: 'برنامج طلاقة المحادثة واللغة الإنجليزية Speak It Out',
+        title: 'كم مرة أتحدث أسبوعياً لأحسّن طلاقتي؟',
+        excerpt: 'يفضّل التحدث يومياً ولو 10 دقائق؛ الانتظام أهم من الجلسات الطويلة النادرة.',
+        teacherName: 'أ. سارة الحربي', teacherRole: 'مدربة النطق والمحادثة ببرنامج Speak It Out', teacherAvatarText: 'س',
+        date: '24 يناير 2026', views: '1,900', votesYes: 58, votesNo: 2,
+        teacherNote: 'سجّل صوتك أسبوعياً وقارن التحسن.',
+        fullAnswerHtml: `<p>الطلاقة تُبنى بالتكرار:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>10–15 دقيقة يومياً Self-Talk.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>جلسة محادثة أطول مرتين أسبوعياً.</div>`
+      },
+      {
+        id: 37, catId: 'eng', categoryName: 'المحادثة Speak It Out',
+        catStyle: { bg: 'var(--c-eng-bg)', text: 'var(--c-eng-text)', border: 'var(--c-eng-border)' },
+        courseName: 'برنامج طلاقة المحادثة واللغة الإنجليزية Speak It Out',
+        title: 'هل أحتاج شريك محادثة أم يكفي التدريب الفردي؟',
+        excerpt: 'الفردي يبني الأساس، والشريك يضيف تفاعلًا حقيقيًا؛ الأفضل الجمع بينهما.',
+        teacherName: 'أ. سارة الحربي', teacherRole: 'مدربة النطق والمحادثة ببرنامج Speak It Out', teacherAvatarText: 'س',
+        date: '17 يناير 2026', views: '1,550', votesYes: 50, votesNo: 1,
+        teacherNote: 'في Speak It Out نوفر بيئة آمنة للتحدث دون خجل.',
+        fullAnswerHtml: `<p>مساران متكاملان:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>فردي: نطق وعبارات.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>جماعي: تفاعل وردود فعل.</div>`
+      },
+      {
+        id: 38, catId: 'tch', categoryName: 'الرخصة المهنية',
+        catStyle: { bg: 'var(--c-tch-bg)', text: 'var(--c-tch-text)', border: 'var(--c-tch-border)' },
+        courseName: 'دورة الرخصة المهنية التعليمية (المعايير التربوية العامة)',
+        title: 'ما الفرق بين المعايير العامة والتخصصية في الرخصة؟',
+        excerpt: 'العامة تربوية مشتركة لكل المعلمين، والتخصصية مرتبطة بمادتك ومستواك.',
+        teacherName: 'أ. فهد التميمي', teacherRole: 'مدرب المعايير المهنية والتربوية بأكاديمية عايد', teacherAvatarText: 'ف',
+        date: '13 يناير 2026', views: '2,100', votesYes: 66, votesNo: 1,
+        teacherNote: 'ابدأ بالعامة لأنها أساس مشترك ثم التخصصية.',
+        fullAnswerHtml: `<p>مساران في الرخصة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span><strong>عامة:</strong> تربية ومناهج وتقويم.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span><strong>تخصصية:</strong> محتوى مادتك.</div>`
+      },
+      {
+        id: 39, catId: 'tch', categoryName: 'الرخصة المهنية',
+        catStyle: { bg: 'var(--c-tch-bg)', text: 'var(--c-tch-text)', border: 'var(--c-tch-border)' },
+        courseName: 'دورة الرخصة المهنية التعليمية (المعايير التربوية العامة)',
+        title: 'كيف أذاكر نظريات التعلم دون خلط بينها؟',
+        excerpt: 'اربط كل نظرية بكلمات مفتاحية: تعزيز=سلوكية، بناء=بنائية، ملاحظة=اجتماعية.',
+        teacherName: 'أ. فهد التميمي', teacherRole: 'مدرب المعايير المهنية والتربوية بأكاديمية عايد', teacherAvatarText: 'ف',
+        date: '06 يناير 2026', views: '1,850', votesYes: 59, votesNo: 0,
+        teacherNote: 'جدول مقارنة صفحة واحدة يكفي للمراجعة السريعة.',
+        fullAnswerHtml: `<p>كلمات مفتاحية تمنع الخلط:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>سلوكية: مثير واستجابة.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>بنائية: اكتشاف وخبرات سابقة.</div>
+          <div class="c106-step-box"><span class="c106-step-num">3</span>اجتماعية: قدوة ونمذجة.</div>`
+      },
+      {
+        id: 40, catId: 'ielts', categoryName: 'اختبار الآيلتس (IELTS)',
+        catStyle: { bg: 'var(--c-ielts-bg)', text: 'var(--c-ielts-text)', border: 'var(--c-ielts-border)' },
+        courseName: 'دورة الآيلتس الشاملة',
+        title: 'كيف أحسّن درجة الكتابة Writing في IELTS؟',
+        excerpt: 'خطط قبل الكتابة، استخدم روابط واضحة، وراجع القواعد بعد إنهاء المسودة.',
+        teacherName: 'أ. عايد (مؤسس الأكاديمية)', teacherRole: 'مدرب اختبارات اللغة الإنجليزية', teacherAvatarText: 'ع',
+        date: '27 يناير 2026', views: '2,300', votesYes: 68, votesNo: 2,
+        teacherNote: 'Task Response وcoherence أهم من مفردات معقدة خاطئة.',
+        fullAnswerHtml: `<p>الكتابة تُحسَّن بالبنية:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>خطة 3–5 دقائق قبل الكتابة.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>فقرة مقدمة وجسم وخاتمة واضحة.</div>`
+      },
+      {
+        id: 41, catId: 'ielts', categoryName: 'اختبار الآيلتس (IELTS)',
+        catStyle: { bg: 'var(--c-ielts-bg)', text: 'var(--c-ielts-text)', border: 'var(--c-ielts-border)' },
+        courseName: 'دورة الآيلتس الشاملة',
+        title: 'ما الفرق بين IELTS Academic و General؟',
+        excerpt: 'Academic للجامعات، General للهجرة والعمل؛ القراءة والكتابة تختلفان في نوع النصوص والمهام.',
+        teacherName: 'أ. عايد (مؤسس الأكاديمية)', teacherRole: 'مدرب اختبارات اللغة الإنجليزية', teacherAvatarText: 'ع',
+        date: '18 يناير 2026', views: '2,000', votesYes: 60, votesNo: 1,
+        teacherNote: 'تأكد من نوع الاختبار المطلوب من الجهة قبل التسجيل.',
+        fullAnswerHtml: `<p>اختر النوع حسب هدفك:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>Academic: دراسة جامعية.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>General: هجرة وعمل.</div>`
+      },
+      {
+        id: 42, catId: 'kids', categoryName: 'إنجليزي الأطفال Smart Star',
+        catStyle: { bg: 'var(--c-kids-bg)', text: 'var(--c-kids-text)', border: 'var(--c-kids-border)' },
+        courseName: 'برنامج Smart Star للأطفال',
+        title: 'من أي عمر يبدأ طفلي في Smart Star؟',
+        excerpt: 'البرامج مصممة لمراحل عمرية متعددة من التأسيس المبكر حتى المستويات الأعلى.',
+        teacherName: 'Master Teacher', teacherRole: 'مدرب برامج الأطفال بأكاديمية عايد', teacherAvatarText: 'M',
+        date: '15 يناير 2026', views: '1,100', votesYes: 35, votesNo: 0,
+        teacherNote: 'المستوى يُحدد حسب العمر والحصيلة اللغوية لا الصف الدراسي فقط.',
+        fullAnswerHtml: `<p>التسجيل يعتمد على المستوى:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>تقييم بسيط للطفل.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>اختيار الليفيل المناسب.</div>`
+      },
+      {
+        id: 43, catId: 'ontrack', categoryName: 'تأسيس On Track',
+        catStyle: { bg: '#EEF2FF', text: '#3730A3', border: '#C7D2FE' },
+        courseName: 'دورة تأسيس On Track',
+        title: 'هل On Track مناسب للمبتدئين تماماً؟',
+        excerpt: 'نعم، المستوى الأول مبني للمبتدئين مع منهج متدرج يغطي المهارات الأربع.',
+        teacherName: 'Master Teacher', teacherRole: 'مدرب تأسيس اللغة الإنجليزية', teacherAvatarText: 'M',
+        date: '12 يناير 2026', views: '1,350', votesYes: 40, votesNo: 0,
+        teacherNote: 'الانتظام في الواجبات أهم من سرعة إنهاء المستوى.',
+        fullAnswerHtml: `<p>On Track Level 1 نقطة بداية ممتازة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>قواعد ومفردات أساسية.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>تدريب على المهارات الأربع.</div>`
+      },
+      {
+        id: 44, catId: 'tech', categoryName: 'البرمجة والتقنية',
+        catStyle: { bg: '#F0FDF4', text: '#166534', border: '#BBF7D0' },
+        courseName: 'دورة برمجة بايثون',
+        title: 'هل أحتاج خلفية رياضية لتعلم بايثون من الصفر؟',
+        excerpt: 'لا يشترط تخصص رياضي؛ يكفي منطق بسيط ورغبة في التطبيق العملي.',
+        teacherName: 'مدرب التقنية', teacherRole: 'مدرب البرمجة بأكاديمية عايد', teacherAvatarText: 'ت',
+        date: '10 يناير 2026', views: '980', votesYes: 33, votesNo: 0,
+        teacherNote: 'ابدأ بمشاريع صغيرة بعد كل درس مباشرة.',
+        fullAnswerHtml: `<p>بايثون مناسب للمبتدئين:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>تعلّم الأساسيات بالتطبيق.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>نفّذ مشروعاً صغيراً كل أسبوع.</div>`
+      },
+      {
+        id: 45, catId: 'hr', categoryName: 'الموارد البشرية',
+        catStyle: { bg: '#FFF7ED', text: '#C2410C', border: '#FED7AA' },
+        courseName: 'دورة الموارد البشرية',
+        title: 'ماذا تغطي دورة الموارد البشرية في أكاديمية عايد؟',
+        excerpt: 'الاستقطاب، إدارة الأداء، التدريب، والتعويضات بأسلوب عملي مرتبط بسوق العمل.',
+        teacherName: 'د. محمد حموده', teacherRole: 'خبير موارد بشرية', teacherAvatarText: 'م',
+        date: '08 يناير 2026', views: '870', votesYes: 29, votesNo: 0,
+        teacherNote: 'طبّق ما تتعلمه على حالات واقعية من بيئتك.',
+        fullAnswerHtml: `<p>محاور أساسية في الدورة:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>استقطاب وتعيين.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>أداء وتدريب وتعويضات.</div>`
+      },
+      {
+        id: 46, catId: 'medical', categoryName: 'الدورات الطبية',
+        catStyle: { bg: '#FDF2F8', text: '#9D174D', border: '#FBCFE8' },
+        courseName: 'الدورة التمهيدية للكليات الطبية',
+        title: 'هل الدورة التمهيدية الطبية مناسبة قبل دخول الكلية؟',
+        excerpt: 'نعم، تبني أساساً في الأحياء والمصطلحات الطبية وتسهّل الانتقال للدراسة الجامعية.',
+        teacherName: 'مدرب المسار الطبي', teacherRole: 'مدرب الدورات الطبية بأكاديمية عايد', teacherAvatarText: 'ط',
+        date: '07 يناير 2026', views: '1,050', votesYes: 36, votesNo: 0,
+        teacherNote: 'المستوى الأول تأسيسي ثم تتدرج المستويات.',
+        fullAnswerHtml: `<p>التمهيد الطبي يختصر الصدمة الأولى:</p>
+          <div class="c106-step-box"><span class="c106-step-num">1</span>مراجعة أحياء ومفاهيم.</div>
+          <div class="c106-step-box"><span class="c106-step-num">2</span>مصطلحات طبية بالإنجليزية.</div>`
+      }
+
+    ];
+
+    /* =========================================================================
+       كود إدارة الحالة والتفاعل (APP STATE & LOGIC ENGINE)
+       ========================================================================= */
+    const appState = {
+      activeCategory: 'all',
+      searchQuery: '',
+      currentPage: 1,
+      itemsPerPage: 4,
+      currentQuestion: null,
+      selectedContactType: 'whatsapp',
+
+      init() {
+        this.refreshCategoryCounts();
+        this.renderCategoriesFilter();
+        this.renderQuestionsList();
+        this.renderAdBanners();
+        this.initHeroTextureAnimation();
+        this.enableTagsSwipe();
+      },
+
+      refreshCategoryCounts() {
+        AYED_CATEGORIES.forEach(cat => {
+          if (cat.id === 'all') {
+            cat.count = AYED_QUESTIONS_DATA.length;
+          } else {
+            cat.count = AYED_QUESTIONS_DATA.filter(q => q.catId === cat.id).length;
+          }
+        });
+      },
+
+      renderAdBanners() {
+        ['listingAdLink', 'detailAdLink'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.href = AYED_AD_CONFIG.linkUrl;
+        });
+        ['listingAdImg', 'detailAdImg'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) {
+            el.src = AYED_AD_CONFIG.imageUrl;
+            el.alt = AYED_AD_CONFIG.alt;
+          }
+        });
+      },
+
+      enableTagsSwipe() {
+        const slider = document.getElementById('popularTagsRow');
+        if (!slider) return;
+        let isDown = false, startX, scrollLeft;
+        slider.addEventListener('mousedown', (e) => {
+          isDown = true;
+          startX = e.pageX - slider.offsetLeft;
+          scrollLeft = slider.scrollLeft;
+        });
+        slider.addEventListener('mouseleave', () => { isDown = false; });
+        slider.addEventListener('mouseup', () => { isDown = false; });
+        slider.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - slider.offsetLeft;
+          slider.scrollLeft = scrollLeft - (x - startX) * 1.3;
+        });
+      },
+
+      /* توليد شريط فلاتر التخصصات - عند التفعيل لون أغمق من نفس الدرجة */
+      renderCategoriesFilter() {
+        const container = document.getElementById('categoriesFilterContainer');
+        if (!container) return;
+
+        let html = '';
+        AYED_CATEGORIES.forEach(cat => {
+          const isActive = this.activeCategory === cat.id;
+          const activeClass = isActive ? 'active' : '';
+          const customStyle = isActive
+            ? `background-color: ${cat.activeBg}; color: #FFFFFF;`
+            : `background-color: ${cat.bg}; color: ${cat.text};`;
+          
+          html += `
+            <button type="button" class="c102-filter-pill ${activeClass}" 
+                    style="${customStyle}"
+                    onclick="appState.setCategory('${cat.id}')">
+              <i class="fa-solid ${cat.icon}"></i>
+              <span>${cat.name}</span>
+              <span class="c102-filter-count" style="${isActive ? 'color:#fff;' : `color: ${cat.text};`}">${cat.count}</span>
+            </button>
+          `;
+        });
+        container.innerHTML = html;
+      },
+
+      /* تعيين التخصص النشط */
+      setCategory(catId) {
+        this.activeCategory = catId;
+        this.currentPage = 1;
+        this.renderCategoriesFilter();
+        this.renderQuestionsList();
+      },
+
+      /* البحث الفوري */
+      handleSearch(query) {
+        this.searchQuery = query.trim().toLowerCase();
+        this.currentPage = 1;
+        this.renderQuestionsList();
+      },
+
+      triggerSearch() {
+        const input = document.getElementById('heroSearchInput');
+        if (input) {
+          this.handleSearch(input.value);
+        }
+      },
+
+      quickFilterTag(keyword) {
+        const input = document.getElementById('heroSearchInput');
+        if (input) {
+          input.value = keyword;
+        }
+        this.handleSearch(keyword);
+      },
+
+      /* تصفية وجلب الأسئلة */
+      getFilteredQuestions() {
+        return AYED_QUESTIONS_DATA.filter(q => {
+          const matchesCat = this.activeCategory === 'all' || q.catId === this.activeCategory;
+          const matchesQuery = !this.searchQuery || 
+                               q.title.toLowerCase().includes(this.searchQuery) ||
+                               q.excerpt.toLowerCase().includes(this.searchQuery) ||
+                               q.courseName.toLowerCase().includes(this.searchQuery) ||
+                               q.categoryName.toLowerCase().includes(this.searchQuery);
+          return matchesCat && matchesQuery;
+        });
+      },
+
+      /* رسم كروت الأسئلة في الصفحة الرئيسية */
+      renderQuestionsList() {
+        const container = document.getElementById('questionsContainer');
+        const countLabel = document.getElementById('questionsCountLabel');
+        const noResults = document.getElementById('noResultsBox');
+        if (!container) return;
+
+        const filtered = this.getFilteredQuestions();
+        const total = filtered.length;
+
+        if (countLabel) {
+          countLabel.textContent = `عرض ${total} من أصل ${AYED_QUESTIONS_DATA.length} سؤال معتمد`;
+        }
+
+        if (total === 0) {
+          container.innerHTML = '';
+          if (noResults) noResults.classList.remove('d-none');
+          this.renderPagination(0);
+          return;
+        }
+
+        if (noResults) noResults.classList.add('d-none');
+
+        // تطبيق التقسيم على الصفحات
+        const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+        const pageItems = filtered.slice(startIndex, startIndex + this.itemsPerPage);
+
+        let html = '';
+        pageItems.forEach(q => {
+          html += `
+            <div class="c103-card-item" onclick="appState.openQuestionDetail(${q.id})">
+              <div class="c103-card-header">
+                <span class="c103-cat-badge" style="background-color: ${q.catStyle.bg}; color: ${q.catStyle.text}; border-color: ${q.catStyle.border};">
+                  <i class="fa-solid fa-graduation-cap"></i>
+                  ${q.categoryName}
+                </span>
+                <span class="c103-course-ref">
+                  <i class="fa-solid fa-book-bookmark text-warning"></i>
+                  ${q.courseName}
+                </span>
+              </div>
+
+              <h3 class="c103-card-title">${q.title}</h3>
+              <p class="c103-card-excerpt">${q.excerpt}</p>
+
+              <div class="c103-card-footer">
+                <div class="c103-teacher-info">
+                  <div class="c103-teacher-avatar">${q.teacherAvatarText}</div>
+                  <div>
+                    <span class="c103-teacher-name">${q.teacherName}</span>
+                    <span class="c103-answer-date"><i class="fa-regular fa-clock ml-1"></i> إجابة معتمدة: ${q.date}</span>
+                  </div>
+                </div>
+                <div class="c103-read-more-btn">
+                  <span>عرض الشرح والإجابة كاملة</span>
+                  <i class="fa-solid fa-arrow-left"></i>
+                </div>
+              </div>
+            </div>
+          `;
+        });
+
+        container.innerHTML = html;
+        this.renderPagination(total);
+      },
+
+      /* رسم أزرار الصفحات */
+      renderPagination(totalItems) {
+        const container = document.getElementById('paginationContainer');
+        if (!container) return;
+
+        const totalPages = Math.ceil(totalItems / this.itemsPerPage);
+        if (totalPages <= 1) {
+          container.innerHTML = '';
+          return;
+        }
+
+        let html = '';
+        html += `
+          <button type="button" class="c105-page-btn" ${this.currentPage === 1 ? 'disabled' : ''} onclick="appState.goToPage(${this.currentPage - 1})">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        `;
+
+        for (let i = 1; i <= totalPages; i++) {
+          html += `
+            <button type="button" class="c105-page-btn ${this.currentPage === i ? 'active' : ''}" onclick="appState.goToPage(${i})">
+              ${i}
+            </button>
+          `;
+        }
+
+        html += `
+          <button type="button" class="c105-page-btn" ${this.currentPage === totalPages ? 'disabled' : ''} onclick="appState.goToPage(${this.currentPage + 1})">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+        `;
+
+        container.innerHTML = html;
+      },
+
+      goToPage(page) {
+        this.currentPage = page;
+        this.renderQuestionsList();
+        const mainSec = document.getElementById('questionsListColumn');
+        if (mainSec) mainSec.scrollIntoView({ behavior: 'smooth' });
+      },
+
+      /* فتح صفحة تفاصيل السؤال والإجابة */
+      openQuestionDetail(id) {
+        const question = AYED_QUESTIONS_DATA.find(q => q.id === id);
+        if (!question) return;
+
+        this.currentQuestion = question;
+
+        // تعبئة بيانات السؤال
+        document.getElementById('detailBreadcrumbCategory').textContent = question.categoryName;
+        document.getElementById('detailBreadcrumbTitle').textContent = question.title;
+        document.getElementById('detailQuestionTitle').textContent = question.title;
+        document.getElementById('detailAnswerDate').textContent = question.date;
+        document.getElementById('detailViewsCount').textContent = question.views;
+        document.getElementById('detailCourseName').textContent = question.courseName;
+
+        // البادج
+        const badge = document.getElementById('detailCategoryBadge');
+        if (badge) {
+          badge.textContent = question.categoryName;
+          badge.style.backgroundColor = question.catStyle.bg;
+          badge.style.color = question.catStyle.text;
+          badge.style.borderColor = question.catStyle.border;
+        }
+
+        // المعلم
+        document.getElementById('detailTeacherName').textContent = question.teacherName;
+        document.getElementById('detailTeacherRole').textContent = question.teacherRole;
+        document.getElementById('detailTeacherAvatar').textContent = question.teacherAvatarText;
+
+        // محتوى الإجابة
+        document.getElementById('detailAnswerContent').innerHTML = question.fullAnswerHtml;
+
+        // ملاحظة وتوجيه المعلم باللون الأورانج
+        const noteText = document.getElementById('detailTeacherNoteText');
+        if (noteText) {
+          noteText.textContent = question.teacherNote;
+        }
+
+        // العدادات
+        document.getElementById('voteYesCount').textContent = question.votesYes;
+        document.getElementById('voteNoCount').textContent = question.votesNo;
+
+        const voteYesBtn = document.getElementById('voteYesBtn');
+        const voteNoBtn = document.getElementById('voteNoBtn');
+        if (voteYesBtn) voteYesBtn.classList.remove('voted');
+        if (voteNoBtn) voteNoBtn.classList.remove('voted');
+
+        // أسئلة مقترحة من نفس التخصص (5)
+        this.renderRelatedQuestions(question);
+
+        // التبديل بين الشاشتين
+        document.getElementById('mainListingSection').style.display = 'none';
+        document.getElementById('questionDetailSection').style.display = 'block';
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+
+      renderRelatedQuestions(current) {
+        const list = document.getElementById('relatedQuestionsList');
+        if (!list) return;
+        const related = AYED_QUESTIONS_DATA
+          .filter(q => q.catId === current.catId && q.id !== current.id)
+          .slice(0, 5);
+        if (!related.length) {
+          list.innerHTML = '<p class="text-muted small mb-0">لا توجد أسئلة أخرى في هذا التخصص حالياً.</p>';
+          return;
+        }
+        list.innerHTML = related.map((q, i) => `
+          <div class="c106-related-item" onclick="appState.openQuestionDetail(${q.id})">
+            <div class="c106-related-num">${i + 1}</div>
+            <div>
+              <p class="c106-related-text">${q.title}</p>
+              <div class="c106-related-meta">${q.teacherName} · ${q.date}</div>
+            </div>
+          </div>
+        `).join('');
+      },
+
+      /* العودة للشاشة الرئيسية */
+      showListingView() {
+        document.getElementById('questionDetailSection').style.display = 'none';
+        document.getElementById('mainListingSection').style.display = 'block';
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      },
+
+      /* تصويت مفيد / غير مفيد */
+      handleVote(isYes) {
+        if (!this.currentQuestion) return;
+        if (isYes) {
+          this.currentQuestion.votesYes += 1;
+          document.getElementById('voteYesCount').textContent = this.currentQuestion.votesYes;
+          document.getElementById('voteYesBtn').classList.add('voted');
+          this.showToast('شكراً لتقييمك! نسعد بخدمتك دائماً.');
+        } else {
+          this.currentQuestion.votesNo += 1;
+          document.getElementById('voteNoCount').textContent = this.currentQuestion.votesNo;
+          document.getElementById('voteNoBtn').classList.add('voted');
+          this.showToast('شكراً لملاحظتك، سنعمل على تحسين وتوضيح الإجابة.');
+        }
+      },
+
+      /* مشاركة السؤال على منصات التواصل */
+      share(platform) {
+        const title = this.currentQuestion ? this.currentQuestion.title : document.title;
+        const url = window.location.href;
+
+        if (platform === 'x') {
+          window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
+        } else if (platform === 'whatsapp') {
+          window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`, '_blank');
+        } else if (platform === 'linkedin') {
+          window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+        } else if (platform === 'copy') {
+          if (navigator.clipboard) {
+            navigator.clipboard.writeText(url).then(() => {
+              this.showToast('تم نسخ رابط السؤال بنجاح إلى الحافظة!');
+            });
+          } else {
+            this.showToast('تم نسخ الرابط!');
+          }
+        }
+      },
+
+      /* البحث من سايدبار صفحة التفاصيل */
+      searchFromDetail() {
+        const input = document.getElementById('detailSideSearchInput');
+        if (input && input.value.trim()) {
+          const val = input.value.trim();
+          this.showListingView();
+          const mainInput = document.getElementById('heroSearchInput');
+          if (mainInput) mainInput.value = val;
+          this.handleSearch(val);
+        }
+      },
+
+      /* فتح نافذة اسأل المعلم */
+      openAskModal() {
+        $('#askTeacherModal').modal('show');
+      },
+
+      setContactType(type) {
+        this.selectedContactType = type;
+        const label = document.getElementById('contactInputLabel');
+        const input = document.getElementById('contactValue');
+        if (type === 'whatsapp') {
+          label.innerHTML = 'رقم الواتساب (مع مفتاح الدولة) <span class="text-danger">*</span>';
+          input.placeholder = 'مثال: +9665XXXXXXXX';
+          input.type = 'tel';
+        } else {
+          label.innerHTML = 'البريد الإلكتروني <span class="text-danger">*</span>';
+          input.placeholder = 'مثال: student@ayedacademy.co';
+          input.type = 'email';
+        }
+      },
+
+      handleFileSelected(input) {
+        const nameDisplay = document.getElementById('uploadFileName');
+        if (input.files && input.files[0]) {
+          nameDisplay.innerHTML = `<i class="fa-solid fa-file-circle-check text-success ml-1"></i> تم اختيار: <strong>${input.files[0].name}</strong>`;
+        }
+      },
+
+      submitQuestion(e) {
+        e.preventDefault();
+        const name = document.getElementById('studentName').value;
+        const category = document.getElementById('questionCategorySelect').value;
+        const title = document.getElementById('questionTitleInput').value;
+
+        $('#askTeacherModal').modal('hide');
+        document.getElementById('askTeacherForm').reset();
+        document.getElementById('uploadFileName').innerHTML = 'اسحب وأفلت صورة المسألة هنا، أو اضغط للاختيار من جهازك';
+
+        this.showToast(`شكراً يا ${name}! تم إرسال سؤالك لمعلمي أكاديمية عايد بنجاح.`);
+      },
+
+      showToast(msg) {
+        const toast = document.getElementById('toastNotification');
+        const msgEl = document.getElementById('toastMessage');
+        if (toast && msgEl) {
+          msgEl.textContent = msg;
+          toast.style.display = 'flex';
+          setTimeout(() => {
+            toast.style.display = 'none';
+          }, 3500);
+        }
+      },
+
+      focusSearch() {
+        this.showListingView();
+        const input = document.getElementById('heroSearchInput');
+        if (input) {
+          input.focus();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      },
+
+      /* كانفاس احترافي: أسماء الدورات موزعة + تكستشر كشكول (مربعات خفيفة) */
+      initHeroTextureAnimation() {
+        const canvas = document.getElementById('dotsCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        const heroSection = canvas.closest('.c101-hero') || canvas.parentElement;
+
+        let width = 0, height = 0;
+        let dpr = window.devicePixelRatio || 1;
+
+        let particles = [];
+        let squares = [];
+
+        const rebuildScene = () => {
+          width = canvas.offsetWidth || canvas.parentElement.offsetWidth || window.innerWidth;
+          height = canvas.offsetHeight || canvas.parentElement.offsetHeight || 360;
+          if (height < 200) height = 280;
+          dpr = window.devicePixelRatio || 1;
+          canvas.width = width * dpr;
+          canvas.height = height * dpr;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          const courseNames = [
+            'STEP', 'ستيب', 'القدرات', 'التحصيلي', 'القدرة المعرفية',
+            'IELTS', 'آيلتس', 'Speak It Out', 'الرخصة المهنية',
+            'On Track', 'Smart Star', 'قدرات الجامعيين', 'كمي', 'لفظي',
+            'قياس', 'تجميعات', 'Reading', 'Grammar', 'الأوتوكاد',
+            'الأمن السيبراني', 'الموارد البشرية', 'بايثون', 'البرمجة'
+          ];
+          const colorPalette = ['#0D2F56', '#1A4B82', '#FFB526', '#D97706', '#0284C7', '#0F766E', '#4338CA'];
+
+          const cols = Math.max(3, Math.ceil(width / (width < 600 ? 120 : 160)));
+          const rows = Math.max(3, Math.ceil(height / (height < 320 ? 70 : 90)));
+          particles = [];
+          let idx = 0;
+          for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+              const name = courseNames[idx % courseNames.length];
+              idx++;
+              const cellW = width / cols;
+              const cellH = height / rows;
+              const baseX = cellW * c + cellW * 0.15 + Math.random() * cellW * 0.6;
+              const baseY = cellH * r + cellH * 0.15 + Math.random() * cellH * 0.6;
+              particles.push({
+                x: baseX, y: baseY, baseX, baseY,
+                vx: (Math.random() - 0.5) * 0.22,
+                vy: (Math.random() - 0.5) * 0.22,
+                symbol: name,
+                size: (width < 576 ? 10 : 12) + Math.random() * (name.length > 10 ? 2 : 3.5),
+                baseOpacity: 0.2 + Math.random() * 0.14,
+                color: colorPalette[Math.floor(Math.random() * colorPalette.length)],
+                rotation: (Math.random() - 0.5) * 0.25,
+                rotSpeed: (Math.random() - 0.5) * 0.003,
+                floatAngle: Math.random() * Math.PI * 2,
+                floatSpeed: 0.004 + Math.random() * 0.008
+              });
+            }
+          }
+
+          squares = [];
+          const sqCount = Math.min(width < 576 ? 16 : 28, Math.floor((width * height) / 16000) + 10);
+          for (let i = 0; i < sqCount; i++) {
+            const s = 14 + Math.random() * (width < 576 ? 28 : 42);
+            squares.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              size: s,
+              opacity: 0.03 + Math.random() * 0.045,
+              vx: (Math.random() - 0.5) * 0.08,
+              vy: (Math.random() - 0.5) * 0.08,
+              rot: Math.random() * Math.PI,
+              rotSpeed: (Math.random() - 0.5) * 0.002
+            });
+          }
+        };
+
+        const setCanvasSize = () => { rebuildScene(); };
+        setCanvasSize();
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(setCanvasSize, 150);
+        });
+
+        const mouse = { x: -1000, y: -1000, active: false, radius: 140 };
+        if (heroSection) {
+          heroSection.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+            mouse.active = true;
+          });
+          heroSection.addEventListener('mouseleave', () => {
+            mouse.x = -1000; mouse.y = -1000; mouse.active = false;
+          });
+        }
+
+        const animate = () => {
+          ctx.clearRect(0, 0, width, height);
+
+          // رسم مربعات الكشكول
+          squares.forEach(s => {
+            s.x += s.vx; s.y += s.vy; s.rot += s.rotSpeed;
+            if (s.x < -50) s.x = width + 50;
+            if (s.x > width + 50) s.x = -50;
+            if (s.y < -50) s.y = height + 50;
+            if (s.y > height + 50) s.y = -50;
+            ctx.save();
+            ctx.translate(s.x, s.y);
+            ctx.rotate(s.rot);
+            ctx.globalAlpha = s.opacity;
+            ctx.strokeStyle = '#0D2F56';
+            ctx.lineWidth = 1;
+            ctx.strokeRect(-s.size / 2, -s.size / 2, s.size, s.size);
+            // خط داخلي خفيف كصفحة كشكول
+            ctx.globalAlpha = s.opacity * 0.6;
+            ctx.beginPath();
+            ctx.moveTo(-s.size / 2 + 4, 0);
+            ctx.lineTo(s.size / 2 - 4, 0);
+            ctx.stroke();
+            ctx.restore();
+          });
+
+          // خطوط ربط خفيفة بين الأسماء المتقاربة
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < 110) {
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(13, 47, 86, ${(1 - dist / 110) * 0.06})`;
+                ctx.lineWidth = 0.7;
+                ctx.stroke();
+              }
+            }
+          }
+
+          particles.forEach(p => {
+            p.floatAngle += p.floatSpeed;
+            // حركة ناعمة حول النقطة الأساسية مع انجراف بسيط
+            p.x = p.baseX + Math.cos(p.floatAngle) * 10 + p.vx * 20;
+            p.y = p.baseY + Math.sin(p.floatAngle * 0.9) * 8 + p.vy * 20;
+            p.baseX += p.vx * 0.15;
+            p.baseY += p.vy * 0.15;
+            if (p.baseX < 20) { p.baseX = 20; p.vx *= -1; }
+            if (p.baseX > width - 20) { p.baseX = width - 20; p.vx *= -1; }
+            if (p.baseY < 20) { p.baseY = 20; p.vy *= -1; }
+            if (p.baseY > height - 20) { p.baseY = height - 20; p.vy *= -1; }
+            p.rotation += p.rotSpeed;
+
+            let currentOpacity = p.baseOpacity;
+            let currentScale = 1;
+            if (mouse.active) {
+              const dx = p.x - mouse.x;
+              const dy = p.y - mouse.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < mouse.radius && dist > 0) {
+                const force = 1 - dist / mouse.radius;
+                const angle = Math.atan2(dy, dx);
+                p.x += Math.cos(angle) * force * 2.2;
+                p.y += Math.sin(angle) * force * 2.2;
+                currentOpacity = Math.min(p.baseOpacity + force * 0.4, 0.72);
+                currentScale = 1 + force * 0.22;
+              }
+            }
+
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rotation);
+            ctx.scale(currentScale, currentScale);
+            ctx.font = `600 ${p.size}px 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif`;
+            ctx.fillStyle = p.color;
+            ctx.globalAlpha = currentOpacity;
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(p.symbol, 0, 0);
+            ctx.restore();
+          });
+
+          requestAnimationFrame(animate);
+        };
+        animate();
+      }
+    };
+
+    // تفعيل السواييب (Drag to scroll) لشريط الفلاتر
+    function enableFilterSwipe() {
+      const slider = document.getElementById('categoriesFilterContainer');
+      if (!slider) return;
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('active');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      });
+      slider.addEventListener('mouseleave', () => {
+        isDown = false;
+      });
+      slider.addEventListener('mouseup', () => {
+        isDown = false;
+      });
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 1.4;
+        slider.scrollLeft = scrollLeft - walk;
+      });
+    }
+
+    // تشغيل التطبيق عند اكتمال تحميل الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+      appState.init();
+      enableFilterSwipe();
+    });
+  </script>
+</body>
+</html>
