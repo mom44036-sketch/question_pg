@@ -840,6 +840,19 @@
       opacity: 0.4;
       cursor: not-allowed;
     }
+    .c105-page-ellipsis {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 38px;
+      color: var(--c-ayed-text-muted);
+      font-weight: 700;
+      font-size: 15px;
+      user-select: none;
+      letter-spacing: 1px;
+      padding: 0 2px;
+    }
 
     /* ==========================================================================
        7. صفحة تفاصيل السؤال والإجابة المعتمدة (QUESTION DETAIL VIEW)
@@ -2054,11 +2067,39 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      background: #25D366;
+      background: #E8F8EF;
       border: none;
-      color: #FFFFFF;
-      font-size: 13px;
+      color: #1B7A4A;
+      font-size: 13.5px;
       font-weight: 700;
+      padding: 12px 22px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      text-decoration: none;
+      font-family: inherit;
+      box-shadow: none;
+    }
+    .c111-btn-wa:hover {
+      background: #D4F3E2;
+      color: #14663C;
+      transform: translateY(-1px);
+      box-shadow: 0 2px 8px rgba(37, 211, 102, 0.18);
+    }
+    .c111-btn-wa i {
+      color: #25D366;
+      font-size: 17px;
+    }
+    .c111-btn-ask-teacher {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      background: linear-gradient(135deg, var(--c-ayed-secondary) 0%, #F5C04A 100%);
+      border: 1px solid rgba(13,47,86,0.12);
+      color: var(--c-ayed-primary);
+      font-size: 13px;
+      font-weight: 800;
       padding: 11px 16px;
       border-radius: 10px;
       cursor: pointer;
@@ -2066,9 +2107,9 @@
       text-decoration: none;
       font-family: inherit;
     }
-    .c111-btn-wa:hover {
-      background: #1EBE57;
-      color: #FFFFFF;
+    .c111-btn-ask-teacher:hover {
+      background: linear-gradient(135deg, var(--c-ayed-secondary-dark) 0%, var(--c-ayed-secondary) 100%);
+      color: var(--c-ayed-primary);
       transform: translateY(-1px);
     }
     .c111-typing {
@@ -2550,7 +2591,7 @@
             <!-- مساحة إعلانية: صورة داخل لينك (من مصفوفة JS) -->
             <div class="c104-ad-box" id="detailAdBox">
               <a href="https://ayedacademy.co/" target="_blank" class="c104-banner-link" id="detailAdLink" title="دورات أكاديمية عايد">
-                <img src="anner.png" alt="بنر أكاديمية عايد" class="c104-banner-img img-fluid" id="detailAdImg">
+                <img src="anner.jpg" alt="بنر أكاديمية عايد" class="c104-banner-img img-fluid" id="detailAdImg">
               </a>
             </div>
 
@@ -2774,7 +2815,7 @@
 
     /* إعداد المساحة الإعلانية (صورة + لينك) — عدّل اللينك والصورة من هنا */
     const AYED_AD_CONFIG = {
-      imageUrl: 'anner.png',
+      imageUrl: 'anner.jpg',
       linkUrl: 'https://ayedacademy.co/',
       alt: 'دورات أكاديمية عايد المعتمدة'
     };
@@ -2783,7 +2824,9 @@
     const BONI_CONFIG = {
       whatsappUrl: 'https://wa.me/966500000000?text=' + encodeURIComponent('السلام عليكم، لدي استفسار من بنك أسئلة أكاديمية عايد'),
       courseUrl: 'https://ayedacademy.co/',
-      minScore: 2.2
+      minScore: 6.5,
+      minTitleCoverage: 0.45,
+      minTitleHits: 2
     };
 
     /* =========================================================================
@@ -3942,23 +3985,43 @@
           return;
         }
 
-        let html = '';
-        html += `
-          <button type="button" class="c105-page-btn" ${this.currentPage === 1 ? 'disabled' : ''} onclick="appState.goToPage(${this.currentPage - 1})">
+        const current = this.currentPage;
+        const delta = 1;
+        const range = new Set([1, totalPages]);
+
+        for (let i = Math.max(1, current - delta); i <= Math.min(totalPages, current + delta); i++) {
+          range.add(i);
+        }
+        if (current <= 3) {
+          for (let i = 1; i <= Math.min(5, totalPages); i++) range.add(i);
+        }
+        if (current >= totalPages - 2) {
+          for (let i = Math.max(1, totalPages - 4); i <= totalPages; i++) range.add(i);
+        }
+
+        const sorted = Array.from(range).sort((a, b) => a - b);
+
+        let html = `
+          <button type="button" class="c105-page-btn" ${current === 1 ? 'disabled' : ''} onclick="appState.goToPage(${current - 1})" aria-label="السابق">
             <i class="fa-solid fa-chevron-right"></i>
           </button>
         `;
 
-        for (let i = 1; i <= totalPages; i++) {
+        let prev = 0;
+        sorted.forEach(p => {
+          if (prev && p - prev > 1) {
+            html += `<span class="c105-page-ellipsis" aria-hidden="true">…</span>`;
+          }
           html += `
-            <button type="button" class="c105-page-btn ${this.currentPage === i ? 'active' : ''}" onclick="appState.goToPage(${i})">
-              ${i}
+            <button type="button" class="c105-page-btn ${current === p ? 'active' : ''}" onclick="appState.goToPage(${p})" ${current === p ? 'aria-current="page"' : ''}>
+              ${p}
             </button>
           `;
-        }
+          prev = p;
+        });
 
         html += `
-          <button type="button" class="c105-page-btn" ${this.currentPage === totalPages ? 'disabled' : ''} onclick="appState.goToPage(${this.currentPage + 1})">
+          <button type="button" class="c105-page-btn" ${current === totalPages ? 'disabled' : ''} onclick="appState.goToPage(${current + 1})" aria-label="التالي">
             <i class="fa-solid fa-chevron-left"></i>
           </button>
         `;
@@ -4532,60 +4595,175 @@
           .replace(/[أإآ]/g, 'ا')
           .replace(/ة/g, 'ه')
           .replace(/ى/g, 'ي')
+          .replace(/ؤ/g, 'و')
+          .replace(/ئ/g, 'ي')
           .replace(/[^\u0600-\u06FFa-z0-9\s]/gi, ' ')
           .replace(/\s+/g, ' ')
           .trim();
       },
 
+      stemToken(t) {
+        // إزالة أل التعريف وبعض اللواحق الشائعة لتطابق أدق
+        let w = String(t || '');
+        if (w.startsWith('ال') && w.length > 3) w = w.slice(2);
+        if (w.endsWith('ات') && w.length > 4) w = w.slice(0, -2);
+        if (w.endsWith('ين') && w.length > 4) w = w.slice(0, -2);
+        if (w.endsWith('ون') && w.length > 4) w = w.slice(0, -2);
+        if (w.endsWith('ة') || w.endsWith('ه')) w = w.slice(0, -1);
+        return w;
+      },
+
+      expandSynonyms(token) {
+        const map = {
+          'ستيب': ['ستيب', 'step'],
+          'step': ['ستيب', 'step'],
+          'كمي': ['كمي', 'كميه', 'قدرات'],
+          'لفظي': ['لفظي', 'لفظيه', 'قدرات'],
+          'قدرات': ['قدرات', 'قدره'],
+          'تحصيلي': ['تحصيلي', 'تحصيليه'],
+          'معرفية': ['معرفية', 'معرفه', 'معرفيه'],
+          'معرفي': ['معرفي', 'معرفية', 'معرفه'],
+          'رخصة': ['رخصة', 'رخصه', 'مهنيه', 'مهنية'],
+          'مهنية': ['مهنية', 'مهنيه', 'رخصة'],
+          'ايلتس': ['ايلتس', 'ielts', 'آيلتس'],
+          'ielts': ['ielts', 'ايلتس'],
+          'محادثة': ['محادثة', 'محادثه', 'speak'],
+          'قواعد': ['قواعد', 'grammar'],
+          'grammar': ['grammar', 'قواعد'],
+          'قراءة': ['قراءة', 'قراءه', 'reading'],
+          'reading': ['reading', 'قراءة', 'قراءه'],
+          'كتابة': ['كتابة', 'كتابه', 'writing'],
+          'writing': ['writing', 'كتابة'],
+          'وقت': ['وقت', 'زمن', 'دقايق', 'دقائق'],
+          'تجميعات': ['تجميعات', 'تجميع', 'نماذج'],
+          'نسب': ['نسب', 'نسبة', 'تناسب'],
+          'سرعة': ['سرعة', 'سرعه', 'سرعات', 'مسافه', 'مسافة'],
+          'هندسة': ['هندسة', 'هندسه', 'مساحات'],
+          'تناظر': ['تناظر', 'تناظري'],
+          'مفردات': ['مفردات', 'كلمات'],
+          'بايثون': ['بايثون', 'python', 'برمجة'],
+          'python': ['python', 'بايثون']
+        };
+        const key = this.stemToken(token);
+        const list = map[token] || map[key];
+        return list ? list.slice() : [token];
+      },
+
       tokenize(s) {
         const stop = new Set([
-          'في', 'من', 'على', 'عن', 'الى', 'إلى', 'ال', 'و', 'او', 'أو', 'ما', 'هل', 'كيف',
-          'ماذا', 'ليش', 'ليه', 'ايه', 'اي', 'أي', 'هذا', 'هذه', 'ذلك', 'مع', 'هو', 'هي',
-          'انا', 'أنا', 'انت', 'أنت', 'يا', 'جدا', 'جداً', 'the', 'a', 'an', 'of', 'to', 'in',
-          'for', 'is', 'are', 'what', 'how', 'can', 'do', 'i', 'my'
+          'في', 'من', 'على', 'عن', 'الى', 'الي', 'ال', 'و', 'او', 'ما', 'هل', 'كيف',
+          'ماذا', 'ليش', 'ليه', 'ايه', 'اي', 'هذا', 'هذه', 'ذلك', 'مع', 'هو', 'هي',
+          'انا', 'انت', 'يا', 'جدا', 'جداا', 'the', 'a', 'an', 'of', 'to', 'in',
+          'for', 'is', 'are', 'what', 'how', 'can', 'do', 'i', 'my', 'please', 'عايز',
+          'عاوز', 'ابي', 'ابغى', 'ابغي', 'ممكن', 'لو', 'سمحت', 'بوني', 'بوت',
+          'سؤال', 'اسال', 'اسأل', 'عايزه', 'تقدر', 'تساعد', 'ساعدني', 'ابيها',
+          'بخصوص', 'حول', 'بالنسبة', 'بالنسبه', 'يعني', 'فقط', 'بس', 'احتاج',
+          'محتاج', 'محتاجه', 'طريقة', 'طريقه', 'افضل', 'احسن'
         ]);
         return this.normalize(s)
           .split(' ')
+          .map(t => this.stemToken(t))
           .filter(t => t.length > 1 && !stop.has(t));
       },
 
-      scoreQuestion(q, tokens) {
-        if (!tokens.length) return 0;
+      tokenHitsText(token, text) {
+        if (!token || !text) return false;
+        if (text.includes(token)) return true;
+        const variants = this.expandSynonyms(token);
+        return variants.some(v => text.includes(this.stemToken(v)) || text.includes(v));
+      },
+
+      scoreQuestion(q, tokens, rawQuery) {
+        if (!tokens.length) return { score: 0, titleHits: 0, coverage: 0 };
         const title = this.normalize(q.title);
         const excerpt = this.normalize(q.excerpt);
         const cat = this.normalize(q.categoryName + ' ' + q.courseName);
-        const answer = this.normalize((q.fullAnswerHtml || '').replace(/<[^>]+>/g, ' '));
+        const titleWords = title.split(' ').filter(Boolean);
+
         let score = 0;
+        let titleHits = 0;
+        let excerptHits = 0;
+
         tokens.forEach(t => {
-          if (title.includes(t)) score += 3.2;
-          if (excerpt.includes(t)) score += 1.8;
-          if (cat.includes(t)) score += 1.4;
-          if (answer.includes(t)) score += 0.7;
-          // مطابقة جزئية للكلمات الطويلة
-          if (t.length >= 4) {
-            if (title.split(' ').some(w => w.includes(t) || t.includes(w))) score += 0.6;
+          const inTitle = this.tokenHitsText(t, title);
+          const inExcerpt = this.tokenHitsText(t, excerpt);
+          const inCat = this.tokenHitsText(t, cat);
+
+          if (inTitle) {
+            titleHits += 1;
+            // كلمات أطول = دلالة أعلى
+            score += 4.5 + Math.min(2.5, t.length * 0.25);
+            // تطابق كلمة كاملة في العنوان
+            if (titleWords.some(w => w === t || this.stemToken(w) === t)) score += 1.2;
+          } else if (t.length >= 4 && titleWords.some(w => w.includes(t) || t.includes(w))) {
+            // تطابق جزئي ضعيف فقط إذا لم يكن هناك تطابق كامل
+            score += 1.1;
+            titleHits += 0.35;
           }
+
+          if (inExcerpt) {
+            excerptHits += 1;
+            score += 1.2;
+          }
+          // الفئة وحدها لا تكفي لاختيار سؤال
+          if (inCat && !inTitle) score += 0.35;
         });
-        // مكافأة تطابق عبارة كاملة تقريباً
+
+        const coverage = titleHits / tokens.length;
+
+        // مكافأة overlap قوي للعنوان
+        if (coverage >= 0.7) score += 5;
+        else if (coverage >= 0.5) score += 2.5;
+
+        // مكافأة عبارة متتالية من الاستعلام داخل العنوان
         const joined = tokens.join(' ');
-        if (joined.length > 6 && title.includes(joined)) score += 4;
-        return score;
+        if (joined.length > 8 && title.includes(joined)) score += 8;
+
+        // عقوبة: كلمات قليلة جداً تطابق العنوان
+        if (titleHits < 1) score *= 0.15;
+        else if (titleHits < BONI_CONFIG.minTitleHits && tokens.length >= 3) score *= 0.55;
+
+        // تشابه بسيط بنسبة الكلمات المشتركة مع العنوان
+        const queryNorm = this.normalize(rawQuery);
+        if (queryNorm.length >= 12) {
+          const qTokens = new Set(tokens);
+          const shared = titleWords.filter(w => qTokens.has(w) || qTokens.has(this.stemToken(w))).length;
+          if (shared >= 3) score += shared * 1.3;
+        }
+
+        return { score, titleHits, coverage, excerptHits };
       },
 
       findBestMatch(query) {
         const tokens = this.tokenize(query);
         if (!tokens.length) return null;
-        let best = null;
-        let bestScore = 0;
+
+        const ranked = [];
         AYED_QUESTIONS_DATA.forEach(q => {
-          const s = this.scoreQuestion(q, tokens);
-          if (s > bestScore) {
-            bestScore = s;
-            best = q;
-          }
+          const r = this.scoreQuestion(q, tokens, query);
+          ranked.push({ question: q, ...r });
         });
-        if (!best || bestScore < BONI_CONFIG.minScore) return null;
-        return { question: best, score: bestScore };
+        ranked.sort((a, b) => b.score - a.score);
+
+        const best = ranked[0];
+        const second = ranked[1];
+        if (!best) return null;
+
+        // شروط صارمة: درجة كافية + تغطية عنوان كافية + ليس مجرد تطابق فئة
+        const strongEnough =
+          best.score >= BONI_CONFIG.minScore &&
+          best.titleHits >= (tokens.length <= 2 ? 1 : BONI_CONFIG.minTitleHits) &&
+          best.coverage >= (tokens.length <= 2 ? 0.5 : BONI_CONFIG.minTitleCoverage);
+
+        if (!strongEnough) return null;
+
+        // إذا كان الثاني قريباً جداً والاثنان ضعيفان نسبياً → اعتبر غير مؤكد
+        if (second && best.score < 12 && second.score >= best.score * 0.88) {
+          // غموض بين سؤالين → لا نخاطر بإجابة خاطئة
+          if (best.coverage < 0.65) return null;
+        }
+
+        return { question: best.question, score: best.score, coverage: best.coverage };
       },
 
       formatAnswerPreview(q) {
@@ -4631,8 +4809,8 @@
           this.addBotMessage(header + answerBody, actions);
         } else {
           const html = `
-            <p>سؤالك محتاج عنصر بشري متخصص 🤝</p>
-            <p style="margin-top:6px;">ما لقيت إجابة مطابقة مباشرة في البنك الحالي. تقدر تتواصل مع الدعم الفني في أكاديمية عايد وهيردّون عليك بالتفصيل.</p>
+            <p><strong>سؤالكم محتاج التواصل مع عنصر بشري</strong> 🤝</p>
+            <p style="margin-top:8px;">لم نجد إجابة مطابقة مباشرة ضمن الأسئلة المعتمدة في البنك حالياً. يرجى التواصل مع الدعم الفني عن طريق الزر التالي.</p>
           `;
           const actions = `
             <div class="c111-chat-actions">
@@ -4640,9 +4818,9 @@
                 <i class="fa-brands fa-whatsapp"></i>
                 تواصل مع الدعم الفني
               </a>
-              <button type="button" class="c111-btn-link" onclick="appState.openAskModal(); boniChat.close();">
-                <i class="fa-solid fa-chalkboard-user"></i>
-                أو اسأل المعلم من النموذج
+              <button type="button" class="c111-btn-ask-teacher" onclick="appState.openAskModal(); boniChat.close();">
+                <i class="fa-solid fa-paper-plane"></i>
+                اسأل المعلم مباشرة
               </button>
             </div>
           `;
