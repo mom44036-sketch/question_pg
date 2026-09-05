@@ -601,11 +601,26 @@
       transform: none;
       box-shadow: none;
     }
+    /* أيقونة الحفظ أعلى يسار الكارت في كل الشاشات */
+    .c103-save-btn--corner {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      right: auto;
+      z-index: 3;
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      box-shadow: 0 2px 8px rgba(13, 47, 86, 0.06);
+    }
     .c103-card-header {
       display: flex;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
+      padding-left: 44px; /* مساحة لأيقونة الحفظ على اليسار */
+      flex-wrap: wrap;
+      gap: 8px;
     }
     .c103-cat-badge {
       display: inline-flex;
@@ -618,13 +633,20 @@
       border-width: 1px;
       border-style: solid;
     }
+    /* اسم الدورة تحت التخصص وفوق عنوان السؤال */
     .c103-course-ref {
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--c-ayed-text-muted);
-      font-weight: 500;
+      font-weight: 600;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 6px;
+      margin-bottom: 8px;
+      line-height: 1.45;
+      padding-left: 0;
+    }
+    .c103-course-ref span {
+      display: inline;
     }
     .c103-card-title {
       font-size: 18px;
@@ -632,6 +654,22 @@
       color: var(--c-ayed-primary);
       margin-bottom: 8px;
       line-height: 1.45;
+    }
+    @media (max-width: 575px) {
+      .c103-save-btn--corner {
+        top: 12px;
+        left: 12px;
+        width: 34px;
+        height: 34px;
+      }
+      .c103-card-header {
+        padding-left: 42px;
+        margin-bottom: 8px;
+      }
+      .c103-course-ref {
+        font-size: 12px;
+        margin-bottom: 6px;
+      }
     }
     .c103-card-excerpt {
       font-size: 14px;
@@ -1939,7 +1977,7 @@
       .c101-search-icon { font-size: 16px; }
       .c103-card-item { padding: 18px 16px; }
       .c103-card-title { font-size: 16px; }
-      .c103-card-header { flex-direction: column; align-items: flex-start; gap: 8px; }
+      .c103-card-header { flex-direction: row; align-items: center; gap: 8px; }
       .c106-btn-cta-orange { width: 100%; justify-content: center; }
       .c106-feedback-row {
         flex-direction: column;
@@ -5221,22 +5259,15 @@
           const saveIcon = saved ? 'fa-solid fa-bookmark' : 'fa-regular fa-bookmark';
           html += `
             <div class="c103-card-item" onclick="appState.openQuestionDetail(${q.id})">
+              <button type="button" class="c103-save-btn c103-save-btn--corner ${saveClass}" title="${saved ? 'إزالة من المحفوظات' : 'حفظ السؤال'}" onclick="appState.toggleSave(${q.id}, event)">
+                <i class="${saveIcon}"></i>
+              </button>
               <div class="c103-card-header">
                 <span class="c103-cat-badge" style="background-color: ${q.catStyle.bg}; color: ${q.catStyle.text}; border-color: ${q.catStyle.border};">
                   <i class="fa-solid fa-graduation-cap"></i>
                   ${q.categoryName}
                 </span>
-                <div style="display:flex;align-items:center;gap:8px;">
-                  <span class="c103-course-ref">
-                    <i class="fa-solid fa-book-bookmark text-warning"></i>
-                    ${q.courseName}
-                  </span>
-                  <button type="button" class="c103-save-btn ${saveClass}" title="${saved ? 'إزالة من المحفوظات' : 'حفظ السؤال'}" onclick="appState.toggleSave(${q.id}, event)">
-                    <i class="${saveIcon}"></i>
-                  </button>
-                </div>
               </div>
-
               <h3 class="c103-card-title">${q.title}</h3>
               <p class="c103-card-excerpt">${q.excerpt}</p>
 
