@@ -652,6 +652,7 @@
       font-size: 18px;
       font-weight: 700;
       color: var(--c-ayed-primary);
+      margin-top: 40px;
       margin-bottom: 8px;
       line-height: 1.45;
     }
@@ -5681,7 +5682,7 @@
         }
       },
 
-      /* كانفاس احترافي: أسماء الدورات موزعة + تكستشر كشكول (مربعات خفيفة)
+      /* كانفاس احترافي: أسماء الدورات موزعة (بدون مربعات خلفية)
          مع إيقاف/استئناف عند التنقل بين القائمة والتفاصيل لتفادي البطء */
       stopHeroAnim() {
         this.heroAnimRunning = false;
@@ -5720,7 +5721,6 @@
         let width = 0, height = 0;
         let dpr = window.devicePixelRatio || 1;
         let particles = [];
-        let squares = [];
         let frameCount = 0;
 
         const rebuildScene = () => {
@@ -5770,21 +5770,6 @@
             }
           }
 
-          squares = [];
-          const sqCount = Math.min(width < 576 ? 12 : 22, Math.floor((width * height) / 18000) + 8);
-          for (let i = 0; i < sqCount; i++) {
-            const s = 14 + Math.random() * (width < 576 ? 28 : 42);
-            squares.push({
-              x: Math.random() * width,
-              y: Math.random() * height,
-              size: s,
-              opacity: 0.03 + Math.random() * 0.045,
-              vx: (Math.random() - 0.5) * 0.08,
-              vy: (Math.random() - 0.5) * 0.08,
-              rot: Math.random() * Math.PI,
-              rotSpeed: (Math.random() - 0.5) * 0.002
-            });
-          }
         };
 
         const setCanvasSize = () => { rebuildScene(); };
@@ -5817,28 +5802,6 @@
 
           ctx.clearRect(0, 0, width, height);
           frameCount++;
-
-          // رسم مربعات الكشكول
-          squares.forEach(s => {
-            s.x += s.vx; s.y += s.vy; s.rot += s.rotSpeed;
-            if (s.x < -50) s.x = width + 50;
-            if (s.x > width + 50) s.x = -50;
-            if (s.y < -50) s.y = height + 50;
-            if (s.y > height + 50) s.y = -50;
-            ctx.save();
-            ctx.translate(s.x, s.y);
-            ctx.rotate(s.rot);
-            ctx.globalAlpha = s.opacity;
-            ctx.strokeStyle = '#0D2F56';
-            ctx.lineWidth = 1;
-            ctx.strokeRect(-s.size / 2, -s.size / 2, s.size, s.size);
-            ctx.globalAlpha = s.opacity * 0.6;
-            ctx.beginPath();
-            ctx.moveTo(-s.size / 2 + 4, 0);
-            ctx.lineTo(s.size / 2 - 4, 0);
-            ctx.stroke();
-            ctx.restore();
-          });
 
           // خطوط الربط: كل إطارين فقط لتقليل تكلفة O(n²)
           if (frameCount % 2 === 0) {
