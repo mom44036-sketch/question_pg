@@ -11,7 +11,7 @@
   <!-- Google Fonts: IBM Plex Sans Arabic & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Bootstrap 4.6 RTL CSS & FontAwesome 6 Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
@@ -62,7 +62,7 @@
     }
 
     body {
-      font-family: 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      font-family: 'Cairo', 'IBM Plex Sans Arabic', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background-color: #FFFFFF;
       color: var(--c-ayed-text-main);
       margin: 0;
@@ -2257,9 +2257,725 @@
       }
       .c111-boni-fab-wrap { bottom: 86px; left: 16px; right: auto; }
     }
-  </style>
+  
+    /* ==========================================================================
+       TOPBAR + NAVBAR + FOOTER + FEEDBACK MODAL (Pro refresh)
+       ========================================================================== */
+    .ayed-topbar {
+      background: linear-gradient(90deg, #04101F 0%, #06152B 40%, #0A1F3A 100%);
+      color: #EAF2FA;
+      font-size: 12.5px;
+      padding: 0;
+      border-bottom: 1px solid rgba(255,181,38,0.18);
+      position: relative;
+      z-index: 1030;
+    }
+    .ayed-topbar::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,181,38,0.35), transparent);
+      pointer-events: none;
+    }
+    .ayed-topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      min-height: 40px;
+      padding: 7px 0;
+    }
+    .ayed-topbar-contact {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px 4px;
+    }
+    .ayed-topbar-contact a {
+      color: rgba(234,242,250,0.92);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-weight: 600;
+      font-size: 12.5px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .ayed-topbar-contact a:hover {
+      color: #FFB526;
+      background: rgba(255,181,38,0.08);
+    }
+    .ayed-topbar-contact i {
+      color: #FFB526;
+      font-size: 11px;
+      width: 14px;
+      text-align: center;
+    }
+    .ayed-topbar-sep {
+      width: 1px;
+      height: 14px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 4px;
+      flex-shrink: 0;
+    }
+    .ayed-topbar-social {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .ayed-topbar-social a {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: rgba(234,242,250,0.88);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12.5px;
+      transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
+    }
+    .ayed-topbar-social a:hover {
+      background: #FFB526;
+      color: #0D2F56;
+      border-color: #FFB526;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(255,181,38,0.25);
+    }
+
+    .ayed-topbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1065;
+      width: 100%;
+    }
+    .ayed-navbar {
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(13,47,86,0.08);
+      position: fixed;
+      top: 40px; /* ارتفاع التوب بار تقريباً */
+      left: 0;
+      right: 0;
+      z-index: 1060;
+      box-shadow: 0 1px 0 rgba(13,47,86,0.06);
+      width: 100%;
+    }
+    .ayed-navbar.is-stuck {
+      box-shadow: 0 2px 8px rgba(13,47,86,0.06);
+    }
+    body {
+      padding-top: 108px; /* توب بار + نافبار */
+    }
+    @media (max-width: 575px) {
+      .ayed-navbar { top: 36px; }
+      body { padding-top: 100px; }
+    }
+
+    .ayed-navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0;
+      min-height: 68px;
+    }
+    .ayed-nav-logo {
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      padding: 2px 0;
+    }
+    .ayed-nav-logo img {
+      height: 44px;
+      width: auto;
+      max-width: 170px;
+      object-fit: contain;
+      display: block;
+    }
+    .ayed-nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: 1;
+      justify-content: center;
+    }
+    .ayed-nav-links a {
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 9px 16px;
+      border-radius: 10px;
+      transition: all 0.18s ease;
+      position: relative;
+      letter-spacing: -0.01em;
+    }
+    .ayed-nav-links a:hover {
+      background: var(--c-ayed-bg-blue);
+      color: var(--c-ayed-primary);
+    }
+    .ayed-nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 4px;
+      right: 16px;
+      left: 16px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--c-ayed-secondary);
+      transform: scaleX(0);
+      transition: transform 0.2s ease;
+    }
+    .ayed-nav-links a:hover::after { transform: scaleX(1); }
+    .ayed-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    /* زر واتساب: خلفية أخضر فاتح جداً + نص أخضر واتساب غامق */
+    .ayed-btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #E8F8EF;
+      color: #075E54 !important;
+      font-weight: 800;
+      font-size: 13.5px;
+      padding: 11px 18px;
+      border-radius: 10px;
+      border: 1.5px solid #A7E9C3;
+      text-decoration: none !important;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(37,211,102,0.08);
+    }
+    .ayed-btn-whatsapp:hover {
+      background: #D4F3E2;
+      color: #054C44 !important;
+      border-color: #25D366;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(37,211,102,0.18);
+    }
+    .ayed-btn-whatsapp i {
+      font-size: 17px;
+      color: #25D366;
+    }
+    .ayed-nav-toggle {
+      display: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      border: 1.5px solid var(--c-ayed-border);
+      background: #FFFFFF;
+      color: var(--c-ayed-primary);
+      font-size: 18px;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .ayed-nav-toggle:hover {
+      background: var(--c-ayed-bg-blue);
+      border-color: #B8C9DA;
+    }
+    .ayed-nav-drawer-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(6,21,43,0.5);
+      backdrop-filter: blur(3px);
+      z-index: 1070;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .ayed-nav-drawer-backdrop.open {
+      display: block;
+      opacity: 1;
+    }
+    .ayed-nav-drawer {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      max-width: 88vw;
+      height: 100%;
+      background: #FFFFFF;
+      z-index: 1075;
+      box-shadow: -12px 0 40px rgba(13,47,86,0.15);
+      transition: right 0.3s cubic-bezier(0.4,0,0.2,1);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      overflow-y: auto;
+    }
+    .ayed-nav-drawer.open { right: 0; }
+    .ayed-drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 18px 16px;
+      background: linear-gradient(135deg, #EAF2FA 0%, #FFFFFF 100%);
+      border-bottom: 1px solid var(--c-ayed-border);
+    }
+    .ayed-drawer-close {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--c-ayed-border);
+      background: #FFFFFF;
+      color: var(--c-ayed-primary);
+      cursor: pointer;
+      font-size: 16px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+    }
+    .ayed-drawer-close:hover { background: #FEE2E2; color: #DC3545; }
+    .ayed-drawer-body {
+      padding: 16px 18px 24px;
+      flex: 1;
+    }
+    .ayed-drawer-links {
+      list-style: none;
+      margin: 0 0 20px 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .ayed-drawer-links a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 13px 14px;
+      border-radius: 12px;
+      color: var(--c-ayed-primary);
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.15s;
+      border: 1px solid transparent;
+    }
+    .ayed-drawer-links a:hover {
+      background: var(--c-ayed-bg-blue);
+      border-color: #D0D9E4;
+    }
+    .ayed-drawer-links a i {
+      width: 20px;
+      color: var(--c-ayed-navy-medium);
+      font-size: 14px;
+    }
+    .ayed-drawer-wa-wrap {
+      padding-top: 8px;
+      border-top: 1px solid #F1F5F9;
+    }
+
+    /* تاجات الأكثر بحثاً: اللابل ثابت والتاجات فقط تسكرول */
+    .c101-tags-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      max-width: 720px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .c101-tag-label {
+      flex-shrink: 0;
+      white-space: nowrap;
+    }
+    .c101-tags-row {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 8px;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding: 4px 2px 6px;
+      cursor: grab;
+    }
+
+
+    /* المودالات فوق النافبار وكل شيء + تجاوب الشاشات */
+    .modal-backdrop {
+      z-index: 1080 !important;
+    }
+    .modal {
+      z-index: 1090 !important;
+    }
+    .modal-dialog {
+      margin: 1rem auto;
+      max-width: 560px;
+      width: calc(100% - 1.5rem);
+    }
+    .modal-dialog.modal-lg {
+      max-width: 720px;
+    }
+    .modal-dialog-centered {
+      min-height: calc(100% - 2rem);
+    }
+    .modal-content {
+      max-height: calc(100vh - 2rem);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .modal-body {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      max-height: min(70vh, 520px);
+    }
+    @media (max-width: 575.98px) {
+      .modal-dialog {
+        margin: 0.5rem auto;
+        width: calc(100% - 1rem);
+        max-width: none;
+      }
+      .modal-dialog-centered {
+        min-height: calc(100% - 1rem);
+      }
+      .modal-content {
+        max-height: calc(100vh - 1rem);
+        border-radius: 14px !important;
+      }
+      .modal-body {
+        max-height: calc(100vh - 160px);
+        padding: 1rem !important;
+      }
+      .c107-modal-header,
+      .c109-feedback-header {
+        padding: 14px 16px !important;
+      }
+      .c107-modal-footer,
+      .modal-footer {
+        padding: 12px 14px !important;
+        flex-wrap: wrap;
+      }
+      .c107-modal-title,
+      .c109-feedback-title {
+        font-size: 16px !important;
+      }
+    }
+
+    /* Feedback modal */
+    .c109-feedback-modal .modal-content {
+      border-radius: 16px;
+      border: 1px solid var(--c-ayed-border);
+      overflow: hidden;
+    }
+    .c109-feedback-header {
+      background: linear-gradient(135deg, #FFFBF0 0%, #FFF8EB 100%);
+      border-bottom: 1px solid #F5D78A;
+      padding: 20px 24px;
+    }
+    .c109-feedback-title {
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--c-ayed-primary);
+      margin: 0 0 4px 0;
+    }
+    .c109-feedback-sub {
+      font-size: 13px;
+      color: var(--c-ayed-text-muted);
+      margin: 0;
+    }
+    .c109-reason-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 8px 0 16px;
+    }
+    .c109-reason-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border: 1.5px solid #E2E8F0;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.15s;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      background: #FFFFFF;
+      margin: 0;
+    }
+    .c109-reason-item:hover,
+    .c109-reason-item.active {
+      border-color: var(--c-ayed-primary);
+      background: var(--c-ayed-bg-blue);
+    }
+    .c109-reason-item input { margin: 0; accent-color: var(--c-ayed-primary); }
+    .c109-feedback-textarea {
+      width: 100%;
+      border: 1.5px solid #CBD5E1;
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-size: 13.5px;
+      font-family: inherit;
+      min-height: 90px;
+      resize: vertical;
+      outline: none;
+    }
+    .c109-feedback-textarea:focus {
+      border-color: var(--c-ayed-primary);
+      box-shadow: 0 0 0 3px rgba(13,47,86,0.08);
+    }
+
+    /* Chatbot social — أصغر وأكثر احترافية */
+    .c111-social-block {
+      margin-top: 10px;
+      padding: 8px 8px 8px;
+      background: #F8FAFC;
+      border: 1px solid #E8EEF4;
+      border-radius: 10px;
+    }
+    .c111-social-block-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: #5A6A80;
+      text-align: center;
+      margin: 0 0 7px 0;
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      line-height: 1.4;
+    }
+    .c111-social-block-title i { color: #FFB526; font-size: 10px; }
+    .c111-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+    }
+    .c111-social-row + .c111-social-row { margin-top: 5px; }
+    .c111-social-row a {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      border: 1px solid #E2E8F0;
+      color: var(--c-ayed-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11.5px;
+      transition: all 0.15s ease;
+    }
+    .c111-social-row a:hover {
+      background: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border-color: var(--c-ayed-primary);
+    }
+
+    /* Footer */
+    .ayed-footer {
+      position: relative;
+      background: linear-gradient(165deg, #06152B 0%, #0D2F56 55%, #0A2748 100%);
+      color: #EAF2FA;
+      padding: 56px 0 0;
+      overflow: hidden;
+      margin-top: 40px;
+    }
+    .ayed-footer-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.55;
+    }
+    .ayed-footer-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .ayed-footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+      gap: 32px 24px;
+      padding-bottom: 36px;
+    }
+    .ayed-footer-logo img {
+      height: 48px;
+      width: auto;
+      max-width: 180px;
+      object-fit: contain;
+      margin-bottom: 14px;
+      filter: brightness(1.05);
+    }
+    .ayed-footer-about {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: rgba(234,242,250,0.78);
+      margin-bottom: 16px;
+    }
+    .ayed-footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ayed-footer-social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .ayed-footer-social a {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,181,38,0.25);
+      color: #EAF2FA;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      transition: all 0.18s;
+    }
+    .ayed-footer-social a:hover {
+      background: #FFB526;
+      color: #0D2F56;
+      border-color: #FFB526;
+    }
+    .ayed-footer-col-title {
+      font-size: 15px;
+      font-weight: 800;
+      color: #FFB526;
+      margin-bottom: 16px;
+      letter-spacing: -0.01em;
+    }
+    .ayed-footer-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ayed-footer-list a {
+      color: rgba(234,242,250,0.82);
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    .ayed-footer-list a:hover { color: #FFB526; }
+    .ayed-footer-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13.5px;
+      color: rgba(234,242,250,0.85);
+      margin-bottom: 12px;
+    }
+    .ayed-footer-contact-item i {
+      color: #FFB526;
+      margin-top: 3px;
+      width: 16px;
+      text-align: center;
+    }
+    .ayed-footer-contact-item a { color: rgba(234,242,250,0.9); }
+    .ayed-footer-contact-item a:hover { color: #FFB526; }
+    .ayed-footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 16px 0;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12.5px;
+      color: rgba(234,242,250,0.55);
+    }
+    .ayed-footer-legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .ayed-footer-legal a {
+      color: rgba(234,242,250,0.65);
+      font-weight: 500;
+    }
+    .ayed-footer-legal a:hover { color: #FFB526; }
+
+    @media (max-width: 991px) {
+      .ayed-nav-links { display: none; }
+      .ayed-nav-toggle { display: inline-flex; }
+      .ayed-topbar-inner { justify-content: center; text-align: center; }
+      .ayed-topbar-contact { justify-content: center; }
+      .ayed-topbar-social { justify-content: center; width: 100%; }
+      .ayed-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 28px 20px;
+      }
+      .c101-tags-wrap { max-width: 100%; }
+    }
+    @media (max-width: 575px) {
+      .ayed-topbar { font-size: 11.5px; }
+      .ayed-topbar-inner { padding: 6px 0; min-height: 36px; }
+      .ayed-btn-whatsapp span { display: none; }
+      .ayed-btn-whatsapp { padding: 10px 12px; border-radius: 10px; }
+      .ayed-footer-grid { grid-template-columns: 1fr; gap: 24px; }
+      .ayed-footer { padding-top: 40px; }
+      .ayed-footer-bottom { flex-direction: column; text-align: center; }
+    }
+
+    /* حماية المحتوى — ردع النسخ والاختيار */
+    body.ayed-protect {
+      -webkit-user-select: none !important;
+      -moz-user-select: none !important;
+      -ms-user-select: none !important;
+      user-select: none !important;
+      -webkit-touch-callout: none !important;
+    }
+    body.ayed-protect input,
+    body.ayed-protect textarea,
+    body.ayed-protect .c111-chat-input,
+    body.ayed-protect .c101-search-input,
+    body.ayed-protect .c106-detail-search-input,
+    body.ayed-protect .c107-input,
+    body.ayed-protect .c107-textarea,
+    body.ayed-protect .c107-select {
+      -webkit-user-select: text !important;
+      user-select: text !important;
+    }
+    body.ayed-protect img {
+      -webkit-user-drag: none;
+      pointer-events: none;
+    }
+    #ayedProtectOverlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000;
+      z-index: 2147483646;
+      pointer-events: none;
+    }
+    body.ayed-blur-protect #ayedProtectOverlay {
+      display: block;
+    }
+</style>
 </head>
-<body>
+<body class="ayed-protect">
+  <div id="ayedProtectOverlay" aria-hidden="true"></div>
 
   <!-- تنبيه تأكيد الإرسال -->
   <div id="toastNotification" class="c110-toast">
@@ -2270,6 +2986,58 @@
   <!-- =========================================================================
        1. الصفحة الرئيسية لبنك الأسئلة (MAIN LISTING VIEW)
        ========================================================================= -->
+
+  <!-- توب بار -->
+  <div class="ayed-topbar" id="ayedTopbar">
+    <div class="container">
+      <div class="ayed-topbar-inner">
+        <div class="ayed-topbar-contact" id="ayedTopbarContact"><!-- JS --></div>
+        <div class="ayed-topbar-social" id="ayedTopbarSocial"><!-- JS --></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- نافبار ستيكي -->
+  <nav class="ayed-navbar" id="ayedNavbar">
+    <div class="container">
+      <div class="ayed-navbar-inner">
+        <a href="https://ayedacademy.co/" class="ayed-nav-logo" id="ayedNavLogoLink" title="أكاديمية عايد">
+          <img src="logo.png" alt="أكاديمية عايد" id="ayedNavLogoImg">
+        </a>
+        <ul class="ayed-nav-links" id="ayedNavLinks"><!-- JS --></ul>
+        <div class="ayed-nav-actions">
+          <a href="#" class="ayed-btn-whatsapp" id="ayedNavWhatsapp" target="_blank" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span id="ayedNavWhatsappLabel">تواصل مع الدعم الفني</span>
+          </a>
+          <button type="button" class="ayed-nav-toggle" id="ayedNavToggle" aria-label="القائمة" onclick="ayedChrome.toggleDrawer(true)">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- درج الموبايل -->
+  <div class="ayed-nav-drawer-backdrop" id="ayedDrawerBackdrop" onclick="ayedChrome.toggleDrawer(false)"></div>
+  <div class="ayed-nav-drawer" id="ayedNavDrawer">
+    <div class="ayed-drawer-header">
+      <img src="logo.png" alt="أكاديمية عايد" id="ayedDrawerLogo" style="height:38px;width:auto;">
+      <button type="button" class="ayed-drawer-close" onclick="ayedChrome.toggleDrawer(false)" aria-label="إغلاق">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+    <div class="ayed-drawer-body">
+      <ul class="ayed-drawer-links" id="ayedDrawerLinks"><!-- JS --></ul>
+      <div class="ayed-drawer-wa-wrap">
+        <a href="#" class="ayed-btn-whatsapp" id="ayedDrawerWhatsapp" target="_blank" rel="noopener" style="justify-content:center;width:100%;">
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>تواصل مع الدعم الفني</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
   <main id="mainListingSection">
 
     <!-- قسم الهيرو مع كانفاس الكرات المتحركة التفاعلية (بدون بادج وبدون نافبار) -->
@@ -2298,10 +3066,10 @@
             </button>
           </div>
 
-          <!-- تاجات الأكثر بحثاً - أصغر + سوايب -->
+          <!-- تاجات الأكثر بحثاً: اللابل ثابت + التاجات فقط سكرول -->
           <div class="c101-tags-wrap">
+            <span class="c101-tag-label"><i class="fa-solid fa-fire text-warning"></i> الأكثر بحثاً:</span>
             <div class="c101-tags-row" id="popularTagsRow">
-              <span class="c101-tag-label"><i class="fa-solid fa-fire text-warning"></i> الأكثر بحثاً:</span>
               <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('ستيب')">ستيب STEP</button>
               <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('الكمي')">قدرات كمي</button>
               <button type="button" class="c101-tag-item" onclick="appState.quickFilterTag('اللفظي')">تناظر لفظي</button>
@@ -2813,6 +3581,61 @@
       { id: 'hr', name: 'الموارد البشرية', count: 0, bg: '#FFF7ED', text: '#C2410C', border: '#FED7AA', activeBg: '#C2410C', icon: 'fa-users' }
     ];
 
+
+    /* =========================================================================
+       إعدادات الموقع العامة — تووب بار / نافبار / فوتر / سوشيال (عدّل من هنا فقط)
+       ========================================================================= */
+    const AYED_SITE_CONFIG = {
+      logoUrl: 'logo.png',
+      logoAlt: 'أكاديمية عايد للتدريب',
+      siteUrl: 'https://ayedacademy.co/',
+      email: 'info@ayedacademy.co',
+      phones: [
+        { display: '920019606', tel: '+966920019606', label: 'الخط الساخن' },
+        { display: '0577607222', tel: '+966577607222', label: 'الجوال' }
+      ],
+      whatsappUrl: 'https://wa.me/966920019606',
+      whatsappLabel: 'تواصل مع الدعم الفني',
+      social: [
+        { id: 'facebook', name: 'فيسبوك', icon: 'fa-brands fa-facebook-f', url: 'https://www.facebook.com/people/Ayed-academy/61551884496569/' },
+        { id: 'x', name: 'إكس (تويتر)', icon: 'fa-brands fa-x-twitter', url: 'https://x.com/Ayed_Academy' },
+        { id: 'instagram', name: 'إنستغرام', icon: 'fa-brands fa-instagram', url: 'https://www.instagram.com/ayed_academy/' },
+        { id: 'telegram', name: 'تليجرام', icon: 'fa-brands fa-telegram', url: 'https://t.me/ayed_acadmey' },
+        { id: 'youtube', name: 'يوتيوب', icon: 'fa-brands fa-youtube', url: 'https://www.youtube.com/@AyedAcademy' },
+        { id: 'snapchat', name: 'سناب شات', icon: 'fa-brands fa-snapchat', url: 'https://www.snapchat.com/add/ayed_academy' },
+        { id: 'linkedin', name: 'لينكدإن', icon: 'fa-brands fa-linkedin-in', url: 'https://www.linkedin.com/in/ayed-academy-731825263/' },
+        { id: 'tiktok', name: 'تيك توك', icon: 'fa-brands fa-tiktok', url: 'https://www.tiktok.com/@ayedacademy' }
+      ],
+      navLinks: [
+        { label: 'الرئيسية', url: 'https://ayedacademy.co/' },
+        { label: 'الدورات', url: 'https://ayedacademy.co/all-courses' },
+        { label: 'المدونة', url: 'https://ayedacademy.co/news' },
+        { label: 'من نحن', url: 'https://ayedacademy.co/about' }
+      ],
+      footerAbout: 'أكاديمية عايد للتدريب منصة تعليمية رائدة تقدّم دورات متخصصة في اختبارات قياس (ستيب، القدرات، التحصيلي، القدرة المعرفية) واللغة الإنجليزية والرخصة المهنية، بإشراف نخبة المدربين في المملكة العربية السعودية.',
+      footerCourses: [
+        { label: 'ستيب STEP', url: 'https://ayedacademy.co/all-courses' },
+        { label: 'القدرات العامة', url: 'https://ayedacademy.co/all-courses' },
+        { label: 'التحصيلي', url: 'https://ayedacademy.co/all-courses' },
+        { label: 'القدرة المعرفية', url: 'https://ayedacademy.co/all-courses' },
+        { label: 'IELTS', url: 'https://ayedacademy.co/all-courses' },
+        { label: 'الرخصة المهنية', url: 'https://ayedacademy.co/all-courses' },
+        { label: 'Speak It Out', url: 'https://ayedacademy.co/all-courses' },
+        { label: 'On Track', url: 'https://ayedacademy.co/all-courses' }
+      ],
+      legalLinks: [
+        { label: 'شروط الاستخدام', url: 'https://ayedacademy.co/terms' },
+        { label: 'سياسة الخصوصية', url: 'https://ayedacademy.co/privacy' }
+      ],
+      feedbackReasons: [
+        'الإجابة غير واضحة بما يكفي',
+        'الإجابة غير مرتبطة بالسؤال',
+        'أحتاج أمثلة إضافية أو خطوات أوضح',
+        'المحتوى قديم أو يحتاج تحديث',
+        'أخرى'
+      ]
+    };
+
     /* إعداد المساحة الإعلانية (صورة + لينك) — عدّل اللينك والصورة من هنا */
     const AYED_AD_CONFIG = {
       imageUrl: 'anner.png',
@@ -2822,11 +3645,11 @@
 
     /* إعداد شات بوت بوني — غيّر رقم الواتساب هنا */
     const BONI_CONFIG = {
-      whatsappUrl: 'https://wa.me/966500000000?text=' + encodeURIComponent('السلام عليكم، لدي استفسار من بنك أسئلة أكاديمية عايد'),
+      whatsappUrl: 'https://wa.me/966920019606?text=' + encodeURIComponent('السلام عليكم، لدي استفسار من بنك أسئلة أكاديمية عايد'),
       courseUrl: 'https://ayedacademy.co/',
-      minScore: 6.5,
-      minTitleCoverage: 0.45,
-      minTitleHits: 2
+      minScore: 12,
+      minTitleCoverage: 0.4,
+      minTitleHits: 1
     };
 
     /* =========================================================================
@@ -3625,6 +4448,11 @@
       savedOnly: false,
       sortBy: 'newest', // newest | helpful | views
       savedIds: [],
+      /* تحكم في رسم Canvas الهيرو — يوقف عند صفحة التفاصيل لتفادي البطء */
+      heroAnimRunning: false,
+      heroAnimId: null,
+      _heroAnimCtx: null,
+      _heroAnimState: null,
 
       init() {
         this.loadSavedIds();
@@ -4088,6 +4916,9 @@
         // أسئلة مقترحة من نفس التخصص (5)
         this.renderRelatedQuestions(question);
 
+        // إيقاف رسم Canvas الهيرو فوراً قبل إخفاء القسم (يحل بطء الرجوع)
+        this.stopHeroAnim();
+
         // التبديل بين الشاشتين
         document.getElementById('mainListingSection').style.display = 'none';
         document.getElementById('questionDetailSection').style.display = 'block';
@@ -4120,6 +4951,8 @@
       showListingView() {
         document.getElementById('questionDetailSection').style.display = 'none';
         document.getElementById('mainListingSection').style.display = 'block';
+        // استئناف رسم Canvas بعد إظهار القسم
+        this.startHeroAnim();
         window.scrollTo({ top: 0, behavior: 'smooth' });
       },
 
@@ -4132,11 +4965,61 @@
           document.getElementById('voteYesBtn').classList.add('voted');
           this.showToast('شكراً لتقييمك! نسعد بخدمتك دائماً.');
         } else {
-          this.currentQuestion.votesNo += 1;
-          document.getElementById('voteNoCount').textContent = this.currentQuestion.votesNo;
-          document.getElementById('voteNoBtn').classList.add('voted');
-          this.showToast('شكراً لملاحظتك، سنعمل على تحسين وتوضيح الإجابة.');
+          // فتح بوب أب احترافي لسبب عدم الإعجاب
+          this.openFeedbackModal();
         }
+      },
+
+      openFeedbackModal() {
+        const list = document.getElementById('feedbackReasonList');
+        if (list && typeof AYED_SITE_CONFIG !== 'undefined') {
+          list.innerHTML = (AYED_SITE_CONFIG.feedbackReasons || []).map((r, i) => `
+            <label class="c109-reason-item" onclick="appState.selectFeedbackReason(this, ${i})">
+              <input type="radio" name="feedbackReason" value="${r.replace(/"/g, '&quot;')}">
+              <span>${r}</span>
+            </label>
+          `).join('');
+        }
+        const other = document.getElementById('feedbackOtherText');
+        if (other) other.value = '';
+        if (window.jQuery) {
+          $('#feedbackReasonModal').modal('show');
+        } else {
+          const m = document.getElementById('feedbackReasonModal');
+          if (m) { m.style.display = 'block'; m.classList.add('show'); }
+        }
+      },
+
+      selectFeedbackReason(el, idx) {
+        document.querySelectorAll('.c109-reason-item').forEach(n => n.classList.remove('active'));
+        if (el) {
+          el.classList.add('active');
+          const input = el.querySelector('input');
+          if (input) input.checked = true;
+        }
+      },
+
+      submitFeedbackReason() {
+        const selected = document.querySelector('input[name="feedbackReason"]:checked');
+        const other = (document.getElementById('feedbackOtherText') || {}).value || '';
+        if (!selected && !other.trim()) {
+          this.showToast('يرجى اختيار سبب أو كتابة ملاحظة قصيرة.');
+          return;
+        }
+        if (this.currentQuestion) {
+          this.currentQuestion.votesNo += 1;
+          const noEl = document.getElementById('voteNoCount');
+          if (noEl) noEl.textContent = this.currentQuestion.votesNo;
+          const noBtn = document.getElementById('voteNoBtn');
+          if (noBtn) noBtn.classList.add('voted');
+        }
+        if (window.jQuery) {
+          $('#feedbackReasonModal').modal('hide');
+        } else {
+          const m = document.getElementById('feedbackReasonModal');
+          if (m) { m.style.display = 'none'; m.classList.remove('show'); }
+        }
+        this.showToast('شكراً لملاحظتك — سنراجع الإجابة ونحسّنها قريباً.');
       },
 
       /* مشاركة السؤال على منصات التواصل */
@@ -4234,18 +5117,47 @@
         }
       },
 
-      /* كانفاس احترافي: أسماء الدورات موزعة + تكستشر كشكول (مربعات خفيفة) */
+      /* كانفاس احترافي: أسماء الدورات موزعة + تكستشر كشكول (مربعات خفيفة)
+         مع إيقاف/استئناف عند التنقل بين القائمة والتفاصيل لتفادي البطء */
+      stopHeroAnim() {
+        this.heroAnimRunning = false;
+        if (this.heroAnimId != null) {
+          cancelAnimationFrame(this.heroAnimId);
+          this.heroAnimId = null;
+        }
+      },
+
+      startHeroAnim() {
+        if (this.heroAnimRunning) return;
+        if (!this._heroAnimState || !this._heroAnimCtx) {
+          this.initHeroTextureAnimation();
+          return;
+        }
+        this.heroAnimRunning = true;
+        const tick = this._heroAnimState.tick;
+        if (typeof tick === 'function') {
+          this.heroAnimId = requestAnimationFrame(tick);
+        }
+      },
+
       initHeroTextureAnimation() {
         const canvas = document.getElementById('dotsCanvas');
         if (!canvas) return;
+        // تجنب إعادة التهيئة إذا كانت جاهزة
+        if (this._heroAnimState && this._heroAnimCtx) {
+          this.startHeroAnim();
+          return;
+        }
+
         const ctx = canvas.getContext('2d');
         const heroSection = canvas.closest('.c101-hero') || canvas.parentElement;
+        this._heroAnimCtx = ctx;
 
         let width = 0, height = 0;
         let dpr = window.devicePixelRatio || 1;
-
         let particles = [];
         let squares = [];
+        let frameCount = 0;
 
         const rebuildScene = () => {
           width = canvas.offsetWidth || canvas.parentElement.offsetWidth || window.innerWidth;
@@ -4265,8 +5177,9 @@
           ];
           const colorPalette = ['#0D2F56', '#1A4B82', '#FFB526', '#D97706', '#0284C7', '#0F766E', '#4338CA'];
 
-          const cols = Math.max(3, Math.ceil(width / (width < 600 ? 120 : 160)));
-          const rows = Math.max(3, Math.ceil(height / (height < 320 ? 70 : 90)));
+          // كثافة أقل قليلاً لتقليل الحمل مع الحفاظ على المظهر
+          const cols = Math.max(3, Math.ceil(width / (width < 600 ? 140 : 180)));
+          const rows = Math.max(3, Math.ceil(height / (height < 320 ? 80 : 100)));
           particles = [];
           let idx = 0;
           for (let r = 0; r < rows; r++) {
@@ -4294,7 +5207,7 @@
           }
 
           squares = [];
-          const sqCount = Math.min(width < 576 ? 16 : 28, Math.floor((width * height) / 16000) + 10);
+          const sqCount = Math.min(width < 576 ? 12 : 22, Math.floor((width * height) / 18000) + 8);
           for (let i = 0; i < sqCount; i++) {
             const s = 14 + Math.random() * (width < 576 ? 28 : 42);
             squares.push({
@@ -4331,8 +5244,15 @@
           });
         }
 
-        const animate = () => {
+        const self = this;
+        const tick = () => {
+          if (!self.heroAnimRunning) {
+            self.heroAnimId = null;
+            return;
+          }
+
           ctx.clearRect(0, 0, width, height);
+          frameCount++;
 
           // رسم مربعات الكشكول
           squares.forEach(s => {
@@ -4348,7 +5268,6 @@
             ctx.strokeStyle = '#0D2F56';
             ctx.lineWidth = 1;
             ctx.strokeRect(-s.size / 2, -s.size / 2, s.size, s.size);
-            // خط داخلي خفيف كصفحة كشكول
             ctx.globalAlpha = s.opacity * 0.6;
             ctx.beginPath();
             ctx.moveTo(-s.size / 2 + 4, 0);
@@ -4357,26 +5276,29 @@
             ctx.restore();
           });
 
-          // خطوط ربط خفيفة بين الأسماء المتقاربة
-          for (let i = 0; i < particles.length; i++) {
-            for (let j = i + 1; j < particles.length; j++) {
-              const dx = particles[i].x - particles[j].x;
-              const dy = particles[i].y - particles[j].y;
-              const dist = Math.sqrt(dx * dx + dy * dy);
-              if (dist < 110) {
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(13, 47, 86, ${(1 - dist / 110) * 0.06})`;
-                ctx.lineWidth = 0.7;
-                ctx.stroke();
+          // خطوط الربط: كل إطارين فقط لتقليل تكلفة O(n²)
+          if (frameCount % 2 === 0) {
+            const n = particles.length;
+            for (let i = 0; i < n; i++) {
+              for (let j = i + 1; j < n; j++) {
+                const dx = particles[i].x - particles[j].x;
+                const dy = particles[i].y - particles[j].y;
+                const distSq = dx * dx + dy * dy;
+                if (distSq < 12100) { // 110²
+                  const dist = Math.sqrt(distSq);
+                  ctx.beginPath();
+                  ctx.moveTo(particles[i].x, particles[i].y);
+                  ctx.lineTo(particles[j].x, particles[j].y);
+                  ctx.strokeStyle = `rgba(13, 47, 86, ${(1 - dist / 110) * 0.06})`;
+                  ctx.lineWidth = 0.7;
+                  ctx.stroke();
+                }
               }
             }
           }
 
           particles.forEach(p => {
             p.floatAngle += p.floatSpeed;
-            // حركة ناعمة حول النقطة الأساسية مع انجراف بسيط
             p.x = p.baseX + Math.cos(p.floatAngle) * 10 + p.vx * 20;
             p.y = p.baseY + Math.sin(p.floatAngle * 0.9) * 8 + p.vy * 20;
             p.baseX += p.vx * 0.15;
@@ -4407,7 +5329,7 @@
             ctx.translate(p.x, p.y);
             ctx.rotate(p.rotation);
             ctx.scale(currentScale, currentScale);
-            ctx.font = `600 ${p.size}px 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif`;
+            ctx.font = `600 ${p.size}px 'Cairo', 'IBM Plex Sans Arabic', 'Segoe UI', sans-serif`;
             ctx.fillStyle = p.color;
             ctx.globalAlpha = currentOpacity;
             ctx.textAlign = 'center';
@@ -4416,9 +5338,12 @@
             ctx.restore();
           });
 
-          requestAnimationFrame(animate);
+          self.heroAnimId = requestAnimationFrame(tick);
         };
-        animate();
+
+        this._heroAnimState = { tick, rebuildScene };
+        this.heroAnimRunning = true;
+        this.heroAnimId = requestAnimationFrame(tick);
       }
     };
 
@@ -4673,71 +5598,119 @@
         return variants.some(v => text.includes(this.stemToken(v)) || text.includes(v));
       },
 
+      /* بحث مرن ذكي — أشبه بمساعد AI: ترتيب بالتشابه + اقتراحات + إحالة بشرية */
+      titlesAlmostEqual(a, b) {
+        const x = this.normalize(a);
+        const y = this.normalize(b);
+        if (!x || !y) return false;
+        if (x === y) return true;
+        const strip = s => s.replace(/[؟?!.،,;:]/g, ' ').replace(/\s+/g, ' ').trim();
+        return strip(x) === strip(y);
+      },
+
+      jaccardTokens(aTokens, bTokens) {
+        if (!aTokens.length || !bTokens.length) return 0;
+        const expandSet = (tokens) => {
+          const set = new Set();
+          tokens.forEach(t => {
+            set.add(t);
+            set.add(this.stemToken(t));
+            (this.expandSynonyms(t) || []).forEach(v => {
+              set.add(this.normalize(v));
+              set.add(this.stemToken(v));
+            });
+          });
+          return set;
+        };
+        const A = expandSet(aTokens);
+        const B = expandSet(bTokens);
+        let inter = 0;
+        A.forEach(x => { if (B.has(x)) inter += 1; });
+        const uni = A.size + B.size - inter;
+        return uni ? inter / uni : 0;
+      },
+
+      sequenceRatio(a, b) {
+        // تشابه بسيط على مستوى السلاسل (مفيد للعبارات العربية القصيرة)
+        const s1 = this.normalize(a);
+        const s2 = this.normalize(b);
+        if (!s1 || !s2) return 0;
+        if (s1 === s2) return 1;
+        if (s1.includes(s2) || s2.includes(s1)) {
+          const shorter = Math.min(s1.length, s2.length);
+          const longer = Math.max(s1.length, s2.length);
+          return shorter / longer;
+        }
+        // عدد الأحرف المشتركة التقريبي عبر n-grams ثنائية
+        const grams = (s) => {
+          const g = new Set();
+          for (let i = 0; i < s.length - 1; i++) g.add(s.slice(i, i + 2));
+          return g;
+        };
+        const g1 = grams(s1), g2 = grams(s2);
+        if (!g1.size || !g2.size) return 0;
+        let inter = 0;
+        g1.forEach(x => { if (g2.has(x)) inter += 1; });
+        return (2 * inter) / (g1.size + g2.size);
+      },
+
       scoreQuestion(q, tokens, rawQuery) {
-        if (!tokens.length) return { score: 0, titleHits: 0, coverage: 0 };
         const title = this.normalize(q.title);
-        const excerpt = this.normalize(q.excerpt);
-        const cat = this.normalize(q.categoryName + ' ' + q.courseName);
-        const titleWords = title.split(' ').filter(Boolean);
+        const excerpt = this.normalize(q.excerpt || '');
+        const cat = this.normalize((q.categoryName || '') + ' ' + (q.courseName || ''));
+        const qTokens = tokens.length ? tokens : this.tokenize(rawQuery);
+        const tTokens = this.tokenize(q.title);
 
         let score = 0;
         let titleHits = 0;
-        let excerptHits = 0;
 
-        tokens.forEach(t => {
-          const inTitle = this.tokenHitsText(t, title);
-          const inExcerpt = this.tokenHitsText(t, excerpt);
-          const inCat = this.tokenHitsText(t, cat);
-
-          if (inTitle) {
-            titleHits += 1;
-            // كلمات أطول = دلالة أعلى
-            score += 4.5 + Math.min(2.5, t.length * 0.25);
-            // تطابق كلمة كاملة في العنوان
-            if (titleWords.some(w => w === t || this.stemToken(w) === t)) score += 1.2;
-          } else if (t.length >= 4 && titleWords.some(w => w.includes(t) || t.includes(w))) {
-            // تطابق جزئي ضعيف فقط إذا لم يكن هناك تطابق كامل
-            score += 1.1;
-            titleHits += 0.35;
-          }
-
-          if (inExcerpt) {
-            excerptHits += 1;
-            score += 1.2;
-          }
-          // الفئة وحدها لا تكفي لاختيار سؤال
-          if (inCat && !inTitle) score += 0.35;
-        });
-
-        const coverage = titleHits / tokens.length;
-
-        // مكافأة overlap قوي للعنوان
-        if (coverage >= 0.7) score += 5;
-        else if (coverage >= 0.5) score += 2.5;
-
-        // مكافأة عبارة متتالية من الاستعلام داخل العنوان
-        const joined = tokens.join(' ');
-        if (joined.length > 8 && title.includes(joined)) score += 8;
-
-        // عقوبة: كلمات قليلة جداً تطابق العنوان
-        if (titleHits < 1) score *= 0.15;
-        else if (titleHits < BONI_CONFIG.minTitleHits && tokens.length >= 3) score *= 0.55;
-
-        // تشابه بسيط بنسبة الكلمات المشتركة مع العنوان
-        const queryNorm = this.normalize(rawQuery);
-        if (queryNorm.length >= 12) {
-          const qTokens = new Set(tokens);
-          const shared = titleWords.filter(w => qTokens.has(w) || qTokens.has(this.stemToken(w))).length;
-          if (shared >= 3) score += shared * 1.3;
+        // تطابق حرفي كامل
+        if (this.titlesAlmostEqual(rawQuery, q.title)) {
+          return { score: 100, titleHits: tTokens.length, coverage: 1, tier: 'exact' };
         }
 
-        return { score, titleHits, coverage, excerptHits };
+        const jac = this.jaccardTokens(qTokens, tTokens);
+        const seq = this.sequenceRatio(rawQuery, q.title);
+        score += jac * 42;
+        score += seq * 28;
+
+        // كلمات الاستعلام داخل العنوان
+        qTokens.forEach(t => {
+          if (this.tokenHitsText(t, title)) {
+            titleHits += 1;
+            score += 3.2 + Math.min(1.8, t.length * 0.15);
+          } else if (this.tokenHitsText(t, excerpt)) {
+            score += 1.1;
+          } else if (this.tokenHitsText(t, cat)) {
+            score += 0.45;
+          }
+        });
+
+        const coverage = tTokens.length ? titleHits / Math.max(qTokens.length, 1) : 0;
+        // مكافأة تغطية جيدة
+        if (coverage >= 0.75) score += 8;
+        else if (coverage >= 0.5) score += 4;
+        else if (coverage >= 0.35) score += 1.5;
+
+        // عبارة متتالية من كلمات الاستعلام داخل العنوان
+        if (qTokens.length >= 2) {
+          const joined = qTokens.slice(0, 4).join(' ');
+          if (joined.length > 5 && title.includes(joined)) score += 10;
+        }
+
+        // عقوبة: لا شيء تقريباً في العنوان
+        if (titleHits === 0 && jac < 0.12) score *= 0.25;
+
+        let tier = 'low';
+        if (score >= 28 || (jac >= 0.55 && coverage >= 0.6) || seq >= 0.72) tier = 'high';
+        else if (score >= 12 || jac >= 0.28 || coverage >= 0.4 || seq >= 0.45) tier = 'mid';
+
+        return { score, titleHits, coverage, jac, seq, tier };
       },
 
       findBestMatch(query) {
         const tokens = this.tokenize(query);
-        if (!tokens.length) return null;
-
+        // حتى لو tokenization ضعيف، نبحث بالتشابه النصي
         const ranked = [];
         AYED_QUESTIONS_DATA.forEach(q => {
           const r = this.scoreQuestion(q, tokens, query);
@@ -4747,34 +5720,33 @@
 
         const best = ranked[0];
         const second = ranked[1];
-        if (!best) return null;
+        if (!best || best.score < 5) return null;
 
-        // شروط صارمة: درجة كافية + تغطية عنوان كافية + ليس مجرد تطابق فئة
-        const strongEnough =
-          best.score >= BONI_CONFIG.minScore &&
-          best.titleHits >= (tokens.length <= 2 ? 1 : BONI_CONFIG.minTitleHits) &&
-          best.coverage >= (tokens.length <= 2 ? 0.5 : BONI_CONFIG.minTitleCoverage);
-
-        if (!strongEnough) return null;
-
-        // إذا كان الثاني قريباً جداً والاثنان ضعيفان نسبياً → اعتبر غير مؤكد
-        if (second && best.score < 12 && second.score >= best.score * 0.88) {
-          // غموض بين سؤالين → لا نخاطر بإجابة خاطئة
-          if (best.coverage < 0.65) return null;
+        // إجابة مباشرة عند ثقة عالية ووضوح
+        const clearWinner = !second || best.score >= second.score * 1.18 || (best.tier === 'high' && best.score - (second ? second.score : 0) >= 6);
+        if (best.tier === 'high' && clearWinner) {
+          return { type: 'exact', question: best.question, score: best.score };
         }
 
-        return { question: best.question, score: best.score, coverage: best.coverage };
+        // اقتراحات ذكية عند الاشتباه أو ثقة متوسطة
+        const candidates = ranked
+          .filter(r => r.score >= Math.max(7, best.score * 0.42) && (r.tier === 'high' || r.tier === 'mid' || r.titleHits >= 1))
+          .slice(0, 4)
+          .map(r => r.question);
+
+        if (candidates.length >= 1) {
+          return { type: 'choices', candidates, mode: best.tier === 'high' ? 'confirm' : 'similar', topScore: best.score };
+        }
+
+        return null;
       },
 
       formatAnswerPreview(q) {
-        // نص منظم من fullAnswerHtml مع الحفاظ على الخطوات
         let html = q.fullAnswerHtml || '';
-        // تقليم إذا كان طويلاً جداً داخل الشات
         const tmp = document.createElement('div');
         tmp.innerHTML = html;
         const textLen = (tmp.textContent || '').length;
         if (textLen > 900) {
-          // أظهر المقتطف + دعوة لفتح التفاصيل
           return `<p>${this.escapeHtml(q.excerpt)}</p>
             <p style="margin-top:8px;color:#5A6A80;font-size:12.5px;">الإجابة التفصيلية موجودة في صفحة السؤال — اضغط الزر بالأسفل لعرضها كاملة.</p>`;
         }
@@ -4783,49 +5755,125 @@
 
       replyTo(query) {
         const match = this.findBestMatch(query);
-        if (match) {
-          const q = match.question;
-          const answerBody = this.formatAnswerPreview(q);
-          const header = `
-            <p style="margin-bottom:8px;">لقيت لك إجابة معتمدة من بنك أسئلة أكاديمية عايد 🎯</p>
-            <p style="font-size:12.5px;color:#5A6A80;margin-bottom:10px;">
-              <i class="fa-solid fa-graduation-cap ml-1"></i> ${this.escapeHtml(q.categoryName)}
-              · ${this.escapeHtml(q.teacherName)}
-            </p>
-            <p style="font-weight:800;color:var(--c-ayed-primary);margin-bottom:10px;font-size:14.5px;">${this.escapeHtml(q.title)}</p>
-          `;
-          const actions = `
-            <div class="c111-chat-actions">
-              <button type="button" class="c111-btn-link" onclick="boniChat.openQuestion(${q.id})">
-                <i class="fa-solid fa-book-open"></i>
-                عرض صفحة السؤال والإجابة الكاملة
-              </button>
-              <a href="${BONI_CONFIG.courseUrl}" target="_blank" rel="noopener" class="c111-btn-course">
-                <i class="fa-solid fa-arrow-left"></i>
-                لتفاصيل أكثر انتقل للدورة
-              </a>
-            </div>
-          `;
-          this.addBotMessage(header + answerBody, actions);
-        } else {
-          const html = `
-            <p><strong>سؤالكم محتاج التواصل مع عنصر بشري</strong> 🤝</p>
-            <p style="margin-top:8px;">لم نجد إجابة مطابقة مباشرة ضمن الأسئلة المعتمدة في البنك حالياً. يرجى التواصل مع الدعم الفني عن طريق الزر التالي.</p>
-          `;
-          const actions = `
-            <div class="c111-chat-actions">
-              <a href="${BONI_CONFIG.whatsappUrl}" target="_blank" rel="noopener" class="c111-btn-wa">
-                <i class="fa-brands fa-whatsapp"></i>
-                تواصل مع الدعم الفني
-              </a>
-              <button type="button" class="c111-btn-ask-teacher" onclick="appState.openAskModal(); boniChat.close();">
-                <i class="fa-solid fa-paper-plane"></i>
-                اسأل المعلم مباشرة
-              </button>
-            </div>
-          `;
-          this.addBotMessage(html, actions);
+        if (!match) {
+          this.replyHumanHandoff();
+          return;
         }
+
+        if (match.type === 'exact') {
+          this.deliverAnswer(match.question);
+          return;
+        }
+
+        if (match.type === 'choices') {
+          const items = match.candidates || [];
+          if (!items.length) {
+            this.replyHumanHandoff();
+            return;
+          }
+          let listHtml = items.map((q, i) => `
+            <button type="button" class="c111-btn-link" style="width:100%;text-align:right;justify-content:flex-start;"
+              onclick="boniChat.confirmChoice(${q.id})">
+              <span style="display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;background:var(--c-ayed-bg-blue);color:var(--c-ayed-primary);font-size:11px;font-weight:800;margin-left:8px;flex-shrink:0;">${i + 1}</span>
+              <span style="flex:1;line-height:1.45;">${this.escapeHtml(q.title)}</span>
+            </button>
+          `).join('');
+
+          const mode = match.mode || 'similar';
+          let titleLine = '';
+          if (mode === 'confirm') {
+            titleLine = '<p style="margin-bottom:6px;"><strong>ممكن تقصد واحداً من هؤلاء؟</strong> ✨</p><p style="font-size:12.5px;color:#5A6A80;margin-bottom:10px;">اختر الأقرب لسؤالك لأعرض لك الإجابة المعتمدة من البنك:</p>';
+          } else {
+            titleLine = '<p style="margin-bottom:6px;"><strong>لقيت أسئلة قريبة من كلامك</strong> 🔍</p><p style="font-size:12.5px;color:#5A6A80;margin-bottom:10px;">اختَر السؤال المناسب، أو أخبرني إن لم تجد إجابتك:</p>';
+          }
+          const html = `
+            ${titleLine}
+            <div class="c111-chat-actions">${listHtml}
+              <button type="button" class="c111-btn-link" style="width:100%;border-style:dashed;opacity:.9;" onclick="boniChat.replyHumanHandoff()">
+                <i class="fa-solid fa-circle-question"></i> لم أجد إجابتي ضمن هذه الاقتراحات
+              </button>
+            </div>
+          `;
+          this.addBotMessage(html);
+          return;
+        }
+
+        this.replyHumanHandoff();
+      },
+
+      confirmChoice(id) {
+        const q = AYED_QUESTIONS_DATA.find(x => x.id === Number(id));
+        if (!q) {
+          this.replyHumanHandoff();
+          return;
+        }
+        this.addUserMessage(q.title);
+        this.showTyping();
+        setTimeout(() => {
+          this.hideTyping();
+          this.deliverAnswer(q);
+        }, 450);
+      },
+
+      deliverAnswer(q) {
+        const answerBody = this.formatAnswerPreview(q);
+        const header = `
+          <p style="margin-bottom:8px;">لقيت لك إجابة معتمدة من بنك أسئلة أكاديمية عايد 🎯</p>
+          <p style="font-size:12.5px;color:#5A6A80;margin-bottom:10px;">
+            <i class="fa-solid fa-graduation-cap ml-1"></i> ${this.escapeHtml(q.categoryName)}
+            · ${this.escapeHtml(q.teacherName)}
+          </p>
+          <p style="font-weight:800;color:var(--c-ayed-primary);margin-bottom:10px;font-size:14.5px;">${this.escapeHtml(q.title)}</p>
+        `;
+        const actions = `
+          <div class="c111-chat-actions">
+            <button type="button" class="c111-btn-link" onclick="boniChat.openQuestion(${q.id})">
+              <i class="fa-solid fa-book-open"></i>
+              عرض صفحة السؤال والإجابة الكاملة
+            </button>
+            <a href="${BONI_CONFIG.courseUrl}" target="_blank" rel="noopener" class="c111-btn-course">
+              <i class="fa-solid fa-arrow-left"></i>
+              لتفاصيل أكثر انتقل للدورة
+            </a>
+          </div>
+        `;
+        this.addBotMessage(header + answerBody + this.socialFooter(), actions);
+      },
+
+      replyHumanHandoff() {
+        const html = `
+          <p><strong>سؤالكم محتاج التواصل مع عنصر بشري</strong> 🤝</p>
+          <p style="margin-top:8px;">لم نجد إجابة مطابقة مباشرة ضمن الأسئلة المعتمدة في البنك حالياً. يرجى التواصل مع الدعم الفني عن طريق الزر التالي.</p>
+        `;
+        const actions = `
+          <div class="c111-chat-actions">
+            <a href="${BONI_CONFIG.whatsappUrl}" target="_blank" rel="noopener" class="c111-btn-wa">
+              <i class="fa-brands fa-whatsapp"></i>
+              تواصل مع الدعم الفني
+            </a>
+            <button type="button" class="c111-btn-ask-teacher" onclick="appState.openAskModal(); boniChat.close();">
+              <i class="fa-solid fa-paper-plane"></i>
+              اسأل المعلم مباشرة
+            </button>
+          </div>
+        `;
+        this.addBotMessage(html + this.socialFooter(), actions);
+      },
+
+      socialFooter() {
+        if (typeof ayedChrome === 'undefined') return '';
+        const top = ayedChrome.socialIconsHtml('top');
+        const rest = ayedChrome.socialIconsHtml('rest');
+        return `
+          <div class="c111-social-block">
+            <p class="c111-social-block-title">
+              <i class="fa-solid fa-share-nodes"></i>
+              حسابات أكاديمية عايد الرسمية
+            </p>
+            <div class="c111-social-row">${top}</div>
+            ${rest ? `<div class="c111-social-row">${rest}</div>` : ''}
+          </div>
+        `;
       },
 
       openQuestion(id) {
@@ -4861,12 +5909,377 @@
       }
     };
 
+
+    /* =========================================================================
+       تووب بار / نافبار / فوتر — من AYED_SITE_CONFIG
+       ========================================================================= */
+    const ayedChrome = {
+      toggleDrawer(open) {
+        const drawer = document.getElementById('ayedNavDrawer');
+        const backdrop = document.getElementById('ayedDrawerBackdrop');
+        if (!drawer) return;
+        if (open) {
+          drawer.classList.add('open');
+          if (backdrop) backdrop.classList.add('open');
+          document.body.style.overflow = 'hidden';
+        } else {
+          drawer.classList.remove('open');
+          if (backdrop) backdrop.classList.remove('open');
+          document.body.style.overflow = '';
+        }
+      },
+
+      socialIconsHtml(sliceMode, extraClass) {
+        // sliceMode: 'all' | 'top' | 'rest' — top = أول 5، rest = الباقي
+        if (typeof AYED_SITE_CONFIG === 'undefined') return '';
+        let list = AYED_SITE_CONFIG.social || [];
+        if (sliceMode === 'top') list = list.slice(0, 5);
+        else if (sliceMode === 'rest') list = list.slice(5);
+        return list.map(s =>
+          `<a href="${s.url}" target="_blank" rel="noopener" title="${s.name}" class="${extraClass || ''}" aria-label="${s.name}"><i class="${s.icon}"></i></a>`
+        ).join('');
+      },
+
+      socialRowsHtml(extraClass) {
+        const top = this.socialIconsHtml('top', extraClass);
+        const rest = this.socialIconsHtml('rest', extraClass);
+        let html = `<div class="ayed-footer-social-row c111-social-row">${top}</div>`;
+        if (rest) html += `<div class="ayed-footer-social-row c111-social-row">${rest}</div>`;
+        return html;
+      },
+
+      render() {
+        if (typeof AYED_SITE_CONFIG === 'undefined') return;
+        const C = AYED_SITE_CONFIG;
+
+        // Logos
+        ['ayedNavLogoImg', 'ayedDrawerLogo', 'ayedFooterLogoImg'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) { el.src = C.logoUrl; el.alt = C.logoAlt; }
+        });
+        ['ayedNavLogoLink', 'ayedFooterLogoLink'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.href = C.siteUrl;
+        });
+
+        // Topbar contact (يمين في RTL = أول عنصر في flex مع space-between يعمل بشكل صحيح)
+        const contact = document.getElementById('ayedTopbarContact');
+        if (contact) {
+          const parts = [];
+          parts.push(`<a href="mailto:${C.email}"><i class="fa-solid fa-envelope"></i> ${C.email}</a>`);
+          C.phones.forEach(p => {
+            parts.push(`<span class="ayed-topbar-sep" aria-hidden="true"></span>`);
+            parts.push(`<a href="tel:${p.tel}"><i class="fa-solid fa-phone"></i> ${p.display}</a>`);
+          });
+          contact.innerHTML = parts.join('');
+        }
+
+        // Topbar social
+        const topSocial = document.getElementById('ayedTopbarSocial');
+        if (topSocial) topSocial.innerHTML = this.socialIconsHtml('top');
+
+        // Nav links
+        const navLinks = document.getElementById('ayedNavLinks');
+        if (navLinks) {
+          navLinks.innerHTML = C.navLinks.map(l =>
+            `<li><a href="${l.url}" ${l.url.startsWith('http') ? 'target="_blank" rel="noopener"' : ''}>${l.label}</a></li>`
+          ).join('');
+        }
+        const drawerLinks = document.getElementById('ayedDrawerLinks');
+        if (drawerLinks) {
+          const icons = ['fa-house', 'fa-graduation-cap', 'fa-newspaper', 'fa-circle-info'];
+          drawerLinks.innerHTML = C.navLinks.map((l, i) =>
+            `<li><a href="${l.url}" onclick="ayedChrome.toggleDrawer(false)"><i class="fa-solid ${icons[i] || 'fa-link'}"></i>${l.label}</a></li>`
+          ).join('');
+        }
+
+        // WhatsApp buttons
+        ['ayedNavWhatsapp', 'ayedDrawerWhatsapp'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.href = C.whatsappUrl;
+        });
+        const waLabel = document.getElementById('ayedNavWhatsappLabel');
+        if (waLabel) waLabel.textContent = C.whatsappLabel || 'تواصل مع الدعم الفني';
+
+        // Footer
+        const about = document.getElementById('ayedFooterAbout');
+        if (about) about.textContent = C.footerAbout;
+
+        const footSocial = document.getElementById('ayedFooterSocial');
+        if (footSocial) footSocial.innerHTML = this.socialRowsHtml();
+
+        const courses = document.getElementById('ayedFooterCourses');
+        if (courses) {
+          courses.innerHTML = C.footerCourses.map(c =>
+            `<li><a href="${c.url}" target="_blank" rel="noopener">${c.label}</a></li>`
+          ).join('');
+        }
+
+        const footNav = document.getElementById('ayedFooterNav');
+        if (footNav) {
+          footNav.innerHTML = C.navLinks.map(l =>
+            `<li><a href="${l.url}" target="_blank" rel="noopener">${l.label}</a></li>`
+          ).join('');
+        }
+
+        const footContact = document.getElementById('ayedFooterContact');
+        if (footContact) {
+          let h = `<div class="ayed-footer-contact-item"><i class="fa-solid fa-envelope"></i><a href="mailto:${C.email}">${C.email}</a></div>`;
+          C.phones.forEach(p => {
+            h += `<div class="ayed-footer-contact-item"><i class="fa-solid fa-phone"></i><a href="tel:${p.tel}">${p.display}</a></div>`;
+          });
+          h += `<div class="ayed-footer-contact-item"><i class="fa-brands fa-whatsapp"></i><a href="${C.whatsappUrl}" target="_blank" rel="noopener">واتساب الدعم الفني</a></div>`;
+          footContact.innerHTML = h;
+        }
+
+        const legal = document.getElementById('ayedFooterLegal');
+        if (legal) {
+          legal.innerHTML = C.legalLinks.map(l =>
+            `<a href="${l.url}" target="_blank" rel="noopener">${l.label}</a>`
+          ).join('');
+        }
+
+        const year = document.getElementById('ayedFooterYear');
+        if (year) year.textContent = String(new Date().getFullYear());
+
+        this.initFooterStars();
+      },
+
+      initFooterStars() {
+        const canvas = document.getElementById('footerStarsCanvas');
+        if (!canvas) return;
+        const footer = document.getElementById('ayedFooter');
+        const ctx = canvas.getContext('2d');
+        let w = 0, h = 0, stars = [], raf = null;
+
+        const resize = () => {
+          w = footer.offsetWidth || window.innerWidth;
+          h = footer.offsetHeight || 400;
+          const dpr = window.devicePixelRatio || 1;
+          canvas.width = w * dpr;
+          canvas.height = h * dpr;
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+          const count = Math.min(90, Math.floor((w * h) / 9000) + 35);
+          stars = [];
+          for (let i = 0; i < count; i++) {
+            stars.push({
+              x: Math.random() * w,
+              y: Math.random() * h,
+              r: 0.4 + Math.random() * 1.6,
+              base: 0.15 + Math.random() * 0.55,
+              phase: Math.random() * Math.PI * 2,
+              speed: 0.008 + Math.random() * 0.018,
+              drift: (Math.random() - 0.5) * 0.08
+            });
+          }
+        };
+
+        const draw = () => {
+          ctx.clearRect(0, 0, w, h);
+          stars.forEach(s => {
+            s.phase += s.speed;
+            s.x += s.drift;
+            if (s.x < 0) s.x = w;
+            if (s.x > w) s.x = 0;
+            const alpha = s.base * (0.55 + 0.45 * Math.sin(s.phase));
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 181, 38, ${alpha * 0.35})`;
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(s.x, s.y, s.r * 0.55, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(234, 242, 250, ${alpha})`;
+            ctx.fill();
+          });
+          raf = requestAnimationFrame(draw);
+        };
+
+        resize();
+        draw();
+        let t;
+        window.addEventListener('resize', () => {
+          clearTimeout(t);
+          t = setTimeout(resize, 200);
+        });
+      }
+    };
+
     // تشغيل التطبيق عند اكتمال تحميل الصفحة
+
+    /* =========================================================================
+       حماية المحتوى (ردع النسخ / الاختصارات / قائمة يمين)
+       ملاحظة: لا يمكن لأي موقع ويب منع برامج سطح المكتب من التقاط الشاشة 100%.
+       ما يلي أقصى حماية عملية من جهة المتصفح فقط.
+       ========================================================================= */
+    const ayedProtect = {
+      init() {
+        document.addEventListener('contextmenu', e => {
+          e.preventDefault();
+          return false;
+        }, true);
+
+        document.addEventListener('copy', e => {
+          const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+          if (tag !== 'input' && tag !== 'textarea') {
+            e.preventDefault();
+            return false;
+          }
+        }, true);
+        document.addEventListener('cut', e => {
+          const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+          if (tag !== 'input' && tag !== 'textarea') {
+            e.preventDefault();
+            return false;
+          }
+        }, true);
+
+        document.addEventListener('dragstart', e => {
+          if (e.target && e.target.tagName === 'IMG') {
+            e.preventDefault();
+            return false;
+          }
+        }, true);
+
+        document.addEventListener('keydown', e => {
+          const key = (e.key || '').toLowerCase();
+          const ctrl = e.ctrlKey || e.metaKey;
+          const shift = e.shiftKey;
+          const alt = e.altKey;
+
+          // أدوات المطوّر وعرض المصدر والحفظ والطباعة
+          if (
+            key === 'f12' ||
+            (ctrl && shift && (key === 'i' || key === 'j' || key === 'c' || key === 'k')) ||
+            (ctrl && (key === 'u' || key === 's' || key === 'p')) ||
+            (ctrl && shift && key === 's') ||
+            key === 'printscreen' ||
+            (key === 'meta' && key === 'printscreen')
+          ) {
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+          }
+
+          // منع Ctrl+A للنسخ الجماعي (يُستثنى داخل حقول الإدخال)
+          const tag = (e.target && e.target.tagName) ? e.target.tagName.toLowerCase() : '';
+          const isField = tag === 'input' || tag === 'textarea' || (e.target && e.target.isContentEditable);
+          if (ctrl && key === 'a' && !isField) {
+            e.preventDefault();
+            return false;
+          }
+          if (ctrl && (key === 'c' || key === 'x') && !isField) {
+            e.preventDefault();
+            return false;
+          }
+        }, true);
+
+        // ردع جزئي عند فقدان التركيز / تغيير الرؤية (لا يمنع أدوات النظام)
+        let blurTimer = null;
+        const showOverlay = () => {
+          document.body.classList.add('ayed-blur-protect');
+        };
+        const hideOverlay = () => {
+          document.body.classList.remove('ayed-blur-protect');
+        };
+
+        window.addEventListener('blur', () => {
+          // تأخير بسيط لتقليل الإزعاج عند التنقل بين النوافذ بسرعة
+          blurTimer = setTimeout(showOverlay, 120);
+        });
+        window.addEventListener('focus', () => {
+          clearTimeout(blurTimer);
+          hideOverlay();
+        });
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden') showOverlay();
+          else hideOverlay();
+        });
+
+        // نافبار + توب بار ثابتان: ضبط الإزاحة ديناميكياً
+        const nav = document.getElementById('ayedNavbar');
+        const topbar = document.getElementById('ayedTopbar');
+        const syncChromeOffset = () => {
+          const th = topbar ? topbar.offsetHeight : 0;
+          if (nav) {
+            nav.style.top = th + 'px';
+            if (window.scrollY > 4) nav.classList.add('is-stuck');
+            else nav.classList.remove('is-stuck');
+          }
+          const nh = nav ? nav.offsetHeight : 0;
+          document.body.style.paddingTop = (th + nh) + 'px';
+        };
+        syncChromeOffset();
+        window.addEventListener('scroll', syncChromeOffset, { passive: true });
+        window.addEventListener('resize', syncChromeOffset);
+        setTimeout(syncChromeOffset, 100);
+        setTimeout(syncChromeOffset, 400);
+
+      }
+    };
+
     document.addEventListener('DOMContentLoaded', () => {
       appState.init();
       enableFilterSwipe();
       boniChat.init();
+      if (typeof ayedChrome !== 'undefined') ayedChrome.render();
+      if (typeof ayedProtect !== 'undefined') ayedProtect.init();
     });
   </script>
+
+  <!-- فوتر أكاديمية عايد -->
+  <footer class="ayed-footer" id="ayedFooter">
+    <canvas id="footerStarsCanvas" class="ayed-footer-canvas"></canvas>
+    <div class="container ayed-footer-inner">
+      <div class="ayed-footer-grid">
+        <div>
+          <a href="https://ayedacademy.co/" id="ayedFooterLogoLink" class="ayed-footer-logo">
+            <img src="logo.png" alt="أكاديمية عايد" id="ayedFooterLogoImg">
+          </a>
+          <p class="ayed-footer-about" id="ayedFooterAbout"></p>
+          <div class="ayed-footer-social" id="ayedFooterSocial"></div>
+        </div>
+        <div>
+          <h4 class="ayed-footer-col-title">تخصصات الدورات</h4>
+          <ul class="ayed-footer-list" id="ayedFooterCourses"></ul>
+        </div>
+        <div>
+          <h4 class="ayed-footer-col-title">روابط سريعة</h4>
+          <ul class="ayed-footer-list" id="ayedFooterNav"></ul>
+        </div>
+        <div>
+          <h4 class="ayed-footer-col-title">تواصل معنا</h4>
+          <div id="ayedFooterContact"></div>
+        </div>
+      </div>
+      <div class="ayed-footer-bottom">
+        <div>© <span id="ayedFooterYear"></span> أكاديمية عايد للتدريب — جميع الحقوق محفوظة</div>
+        <div class="ayed-footer-legal" id="ayedFooterLegal"></div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- مودال سبب عدم الإعجاب -->
+  <div class="modal fade c109-feedback-modal" id="feedbackReasonModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="c109-feedback-header">
+          <h5 class="c109-feedback-title"><i class="fa-solid fa-comment-dots ml-1 text-warning"></i> نأسف أن الإجابة لم تفِ بما تحتاجه</h5>
+          <p class="c109-feedback-sub">ساعدنا نطوّر المحتوى — اختر السبب الأقرب أو اكتب ملاحظتك.</p>
+        </div>
+        <div class="modal-body px-4 py-3">
+          <div class="c109-reason-list" id="feedbackReasonList"></div>
+          <label class="c107-form-label" for="feedbackOtherText">ملاحظة إضافية (اختياري)</label>
+          <textarea id="feedbackOtherText" class="c109-feedback-textarea" placeholder="مثال: أحتاج مثالاً محلولاً خطوة بخطوة..."></textarea>
+        </div>
+        <div class="modal-footer border-top" style="padding:14px 20px;">
+          <button type="button" class="c107-btn-cancel" data-dismiss="modal">إلغاء</button>
+          <button type="button" class="c107-btn-submit" onclick="appState.submitFeedbackReason()">
+            <i class="fa-solid fa-paper-plane ml-1"></i> إرسال الملاحظة
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
