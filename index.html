@@ -902,11 +902,60 @@
       padding: 32px;
       margin-bottom: 24px;
       box-shadow: none;
+      position: relative;
+    }
+    .c106-save-btn--corner {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      right: auto;
+      z-index: 5;
+      background: #FFFFFF;
+      border: 1px solid var(--c-ayed-border);
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--c-ayed-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      box-shadow: 0 2px 8px rgba(13, 47, 86, 0.06);
+    }
+    .c106-save-btn--corner:hover {
+      border-color: var(--c-ayed-secondary);
+      background: #FFFBF0;
+      color: var(--c-ayed-secondary-dark);
+    }
+    .c106-save-btn--corner.saved {
+      color: var(--c-ayed-secondary-dark);
+      border-color: #F5D78A;
+      background: #FFFBF0;
+    }
+    .c106-save-btn--corner.saved i {
+      color: var(--c-ayed-secondary);
     }
     .c106-q-header {
       border-bottom: 1px solid #F1F5F9;
       padding-bottom: 20px;
       margin-bottom: 24px;
+      padding-left: 120px; /* مساحة لزر الحفظ أعلى اليسار */
+    }
+    @media (max-width: 575px) {
+      .c106-save-btn--corner {
+        top: 12px;
+        left: 12px;
+        padding: 7px 10px;
+        font-size: 12px;
+      }
+      .c106-save-btn--corner #detailSaveLabel {
+        display: none;
+      }
+      .c106-q-header {
+        padding-left: 48px;
+      }
     }
     .c106-q-title {
       font-size: 26px;
@@ -1385,6 +1434,204 @@
     }
     .c106-detail-search-btn:active {
       transform: scale(0.96);
+    }
+
+
+    /* تقييم تفاعلي — نعم أخضر / لا أحمر */
+    .c106-btn-vote {
+      position: relative;
+      transition: all 0.2s ease;
+    }
+    .c106-btn-vote#voteYesBtn.voted,
+    .c106-btn-vote.voted-yes {
+      background-color: #16A34A !important;
+      color: #FFFFFF !important;
+      border-color: #15803D !important;
+      box-shadow: 0 2px 10px rgba(22, 163, 74, 0.28);
+    }
+    .c106-btn-vote#voteYesBtn.voted i,
+    .c106-btn-vote.voted-yes i {
+      color: #FFFFFF !important;
+    }
+    .c106-btn-vote#voteYesBtn:hover:not(.voted) {
+      border-color: #16A34A;
+      color: #15803D;
+      background: #F0FDF4;
+    }
+    .c106-btn-vote#voteNoBtn.voted,
+    .c106-btn-vote.voted-no {
+      background-color: #DC2626 !important;
+      color: #FFFFFF !important;
+      border-color: #B91C1C !important;
+      box-shadow: 0 2px 10px rgba(220, 38, 38, 0.28);
+    }
+    .c106-btn-vote#voteNoBtn.voted i,
+    .c106-btn-vote.voted-no i {
+      color: #FFFFFF !important;
+    }
+    .c106-btn-vote#voteNoBtn:hover:not(.voted) {
+      border-color: #DC2626;
+      color: #B91C1C;
+      background: #FEF2F2;
+    }
+
+    /* بوكس التقييم والمشاركة — 3 صفوف بعرض كامل */
+    .c106-feedback-box {
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid #E2E8F0;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      width: 100%;
+    }
+    .c106-feedback-row {
+      display: flex;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border: none;
+      justify-content: center;
+      align-items: center;
+    }
+    .c106-feedback-row--vote .c106-helpful-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px 12px;
+      width: 100%;
+    }
+    .c106-helpful-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--c-ayed-primary);
+    }
+    .c106-feedback-row--share {
+      width: 100%;
+    }
+    .c106-share-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .c106-share-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--c-ayed-text-muted);
+      text-align: center;
+      margin: 0;
+    }
+    .c106-share-btns {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .c106-share-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 11px;
+      background: #F1F5F9;
+      border: 1px solid var(--c-ayed-border);
+      color: var(--c-ayed-primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+    .c106-share-btn:hover {
+      background-color: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border-color: var(--c-ayed-primary);
+      transform: translateY(-1px);
+    }
+    .c106-feedback-row--link {
+      width: 100%;
+    }
+    .c106-share-link-box {
+      display: flex;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 0;
+      background: #F8FAFC;
+      border: 1.5px solid var(--c-ayed-border);
+      border-radius: 12px;
+      padding: 6px;
+      width: 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .c106-share-link-box:focus-within {
+      border-color: var(--c-ayed-primary);
+      box-shadow: 0 0 0 3px rgba(13, 47, 86, 0.08);
+      background: #FFFFFF;
+    }
+    .c106-share-link-input {
+      flex: 1 1 auto;
+      min-width: 0;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      padding: 11px 14px;
+      font-size: 13px;
+      font-family: inherit;
+      color: var(--c-ayed-text-main);
+      background: transparent;
+      direction: ltr;
+      text-align: left;
+      outline: none;
+    }
+    .c106-share-link-copy {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      flex-shrink: 0;
+      background: var(--c-ayed-primary);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 9px;
+      padding: 11px 18px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      white-space: nowrap;
+      transition: background 0.15s, transform 0.12s;
+    }
+    .c106-share-link-copy:hover {
+      background: var(--c-ayed-navy-medium);
+    }
+    .c106-share-link-copy:active {
+      transform: scale(0.97);
+    }
+
+    @media (max-width: 575px) {
+      .c106-feedback-box {
+        gap: 16px;
+      }
+      .c106-share-link-box {
+        flex-wrap: wrap;
+      }
+      .c106-share-link-input {
+        flex: 1 1 100%;
+        width: 100%;
+        order: 1;
+      }
+      .c106-share-link-copy {
+        width: 100%;
+        order: 2;
+        padding: 12px 14px;
+        margin-top: 4px;
+      }
     }
 
     /* ==========================================================================
@@ -3234,6 +3481,12 @@
         <!-- عمود المقال والإجابة التفصيلية (على اليمين في RTL) -->
         <div class="col-lg-8">
           <article class="c106-answer-article">
+
+            <!-- زر الحفظ أعلى يسار البوكس -->
+            <button type="button" class="c106-save-btn c106-save-btn--corner" id="detailSaveBtn" onclick="appState.toggleSaveCurrent(event)" title="حفظ السؤال">
+              <i class="fa-regular fa-bookmark" id="detailSaveIcon"></i>
+              <span id="detailSaveLabel">حفظ السؤال</span>
+            </button>
             
             <div class="c106-q-header">
               <span id="detailCategoryBadge" class="c103-cat-badge mb-3">اختبار ستيب STEP</span>
@@ -3243,11 +3496,8 @@
                 <span><i class="fa-solid fa-calendar-day ml-1 text-muted"></i> تاريخ الإجابة: <strong id="detailAnswerDate">15 يناير 2026</strong></span>
                 <span><i class="fa-solid fa-eye ml-1 text-muted"></i> المشاهدات: <strong id="detailViewsCount">2,350</strong></span>
                 <span><i class="fa-solid fa-book-bookmark ml-1 text-muted"></i> مرتبط بدورة: <strong id="detailCourseName">دورة STEP الشاملة</strong></span>
-                <button type="button" class="c106-save-btn" id="detailSaveBtn" onclick="appState.toggleSaveCurrent(event)">
-                  <i class="fa-regular fa-bookmark" id="detailSaveIcon"></i>
-                  <span id="detailSaveLabel">حفظ السؤال</span>
-                </button>
               </div>
+
             </div>
 
             <!-- بطاقة المعلم المجيب المعتمد -->
@@ -3291,25 +3541,44 @@
             </div>
 
             <!-- تقييم فائدة الإجابة والمشاركة على السوشيال ميديا -->
-            <div class="c106-feedback-row">
-              <div class="c106-helpful-wrap">
-                <span class="c106-helpful-title">هل استفدت من هذه الإجابة؟</span>
-                <button type="button" class="c106-btn-vote" id="voteYesBtn" onclick="appState.handleVote(true)">
-                  <i class="fa-solid fa-thumbs-up text-success"></i>
-                  <span>نعم (<span id="voteYesCount">54</span>)</span>
-                </button>
-                <button type="button" class="c106-btn-vote" id="voteNoBtn" onclick="appState.handleVote(false)">
-                  <i class="fa-solid fa-thumbs-down text-danger"></i>
-                  <span>لا (<span id="voteNoCount">1</span>)</span>
-                </button>
+            <div class="c106-feedback-box">
+              <!-- الصف 1: هل الإجابة مفيدة؟ -->
+              <div class="c106-feedback-row c106-feedback-row--vote">
+                <div class="c106-helpful-wrap">
+                  <span class="c106-helpful-title">هل استفدت من هذه الإجابة؟</span>
+                  <button type="button" class="c106-btn-vote" id="voteYesBtn" onclick="appState.handleVote(true)">
+                    <i class="fa-solid fa-thumbs-up" style="color:#16A34A"></i>
+                    <span>نعم (<span id="voteYesCount">54</span>)</span>
+                  </button>
+                  <button type="button" class="c106-btn-vote" id="voteNoBtn" onclick="appState.handleVote(false)">
+                    <i class="fa-solid fa-thumbs-down" style="color:#DC2626"></i>
+                    <span>لا (<span id="voteNoCount">1</span>)</span>
+                  </button>
+                </div>
               </div>
 
-              <div class="c106-share-wrap">
-                <span class="small font-weight-bold text-muted ml-1">مشاركة:</span>
-                <button type="button" class="c106-share-btn" title="مشاركة على تويتر X" onclick="appState.share('x')"><i class="fa-brands fa-x-twitter"></i></button>
-                <button type="button" class="c106-share-btn" title="مشاركة عبر واتساب" onclick="appState.share('whatsapp')"><i class="fa-brands fa-whatsapp"></i></button>
-                <button type="button" class="c106-share-btn" title="مشاركة على لينكد إن" onclick="appState.share('linkedin')"><i class="fa-brands fa-linkedin-in"></i></button>
-                <button type="button" class="c106-share-btn" title="نسخ الرابط" onclick="appState.share('copy')"><i class="fa-solid fa-link"></i></button>
+              <!-- الصف 2: أزرار الشير -->
+              <div class="c106-feedback-row c106-feedback-row--share">
+                <div class="c106-share-wrap">
+                  <span class="c106-share-label">مشاركة الإجابة</span>
+                  <div class="c106-share-btns">
+                    <button type="button" class="c106-share-btn" title="مشاركة على تويتر X" onclick="appState.share('x')"><i class="fa-brands fa-x-twitter"></i></button>
+                    <button type="button" class="c106-share-btn" title="مشاركة عبر واتساب" onclick="appState.share('whatsapp')"><i class="fa-brands fa-whatsapp"></i></button>
+                    <button type="button" class="c106-share-btn" title="مشاركة على لينكد إن" onclick="appState.share('linkedin')"><i class="fa-brands fa-linkedin-in"></i></button>
+                    <button type="button" class="c106-share-btn" title="نسخ الرابط" onclick="appState.share('copy')"><i class="fa-solid fa-link"></i></button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- الصف 3: شريط الرابط + نسخ بعرض البوكس -->
+              <div class="c106-feedback-row c106-feedback-row--link">
+                <div class="c106-share-link-box" id="detailShareLinkBox">
+                  <input type="text" class="c106-share-link-input" id="detailShareLinkInput" readonly value="" dir="ltr" onclick="this.select()" aria-label="رابط الإجابة">
+                  <button type="button" class="c106-share-link-copy" onclick="appState.copyAnswerLink()">
+                    <i class="fa-regular fa-copy"></i>
+                    <span>نسخ الرابط</span>
+                  </button>
+                </div>
               </div>
             </div>
 
@@ -4448,6 +4717,12 @@
       savedOnly: false,
       sortBy: 'newest', // newest | helpful | views
       savedIds: [],
+      /* تصويت لمرة واحدة: { [questionId]: 'yes' | 'no' } */
+      voteMap: {},
+      /* مشاهدات ديناميكية مخزّنة: { [questionId]: number } */
+      viewsMap: {},
+      /* أسئلة تمت زيارة صفحتها في هذه الجلسة (مرة واحدة لكل جلسة) */
+      sessionViewed: {},
       /* تحكم في رسم Canvas الهيرو — يوقف عند صفحة التفاصيل لتفادي البطء */
       heroAnimRunning: false,
       heroAnimId: null,
@@ -4456,6 +4731,9 @@
 
       init() {
         this.loadSavedIds();
+        this.loadVoteMap();
+        this.loadViewsMap();
+        this.applyStoredViewsToData();
         this.refreshCategoryCounts();
         this.renderCategoriesFilter();
         this.renderQuestionsList();
@@ -4463,6 +4741,8 @@
         this.renderHeroStats();
         this.initHeroTextureAnimation();
         this.enableTagsSwipe();
+        this.bindHashRouting();
+        this.openFromHash();
         document.addEventListener('click', (e) => {
           const menu = document.getElementById('sortMenu');
           const btn = document.getElementById('sortToggleBtn');
@@ -4481,6 +4761,150 @@
         } catch (e) {
           this.savedIds = [];
         }
+      },
+
+      loadVoteMap() {
+        try {
+          const raw = localStorage.getItem('ayed_vote_map');
+          this.voteMap = raw ? JSON.parse(raw) : {};
+        } catch (e) {
+          this.voteMap = {};
+        }
+      },
+
+      persistVoteMap() {
+        try {
+          localStorage.setItem('ayed_vote_map', JSON.stringify(this.voteMap));
+        } catch (e) {}
+      },
+
+      getVoteFor(id) {
+        return this.voteMap[String(id)] || null;
+      },
+
+      loadViewsMap() {
+        try {
+          const raw = localStorage.getItem('ayed_views_map');
+          this.viewsMap = raw ? JSON.parse(raw) : {};
+        } catch (e) {
+          this.viewsMap = {};
+        }
+      },
+
+      persistViewsMap() {
+        try {
+          localStorage.setItem('ayed_views_map', JSON.stringify(this.viewsMap));
+        } catch (e) {}
+      },
+
+      applyStoredViewsToData() {
+        AYED_QUESTIONS_DATA.forEach(q => {
+          const key = String(q.id);
+          if (this.viewsMap[key] != null) {
+            q.views = this.formatViews(this.viewsMap[key]);
+          } else {
+            const n = this.parseViews(q.views);
+            this.viewsMap[key] = n;
+          }
+        });
+        this.persistViewsMap();
+      },
+
+      formatViews(n) {
+        const num = Math.max(0, Math.floor(Number(n) || 0));
+        return num.toLocaleString('en-US');
+      },
+
+      getViewsNumber(q) {
+        if (!q) return 0;
+        const key = String(q.id);
+        if (this.viewsMap[key] != null) return Number(this.viewsMap[key]) || 0;
+        return this.parseViews(q.views);
+      },
+
+      recordView(question) {
+        if (!question) return;
+        const key = String(question.id);
+        // مرة واحدة فقط لكل جلسة متصفح لكل سؤال
+        if (this.sessionViewed[key]) {
+          question.views = this.formatViews(this.getViewsNumber(question));
+          return;
+        }
+        this.sessionViewed[key] = true;
+        const next = this.getViewsNumber(question) + 1;
+        this.viewsMap[key] = next;
+        question.views = this.formatViews(next);
+        this.persistViewsMap();
+      },
+
+      getAnswerShareUrl(id) {
+        const base = window.location.href.split('#')[0].split('?')[0];
+        return base + '#q=' + encodeURIComponent(String(id));
+      },
+
+      updateShareLinkUI(id) {
+        const input = document.getElementById('detailShareLinkInput');
+        if (input) input.value = this.getAnswerShareUrl(id);
+      },
+
+      copyAnswerLink() {
+        if (!this.currentQuestion) return;
+        const url = this.getAnswerShareUrl(this.currentQuestion.id);
+        const input = document.getElementById('detailShareLinkInput');
+        if (input) input.value = url;
+        const done = () => this.showToast('تم نسخ رابط الإجابة بنجاح — يمكنك مشاركته الآن');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(url).then(done).catch(() => {
+            if (input) { input.select(); document.execCommand('copy'); }
+            done();
+          });
+        } else if (input) {
+          input.select();
+          try { document.execCommand('copy'); } catch (e) {}
+          done();
+        }
+      },
+
+      bindHashRouting() {
+        window.addEventListener('hashchange', () => {
+          const m = (window.location.hash || '').match(/^#q=(\d+)/);
+          if (m) {
+            const id = Number(m[1]);
+            if (this.currentQuestion && this.currentQuestion.id === id) return;
+            this.openQuestionDetail(id, { fromHash: true });
+          } else if (!m && document.getElementById('questionDetailSection') &&
+                     document.getElementById('questionDetailSection').style.display === 'block') {
+            // لا نغلق تلقائياً عند مسح الهاش يدوياً إلا إذا رجع المستخدم
+          }
+        });
+      },
+
+      openFromHash() {
+        const m = (window.location.hash || '').match(/^#q=(\d+)/);
+        if (m) {
+          const id = Number(m[1]);
+          setTimeout(() => this.openQuestionDetail(id, { fromHash: true }), 80);
+        }
+      },
+
+      syncVoteButtonsUI(question) {
+        const voteYesBtn = document.getElementById('voteYesBtn');
+        const voteNoBtn = document.getElementById('voteNoBtn');
+        if (!voteYesBtn || !voteNoBtn || !question) return;
+        const existing = this.getVoteFor(question.id);
+        voteYesBtn.classList.remove('voted', 'voted-yes');
+        voteNoBtn.classList.remove('voted', 'voted-no');
+        voteYesBtn.disabled = false;
+        voteNoBtn.disabled = false;
+        if (existing === 'yes') {
+          voteYesBtn.classList.add('voted', 'voted-yes');
+        } else if (existing === 'no') {
+          voteNoBtn.classList.add('voted', 'voted-no');
+        }
+        const yesCount = document.getElementById('voteYesCount');
+        const noCount = document.getElementById('voteNoCount');
+        if (yesCount) yesCount.textContent = question.votesYes;
+        if (noCount) noCount.textContent = question.votesNo;
       },
 
       persistSavedIds() {
@@ -4865,11 +5289,15 @@
       },
 
       /* فتح صفحة تفاصيل السؤال والإجابة */
-      openQuestionDetail(id) {
+      openQuestionDetail(id, opts) {
         const question = AYED_QUESTIONS_DATA.find(q => q.id === id);
         if (!question) return;
+        opts = opts || {};
 
         this.currentQuestion = question;
+
+        // زيادة المشاهدات ديناميكياً (مرة واحدة لكل جلسة لكل سؤال)
+        this.recordView(question);
 
         // تعبئة بيانات السؤال
         document.getElementById('detailBreadcrumbCategory').textContent = question.categoryName;
@@ -4878,6 +5306,15 @@
         document.getElementById('detailAnswerDate').textContent = question.date;
         document.getElementById('detailViewsCount').textContent = question.views;
         document.getElementById('detailCourseName').textContent = question.courseName;
+
+        // رابط المشاركة الفريد لهذه الإجابة
+        this.updateShareLinkUI(question.id);
+        if (!opts.fromHash) {
+          const targetHash = '#q=' + question.id;
+          if (window.location.hash !== targetHash) {
+            try { history.replaceState(null, '', targetHash); } catch (e) { window.location.hash = targetHash; }
+          }
+        }
 
         // البادج
         const badge = document.getElementById('detailCategoryBadge');
@@ -4902,14 +5339,10 @@
           noteText.textContent = question.teacherNote;
         }
 
-        // العدادات
+        // العدادات + حالة التصويت المحفوظة (مرة واحدة فقط)
         document.getElementById('voteYesCount').textContent = question.votesYes;
         document.getElementById('voteNoCount').textContent = question.votesNo;
-
-        const voteYesBtn = document.getElementById('voteYesBtn');
-        const voteNoBtn = document.getElementById('voteNoBtn');
-        if (voteYesBtn) voteYesBtn.classList.remove('voted');
-        if (voteNoBtn) voteNoBtn.classList.remove('voted');
+        this.syncVoteButtonsUI(question);
 
         this.updateDetailSaveBtn();
 
@@ -4951,6 +5384,13 @@
       showListingView() {
         document.getElementById('questionDetailSection').style.display = 'none';
         document.getElementById('mainListingSection').style.display = 'block';
+        this.currentQuestion = null;
+        // إزالة هاش السؤال من الرابط عند العودة للقائمة
+        if (window.location.hash && window.location.hash.indexOf('#q=') === 0) {
+          try { history.replaceState(null, '', window.location.pathname + window.location.search); } catch (e) {
+            window.location.hash = '';
+          }
+        }
         // استئناف رسم Canvas بعد إظهار القسم
         this.startHeroAnim();
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -4959,13 +5399,53 @@
       /* تصويت مفيد / غير مفيد */
       handleVote(isYes) {
         if (!this.currentQuestion) return;
-        if (isYes) {
-          this.currentQuestion.votesYes += 1;
-          document.getElementById('voteYesCount').textContent = this.currentQuestion.votesYes;
-          document.getElementById('voteYesBtn').classList.add('voted');
+        const q = this.currentQuestion;
+        const qid = q.id;
+        const key = String(qid);
+        const current = this.getVoteFor(qid); // 'yes' | 'no' | null
+        const want = isYes ? 'yes' : 'no';
+
+        // ضغط نفس الزر مرة ثانية = إلغاء التقييم (يعود الاختياران فارغين)
+        if (current === want) {
+          if (want === 'yes') {
+            q.votesYes = Math.max(0, (q.votesYes || 0) - 1);
+          } else {
+            q.votesNo = Math.max(0, (q.votesNo || 0) - 1);
+          }
+          delete this.voteMap[key];
+          this.persistVoteMap();
+          this.syncVoteButtonsUI(q);
+          this.showToast('تم إلغاء تقييمك');
+          return;
+        }
+
+        // التبديل من نعم → لا (مودال السبب)
+        if (current === 'yes' && want === 'no') {
+          this._voteBeforeFeedback = 'yes';
+          this.openFeedbackModal();
+          return;
+        }
+
+        // التبديل من لا → نعم مباشرة
+        if (current === 'no' && want === 'yes') {
+          q.votesNo = Math.max(0, (q.votesNo || 0) - 1);
+          q.votesYes = (q.votesYes || 0) + 1;
+          this.voteMap[key] = 'yes';
+          this.persistVoteMap();
+          this.syncVoteButtonsUI(q);
+          this.showToast('شكراً لتقييمك! نسعد بخدمتك دائماً.');
+          return;
+        }
+
+        // اختيار أول مرة
+        if (want === 'yes') {
+          q.votesYes = (q.votesYes || 0) + 1;
+          this.voteMap[key] = 'yes';
+          this.persistVoteMap();
+          this.syncVoteButtonsUI(q);
           this.showToast('شكراً لتقييمك! نسعد بخدمتك دائماً.');
         } else {
-          // فتح بوب أب احترافي لسبب عدم الإعجاب
+          this._voteBeforeFeedback = null; // لم يكن هناك تقييم
           this.openFeedbackModal();
         }
       },
@@ -5007,11 +5487,20 @@
           return;
         }
         if (this.currentQuestion) {
-          this.currentQuestion.votesNo += 1;
-          const noEl = document.getElementById('voteNoCount');
-          if (noEl) noEl.textContent = this.currentQuestion.votesNo;
-          const noBtn = document.getElementById('voteNoBtn');
-          if (noBtn) noBtn.classList.add('voted');
+          const q = this.currentQuestion;
+          const key = String(q.id);
+          const existing = this.getVoteFor(q.id);
+          if (existing === 'yes') {
+            // كان نعم وحوّل إلى لا
+            q.votesYes = Math.max(0, (q.votesYes || 0) - 1);
+            q.votesNo = (q.votesNo || 0) + 1;
+          } else if (existing !== 'no') {
+            q.votesNo = (q.votesNo || 0) + 1;
+          }
+          this.voteMap[key] = 'no';
+          this.persistVoteMap();
+          this._voteBeforeFeedback = null;
+          this.syncVoteButtonsUI(q);
         }
         if (window.jQuery) {
           $('#feedbackReasonModal').modal('hide');
@@ -5022,24 +5511,33 @@
         this.showToast('شكراً لملاحظتك — سنراجع الإجابة ونحسّنها قريباً.');
       },
 
+      /* إلغاء مودال «لا» — إن كان التحويل من نعم نستعيد صوت نعم */
+      cancelFeedbackVote() {
+        // لم نغيّر العدادات قبل إرسال المودال — فقط نُلغي الحالة المؤقتة
+        this._voteBeforeFeedback = null;
+        if (this.currentQuestion) this.syncVoteButtonsUI(this.currentQuestion);
+      },
+
       /* مشاركة السؤال على منصات التواصل */
       share(platform) {
         const title = this.currentQuestion ? this.currentQuestion.title : document.title;
-        const url = window.location.href;
+        const url = this.currentQuestion
+          ? this.getAnswerShareUrl(this.currentQuestion.id)
+          : (window.location.href.split('#')[0]);
 
         if (platform === 'x') {
           window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
         } else if (platform === 'whatsapp') {
-          window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + ' ' + url)}`, '_blank');
+          window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(title + '\n' + url)}`, '_blank');
         } else if (platform === 'linkedin') {
           window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
         } else if (platform === 'copy') {
-          if (navigator.clipboard) {
+          if (navigator.clipboard && navigator.clipboard.writeText) {
             navigator.clipboard.writeText(url).then(() => {
-              this.showToast('تم نسخ رابط السؤال بنجاح إلى الحافظة!');
-            });
+              this.showToast('تم نسخ رابط الإجابة بنجاح إلى الحافظة!');
+            }).catch(() => this.copyAnswerLink());
           } else {
-            this.showToast('تم نسخ الرابط!');
+            this.copyAnswerLink();
           }
         }
       },
@@ -6272,7 +6770,7 @@
           <textarea id="feedbackOtherText" class="c109-feedback-textarea" placeholder="مثال: أحتاج مثالاً محلولاً خطوة بخطوة..."></textarea>
         </div>
         <div class="modal-footer border-top" style="padding:14px 20px;">
-          <button type="button" class="c107-btn-cancel" data-dismiss="modal">إلغاء</button>
+          <button type="button" class="c107-btn-cancel" data-dismiss="modal" onclick="appState.cancelFeedbackVote()">إلغاء</button>
           <button type="button" class="c107-btn-submit" onclick="appState.submitFeedbackReason()">
             <i class="fa-solid fa-paper-plane ml-1"></i> إرسال الملاحظة
           </button>
